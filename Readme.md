@@ -1,6 +1,6 @@
 # Coderg
 
-This repository is for [coderg on heroku](https://coderg.herokuapp.com), automatically deployed from master branch.
+This repository is for [coderg on heroku](https://coderg.herokuapp.com), automatically deployable from master branch.
 
 ------
 
@@ -14,4 +14,4 @@ This branch is not meant for pushing code directly. This branch is meant only fo
 
 ### Branch Development
 
-This branch is used for adding or editing the code so that Master branch always have the working code. This branch will automatically deployed on [coderg-development](https://coderg-development.herokuapp.com) on each commit.
+This branch is used for adding or editing the code so that Master branch always have the working code. This branch will be automatically deployed on [coderg-development](https://coderg-development.herokuapp.com) on each commit.
