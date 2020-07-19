@@ -11,17 +11,17 @@ def index():
     return render_template('index.html', **context)
 
 
-@app.route("/about")
+@main.route("/about")
 def about():
     return render_template("about.html", params=params)
 
 
-@app.route("/contact")
+@main.route("/contact")
 def contact():
     return render_template("contact.html")
 
 
-@app.route("/projects")
+@main.route("/projects")
 def display_projects():
     categories = set()
     projects = Projects.query.filter_by().all()
@@ -33,7 +33,7 @@ def display_projects():
     return render_template("projects.html", categories=list(categories), projects=projects)
 
 
-@app.route("/blog")
+@main.route("/blog")
 def blog():
     return render_template("blog.html")
 
