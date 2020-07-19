@@ -44,8 +44,8 @@ def blog():
 
 
 
+# ORIGINAL FILES DISCARDED CONTENTS
 
-#
 # @main.route('/ask', methods=['GET', 'POST'])
 # @login_required
 # def ask():
