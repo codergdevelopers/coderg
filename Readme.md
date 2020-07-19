@@ -1,6 +1,6 @@
 # Coderg
 
-This repository is for [coderg on heroku](coderg.herokuapp.com), automatically deployed from master branch.
+This repository is for [coderg on heroku](https://coderg.herokuapp.com), automatically deployed from master branch.
 
 ------
 
