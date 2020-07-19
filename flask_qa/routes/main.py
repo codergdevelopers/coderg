@@ -8,8 +8,8 @@ import json
 
 main = Blueprint('main', __name__)
 
-with open("config.json", "r") as c:
-    params = json.load(c)['params']
+# with open("config.json", "r") as c:
+#     params = json.load(c)['params']
 
 @main.route('/')
 def index():
