@@ -1,0 +1,92 @@
+/* NAVIGATION */
+
+#navbar{
+    flex-direction: column;
+}
+
+#navbar ul li a{
+    font-size: .75rem;
+    padding: 4px 3px;
+    margin: -2px;
+}
+
+#admin{
+    position: relative;
+    margin: auto;
+    justify-content: center;
+    padding: 2px;
+    border: 2px solid rgb(159, 111, 235);
+    font-weight: normal;
+    font-size: unset;
+}
+#admin:hover{
+    color: whitesmoke;
+    background-color: black;
+    border: 2px solid whitesmoke;
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+/* CODERG */
+#coderg{
+    height: 250px;
+    padding: 10px 43px; 
+}
+#coderg::before{
+    height: 350px;
+}
+#coderg p{
+    font-size: 1rem;
+}
+#horl{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* PROJECTS */
+#projects{
+    flex-direction: column;
+}
+#projects .box p{
+    font-size: small;
+}
+.pro-details{
+    font-size: 0.8rem;
+}
+
+/* ABOUT */
+
+#about .about-cantainer{
+    height: 50rem;
+}
+
+#about .about-cantainer {
+    font-size: smaller;
+}
+
+/* CONTACT US */
+
+.small{
+    font-size: .8rem;
+}
+    
+#version{
+    font-size: .50rem;
+}
+
+
+/* FOOTER */
+
+footer p{
+    font-size: .5rem;
+}
+
+
+/* UTILITY CLASS */
+
+.h-primary{
+    font-size: 1rem;
+}
+

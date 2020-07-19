@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block head %}
+
+
+<link rel="stylesheet" href="index.html">
+<link rel="stylesheet" href="Projects.html">
+<link rel="stylesheet" href="Blog.html">
+<link rel="stylesheet" href="Contact.html">
+<title>About</title>
+<style>
+    body {
+        background-color: black;
+    }
+</style>
+</head>
+
+<body>
+
+    {% endblock %}
+
+    <!-- NAVBAR -->
+
+    {% block body %}
+
+    <!-- About text can be changed in config.json -->
+    <div id="about">
+        {% for no, text in params['about_text'].items() %}
+        <div class="about-container">
+            <p>{{text}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endblock %}

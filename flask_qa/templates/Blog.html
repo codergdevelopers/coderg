@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block head %}
+
+    
+    <link rel="stylesheet" href="index.html">
+    <link rel="stylesheet" href="Projects.html">
+    <link rel="stylesheet" href="About.html">
+    <title>Contact Us</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        
+    </style>
+</head>
+<body>
+
+{% endblock %}
+
+    <!-- NAVBAR -->
+
+    
+{% block body %}
+
+    <div>
+        <h1 class="name h-primary centre" >Blogs by "Username"</h1>
+        <hr style="width: 90%; margin:auto; justify-content: center; ">
+
+        &nbsp;
+
+        <div class="blog-content">
+
+            <h2 class="blog-title .h-secondary center">"Title of the Blog"</h2>
+
+            <hr style="width: 50%; margin:auto; justify-content: center; ">
+
+            &nbsp;
+
+            <div class=" box">
+                <p id="writings" > YOUR CONTENT HERE.</p>
+            </div>
+        </div>
+
+    </div>
+
+    &nbsp;
+
+    {% endblock %}

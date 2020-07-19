@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block head %}
+
+   
+    <link rel="stylesheet" href="index.html">
+    <link rel="stylesheet" href="Blog.html">
+    <link rel="stylesheet" href="About.html">
+    <link rel="stylesheet" href="Contact.html">
+    <title>Projects</title>
+    <style>
+        body{
+            background-color: black;
+        }
+       
+   
+    
+    </style>
+</head>
+<body>
+
+{% endblock %}
+
+    <!-- NAVBAR -->
+    
+{% block body %}
+
+    <div class="project-d h-primary">
+        <div class="Python centre">
+
+            {% for category in categories %}
+            {% set cnt = [0] %}
+            
+
+            <h2 class="h-primary">{{category.upper()}}</h2>
+            <hr>
+            <div class="py" id="pyth">
+                {% for project in projects %}
+                {% if project.category == category %}
+               
+                {% if cnt.append(cnt.pop()+1) %}{% endif %}
+               
+               
+                <p class="para">{{ cnt[0] }}.</p>
+                <p class="pro-details">Name : <a class="pro" target="_blank"s href="{{project.link}}">{{project.title}}.</a></p>
+                <p class="pro-details">Language : {{project.language}}.</p>
+                <p class="pro-details">Purpose : {{project.purpose}}.</p>
+                <p class="pro-details">Working on : {{project.working_on}}.</p>
+                <p class="pro-details">Author : {{project.author}}.</p>
+                   
+                &nbsp; 
+                
+                {% endif %}
+                {% endfor %}
+                
+
+            </div>
+            {% endfor %}
+
+
+
+        </div>
+    </div>
+    {% endblock %}

@@ -10,19 +10,19 @@ class User(UserMixin, db.Model):
     expert = db.Column(db.Boolean)
     admin = db.Column(db.Boolean)
 
-    questions_asked = db.relationship(
-        'Question', 
-        foreign_keys='Question.asked_by_id', 
-        backref='asker', 
-        lazy=True
-    )
-
-    answers_requested = db.relationship(
-        'Question',
-        foreign_keys='Question.expert_id',
-        backref='expert',
-        lazy=True
-    )
+    # questions_asked = db.relationship(
+    #     'Question',
+    #     foreign_keys='Question.asked_by_id',
+    #     backref='asker',
+    #     lazy=True
+    # )
+    #
+    # answers_requested = db.relationship(
+    #     'Question',
+    #     foreign_keys='Question.expert_id',
+    #     backref='expert',
+    #     lazy=True
+    # )
 
     @property
     def unhashed_password(self):
@@ -32,9 +32,12 @@ class User(UserMixin, db.Model):
     def unhashed_password(self, unhashed_password):
         self.password = generate_password_hash(unhashed_password)
 
-class Question(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    question = db.Column(db.Text)
-    answer = db.Column(db.Text)
-    asked_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    expert_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+class Projects(db.Model):
+    sno = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(), unique=False, nullable=False)
+    title = db.Column(db.String(), unique=True, nullable=False)
+    language = db.Column(db.String(), unique=False, nullable=False)
+    purpose = db.Column(db.String(), unique=False, nullable=False)
+    working_on = db.Column(db.String(), unique=False, nullable=False)
+    link = db.Column(db.String(), unique=False, nullable=False)
+    author = db.Column(db.String(), unique=False, nullable=False)
