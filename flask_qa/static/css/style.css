@@ -179,9 +179,9 @@
     font-family:  'Open Sans', sans-serif;
 }
 
-/* #projects .explore{
-    margin-bottom: 15px;
-} */
+#projects .explore{
+    margin-bottom: 1rem;
+}
 
 #projects .explore a{
     text-decoration: none;
