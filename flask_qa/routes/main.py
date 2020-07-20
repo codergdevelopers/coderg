@@ -2,7 +2,7 @@ from flask import Blueprint, render_template
 
 from flask_qa.models import Projects
 
-from config import params
+from config.config import params
 
 main = Blueprint('main', __name__)
 
