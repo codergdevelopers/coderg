@@ -4,11 +4,11 @@ from flask_login import current_user, login_required
 from flask_qa.extensions import db
 from flask_qa.models import Projects, User
 
-import json
+from .config import params
 
 main = Blueprint('main', __name__)
 
-# with open("config.json", "r") as c:
+# with open("config.py", "r") as c:
 #     params = json.load(c)['params']
 
 @main.route('/')
