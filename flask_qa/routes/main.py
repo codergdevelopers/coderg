@@ -1,13 +1,13 @@
 from flask import Blueprint, render_template
 
 from flask_qa.models import Projects
-
-from config.config import params
+import json
 
 main = Blueprint('main', __name__)
 
-# with open("config.py", "r") as c:
-#     params = json.load(c)['params']
+with open("config.json", "r") as c:
+    params = json.load(c)['params']
+
 
 @main.route('/')
 def index():
