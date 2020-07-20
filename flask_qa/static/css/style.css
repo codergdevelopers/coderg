@@ -189,12 +189,12 @@
 .py{
     display: flex;
     flex-direction: column;
+    height: auto;
     overflow: auto;
     box-sizing: border-box;
     width: 98%;
     border: 2px solid rgb(159, 111, 235);
     margin: 1rem;
-    padding: 5px;
     border-radius: 30px;
     text-align: left;
     padding: 24px;

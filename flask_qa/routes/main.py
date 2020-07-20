@@ -48,6 +48,10 @@ def blog():
 #
 # @main.route("/addprojects")
 # def add_projects():
+#     proj = Projects(category="Python", title="Healthy programmer.", language='Python', purpose="Reminder for resting eyes, drink water and do some exercise at regular interval of time. Have pause feature", working_on="Advanced pause and snooze", link=r'https://github.com/aqdasak/Healthy-Programmer', author='Aqdas Ahmad Khan')
+#     db.session.add(proj)
+#     db.session.commit()
+#
 #
 #     proj = Projects(category="Python", title="Hey soldier prettify my folder", language='Python', purpose='Batch rename files in a given folder. Can ignore files', working_on="Using wildcards in ignore list", link=r'https://github.com/aqdasak/Batch-Rename', author='Aqdas Ahmad Khan')
 #     db.session.add(proj)
