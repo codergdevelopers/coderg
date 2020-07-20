@@ -308,6 +308,7 @@
     padding: 20px;
     align-items: center;
     justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
 }
 .contact-container p{
@@ -362,4 +363,20 @@ footer{
 
 .centre{
     text-align: center;
+}
+
+#entercod{
+    text-decoration: none;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    color: black;
+    font-size: larger;
+}
+
+#entercod:hover{
+    transition-property: all;
+    background-color: rgb(181, 146, 238);
+    font-size: x-large;
 }
