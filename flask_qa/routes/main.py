@@ -23,7 +23,7 @@ def contact():
     return render_template("contact.html")
 
 @main.route("/lisu")
-def contact():
+def lisu():
     return render_template("lisu.html")
 
 
