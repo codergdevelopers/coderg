@@ -75,11 +75,11 @@
 
 .admin{
     display: flex;
-    margin: 10px;
+    margin:1.5rem;
+    border: 2px solid rgb(159, 111, 235);
     justify-content: center;
     cursor: pointer;
     color: black;
-    z-index: -1;
     background-color: rgb(236, 232, 232);
     padding: 7px 20px;
     border-radius: 15px;
@@ -298,8 +298,8 @@
 .contact-container{
     display: flex;
     flex-direction: column;
-    height: 20rem;
-    width: 50%;
+    height: auto;
+    width: 60%;
     border: 2px solid rgb(159, 111, 235);
     border-radius: 40px;
     margin: auto;
@@ -308,7 +308,6 @@
     padding: 20px;
     align-items: center;
     justify-content: center;
-    align-items: center;
     font-size: 1.5rem;
 }
 .contact-container p{
