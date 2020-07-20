@@ -5,6 +5,8 @@ from .extensions import db, login_manager
 from .models import Projects
 from .routes.auth import auth
 from .routes.main import main
+from flask_qa.config import params
+
 
 # def create_app(config_file='settings.py'):
 #     app = Flask(__name__)
