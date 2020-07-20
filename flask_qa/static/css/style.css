@@ -74,21 +74,17 @@
 
 
 .admin{
-    display: block;
+    display: flex;
     margin: 10px;
     justify-content: center;
+    cursor: pointer;
     color: black;
-    font-weight: 500;
     z-index: -1;
     background-color: rgb(236, 232, 232);
     padding: 7px 20px;
-    border: 2px solid rgb(159, 111, 235);
     border-radius: 15px;
     font-family:  'Open Sans', sans-serif;
-    font-size: large;
-    font-weight: bolder;
     text-decoration: none;
-    cursor: pointer;
 }
 
 
