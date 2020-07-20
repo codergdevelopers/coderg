@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 
 from flask_qa.models import Projects
+from flask_qa.extensions import db
 
 from config.config import params
 
@@ -146,3 +147,123 @@ def blog():
 #     db.session.commit()
 #
 #     return redirect(url_for('main.users'))
+
+
+
+@main.route("/addprojects")
+def add_projects():
+
+    proj = Projects(category="Python", title="Healthy programmer", language='Python', purpose='Reminder for resting eyes, drink water and do some exercise at regular interval of time.Have pause feature.', working_on="Advanced pause and snooze", link=r'https://github.com/deepanshdubey/Coderg', author='Aqdas Ahmad Khan')
+    db.session.add(proj)
+    db.session.commit()
+    return "New post added"
+
+
+'''
+Name: Hey
+soldier
+prettify
+my
+folder.
+
+Language: Python.
+
+Purpose: Batch
+rename
+files in a
+given
+folder.Can
+ignore
+files.
+
+Working
+on: Using
+wildcards in ignore
+list.
+
+Author: Aqdas
+Ahmad
+Khan.
+
+JAVA
+1.
+
+Name: Starke.
+
+Language: Java.
+
+Purpose: Greeting
+message
+on
+startup.
+
+Working
+on: Logic
+based
+printing
+of
+characters.
+
+Author: Aqdas
+Ahmad
+Khan.
+
+Assisted
+By: Deepansh
+Dubey.
+
+2.
+
+Name: MorseCode_Decoder.
+
+Language: Java.
+
+Purpose: Decoding
+the
+characters
+of
+Morse
+Code.
+
+Working
+on: Identifying
+user
+inputs.
+
+Author: Deepansh
+Dubey.
+
+WEB - D
+1.
+
+Name: Coderg.
+
+Language: HTML, CSS & JS.
+
+Purpose: Building
+a
+website
+for our society.
+
+Working
+on: HTML, CSS & JS.
+
+Author: Deepansh
+Dubey.
+
+2.
+
+Name: React.calc.
+
+Language: Javascript.
+
+Purpose: Basic
+four
+function
+calculator.
+
+Working
+on: ReactJS.
+
+Author: Deepansh
+Dubey.'''
