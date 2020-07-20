@@ -1,15 +1,11 @@
-from flask import Blueprint, render_template, request, redirect, url_for
-from flask_login import current_user, login_required
+from flask import Blueprint, render_template
 
-from flask_qa.extensions import db
-from flask_qa.models import Projects, User
+from flask_qa.models import Projects
 
-import json
+from config.config import params
 
 main = Blueprint('main', __name__)
 
-# with open("config.json", "r") as c:
-#     params = json.load(c)['params']
 
 @main.route('/')
 def index():
@@ -18,7 +14,7 @@ def index():
 
 @main.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html", params=params)
 
 
 @main.route("/contact")
