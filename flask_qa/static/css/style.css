@@ -78,6 +78,7 @@
     justify-content: center;
     color: black;
     font-weight: 500;
+    z-index: -1;
     background-color: rgb(236, 232, 232);
     padding: 7px 20px;
     border: 2px solid rgb(159, 111, 235);
@@ -157,7 +158,7 @@
     border: 2px solid black;
     padding: 5px;
     border-radius: 20px;
-    height: 200px;
+    height: auto;
     margin: 10px;
 }
 #projects .box img{
@@ -170,6 +171,11 @@
     justify-content: center;
     font-family:  'Open Sans', sans-serif;
 }
+
+/* #projects .explore{
+    margin-bottom: 15px;
+} */
+
 #projects .explore a{
     text-decoration: none;
     border: 2px solid rgb(159, 111, 235);
