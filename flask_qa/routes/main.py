@@ -22,6 +22,10 @@ def about():
 def contact():
     return render_template("contact.html")
 
+@main.route("/lisu")
+def contact():
+    return render_template("lisu.html")
+
 
 @main.route("/projects")
 def display_projects():

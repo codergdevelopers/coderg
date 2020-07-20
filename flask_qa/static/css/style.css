@@ -72,6 +72,12 @@
 
 }
 
+.btn-lgsu{
+    display: inline-flex;
+    justify-content: center;
+
+}
+
 #admin{
     display: block;
     margin: 10px;
@@ -195,16 +201,13 @@
 .py{
     display: flex;
     flex-direction: column;
-    height: auto;
-    overflow: auto;
     box-sizing: border-box;
-    width: 98%;
+    width: 95%;
     border: 2px solid rgb(159, 111, 235);
-    margin: 1rem;
+    margin: 1rem auto;
     border-radius: 30px;
     text-align: left;
     padding: 24px;
-    justify-content: center;
 }
 
 .pro-details{
