@@ -75,10 +75,11 @@
 .btn-lgsu{
     display: inline-flex;
     justify-content: center;
+    text-decoration: none;
 
 }
 
-#admin{
+.admin{
     display: block;
     margin: 10px;
     justify-content: center;
@@ -95,7 +96,7 @@
 }
 
 
-#admin:hover{
+.admin:hover{
     color: whitesmoke;
     background-color: black;
     border: 2px solid whitesmoke;
@@ -203,8 +204,10 @@
     flex-direction: column;
     box-sizing: border-box;
     width: 95%;
+    height: auto;
     border: 2px solid rgb(159, 111, 235);
-    margin: 1rem auto;
+    margin: auto;
+    margin-top: 1rem;
     border-radius: 30px;
     text-align: left;
     padding: 24px;
