@@ -72,12 +72,6 @@
 
 }
 
-.btn-lgsu{
-    display: inline-flex;
-    justify-content: center;
-    text-decoration: none;
-
-}
 
 .admin{
     display: block;
@@ -93,6 +87,8 @@
     font-family:  'Open Sans', sans-serif;
     font-size: large;
     font-weight: bolder;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
@@ -180,7 +176,7 @@
 }
 
 #projects .explore{
-    margin-bottom: 1rem;
+    margin-bottom: inherit;
 }
 
 #projects .explore a{
