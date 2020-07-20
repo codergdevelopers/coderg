@@ -1,10 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for
-from flask_login import current_user, login_required
+from flask import Blueprint, render_template
 
-from flask_qa.extensions import db
-from flask_qa.models import Projects, User
+from flask_qa.models import Projects
 
-from flask_qa.config import params
+from config.config import params
 
 main = Blueprint('main', __name__)
 
