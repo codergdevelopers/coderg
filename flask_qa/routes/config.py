@@ -1,5 +1,4 @@
-{
-  "params": {
+params= {
     "blog_name": "Coderg",
     "tag_line": "Never Stay Still!!",
     "about_text": {
@@ -16,4 +15,3 @@
     "admin_password": "hello",
     "upload_location": ""
   }
-}

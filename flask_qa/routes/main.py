@@ -1,12 +1,10 @@
 from flask import Blueprint, render_template
 
 from flask_qa.models import Projects
-import json
+
+from config import params
 
 main = Blueprint('main', __name__)
-
-with open("config.json", "r") as f:
-    params = json.load(f)['params']
 
 
 @main.route('/')
