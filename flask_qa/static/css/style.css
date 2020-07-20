@@ -189,7 +189,6 @@
 .py{
     display: flex;
     flex-direction: column;
-    height: auto;
     overflow: auto;
     box-sizing: border-box;
     width: 98%;
