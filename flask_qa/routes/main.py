@@ -95,7 +95,7 @@ def signup():
                 return redirect("/dashboard")
             else:
                 flash("Wrong values entered", "danger")
-                return render_template('signup.html', params=params)
+                return redirect("/dashboard")
 
         else:
             flash("Username not available", "danger")
