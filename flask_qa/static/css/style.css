@@ -264,15 +264,19 @@
     font-family: 'Baloo Bhaina 2', cursive;
 }
 
+
+
 .table-blog thread tr{
     display: flex;
     flex-direction: column;
 }
 
 .table-blog thread tr th{
-    font-size: 1rem;
-    margin: 1rem;
-    padding: 1rem;
+    font-size: 2.5rem;
+    margin: 2rem;
+    padding: 2rem;
+    color: whitesmoke;
+    border-radius: 5px;
 }
 
 #writings{

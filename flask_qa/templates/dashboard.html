@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<h1 class="h-primary">Dashboard</h1>
+<head>
+    <style>
+        body{background-color: black;}
+    </style>
+</head>
+
+<h1 class="h-primary centre">Dashboard</h1>
 
 {% with messages=get_flashed_messages(with_categories=True) %}
 {% if messages %}
@@ -19,20 +25,20 @@
 <!-- Main Content -->
 <div class="py">
     <div class="row">
-        <div class="">
+        <div class="blog-upload">
             <h1 class="h-primary">Basic actions</h1>
 
-            <a href="/edit/0"><button class="admin">Add a new post</button></a>
-            <a href="/logout"><button class="admin">Logout</button></a>
+            <a href="/edit/0"><button class="admin-btn">Add a new post</button></a>
+            <a href="/logout"><button class="admin-btn">Logout</button></a>
             <hr>
-            <h1 class="h-secondary">Upload a file</h1>
+            <h1 class="h-primary">Upload a file</h1>
 
             <form action="/uploader" method="post" enctype="multipart/form-data">
                 <input type="file" name="file1">
-                <button type="submit" class="admin">Submit</button>
+                <button type="submit" class="admin-btn">Submit</button>
             </form>
             <hr>
-            <table class="table">
+            <table class="table-blog">
                 <thead>
                     <tr>
                         <th>S.no.</th>
@@ -51,8 +57,8 @@
                         <td>{{post.title}}</td>
                         <td>{{post.tagline}}</td>
                         <td>{{post.author}}</td>
-                        <td><a href="/edit/{{post.sno}}"><button class="btn btn-primary">Edit</button></a></td>
-                        <td><a href="/delete/{{post.sno}}"><button class="btn btn-primary">Delete</button></a></td>
+                        <td><a href="/edit/{{post.sno}}"><button class="admin-btn">Edit</button></a></td>
+                        <td><a href="/delete/{{post.sno}}"><button class="admin-btn">Delete</button></a></td>
                     </tr>
 
                     {% endfor %}
