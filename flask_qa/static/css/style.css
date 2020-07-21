@@ -274,8 +274,11 @@
 /* ABOUT */
 
 .founders{
-    display: grid;
-    grid-template-columns: repeat(2,auto);
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    width: 45%;
+    margin: auto;
 }
 
 .about-container{
