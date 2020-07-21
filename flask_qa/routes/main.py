@@ -69,6 +69,12 @@ def dashboard():
     return render_template('lisu.html', params=params)
 
 
+@main.route("/logout")
+def logout():
+    session.pop('user')
+    return redirect("/")
+
+
 @main.route("/signup", methods=['GET','POST'])
 def signup():
     # user/admin already logged in
