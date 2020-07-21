@@ -140,7 +140,7 @@ def edit(sno):
 
             # New post can be added by anyone logged in
             if sno == '0':
-                post = PostsDb(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
+                post = PostDb(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
                              author=session['user'],
                              date=datetime.now())
                 db.session.add(post)
@@ -148,10 +148,10 @@ def edit(sno):
                 flash("New post added", "success")
                 return redirect("/dashboard")
 
-            post = PostsDb.query.filter_by(sno=sno).first()
+            post = PostDb.query.filter_by(sno=sno).first()
             # Post can be edited by either admin or author
             if session['user'] == params["admin_user"] or session['user'] == post.author:
-                post = PostsDb.query.filter_by(sno=sno).first()
+                post = PostDb.query.filter_by(sno=sno).first()
                 post.title = ntitle
                 post.tagline = ntagline
                 post.slug = nslug
@@ -161,7 +161,7 @@ def edit(sno):
                 flash("Edited successfully", "success")
                 return redirect("/edit/" + sno)
 
-        post = PostsDb.query.filter_by(sno=sno).first()
+        post = PostDb.query.filter_by(sno=sno).first()
         return render_template('edit.html', params=params, post=post, sno=sno)
 
     return redirect("/")
