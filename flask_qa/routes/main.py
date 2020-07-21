@@ -192,8 +192,8 @@ def edit(sno):
                     db.session.commit()
                     flash("Edited successfully", "success")
                     return redirect("/edit/" + sno)
-                else:
-                    return redirect("/")
+            else:
+                return redirect("/")
 
         post = PostDb.query.filter_by(sno=sno).first()
         return render_template('edit.html', params=params, post=post, sno=sno)
