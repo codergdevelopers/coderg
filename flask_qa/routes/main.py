@@ -180,17 +180,20 @@ def edit(sno):
                 return redirect("/dashboard")
 
             post = PostDb.query.filter_by(sno=sno).first()
-            # Post can be edited by either admin or author
-            if session['user'] == params["admin_user"] or session['user'] == post.author:
-                post = PostDb.query.filter_by(sno=sno).first()
-                post.title = ntitle
-                post.tagline = ntagline
-                post.slug = nslug
-                post.content = ncontent
-                post.img_file = nimg_file
-                db.session.commit()
-                flash("Edited successfully", "success")
-                return redirect("/edit/" + sno)
+            if post:
+                # Post can be edited by either admin or author
+                if session['user'] == params["admin_user"] or session['user'] == post.author:
+                    post = PostDb.query.filter_by(sno=sno).first()
+                    post.title = ntitle
+                    post.tagline = ntagline
+                    post.slug = nslug
+                    post.content = ncontent
+                    post.img_file = nimg_file
+                    db.session.commit()
+                    flash("Edited successfully", "success")
+                    return redirect("/edit/" + sno)
+                else:
+                    return redirect("/")
 
         post = PostDb.query.filter_by(sno=sno).first()
         return render_template('edit.html', params=params, post=post, sno=sno)
