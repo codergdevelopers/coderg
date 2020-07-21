@@ -38,3 +38,6 @@ class PostDb(db.Model):
     content = db.Column(db.String(), unique=True, nullable=False)
     date = db.Column(db.String(), unique=True, nullable=True)
     img_file = db.Column(db.String(), unique=True, nullable=True)
+# author is the username of the user
+# name should be fetched from UserDb
+

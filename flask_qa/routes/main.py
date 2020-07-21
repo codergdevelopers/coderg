@@ -128,6 +128,46 @@ def blog():
     return render_template("blog.html")
 
 
+@main.route("/edit/<string:sno>", methods=['GET', 'POST'])
+def edit(sno):
+    if 'user' in session:
+        if request.method == 'POST':
+            ntitle = request.form.get('title')
+            ntagline = request.form.get('tline')
+            nslug = request.form.get('slug')
+            ncontent = request.form.get('content')
+            nimg_file = request.form.get('img_file')
+
+            # New post can be added by anyone logged in
+            if sno == '0':
+                post = PostsDb(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
+                             author=session['user'],
+                             date=datetime.now())
+                db.session.add(post)
+                db.session.commit()
+                flash("New post added", "success")
+                return redirect("/dashboard")
+
+            post = PostsDb.query.filter_by(sno=sno).first()
+            # Post can be edited by either admin or author
+            if session['user'] == params["admin_user"] or session['user'] == post.author:
+                post = PostsDb.query.filter_by(sno=sno).first()
+                post.title = ntitle
+                post.tagline = ntagline
+                post.slug = nslug
+                post.content = ncontent
+                post.img_file = nimg_file
+                db.session.commit()
+                flash("Edited successfully", "success")
+                return redirect("/edit/" + sno)
+
+        post = PostsDb.query.filter_by(sno=sno).first()
+        return render_template('edit.html', params=params, post=post, sno=sno)
+
+    return redirect("/")
+
+
+
 
 
 #      THIS IS TO ADD PROJECTS IN DATABASE
