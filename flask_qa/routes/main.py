@@ -192,7 +192,7 @@ def edit(sno):
                 return redirect("/edit/" + sno)
 
         post = PostDb.query.filter_by(sno=sno).first()
-        if post or sno == 0:
+        if post or sno == '0':
             return render_template('edit.html', params=params, post=post, sno=sno)
         return redirect("/dashboard")
 
