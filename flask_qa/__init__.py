@@ -2,7 +2,7 @@ from flask import Flask
 
 from .commands import create_tables
 from .extensions import db, login_manager
-from .models import Projects
+from .models import Projects, Users, Posts
 from .routes.auth import auth
 from .routes.main import main
 

@@ -6,7 +6,7 @@ from .extensions import db
 
 class Users(db.Model):
     name = db.Column(db.String(50), nullable=False)
-    username = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
+    username = db.Column(db.String(50), primary_key=True, unique=True, nullable=False)
     password = db.Column(db.String(30), unique=False, nullable=False)
     admin = db.Column(db.Boolean, default=True)
 
