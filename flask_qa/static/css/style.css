@@ -299,13 +299,12 @@
 
 .about-container{
     display: flex;
-    height: 25rem;
+    height: auto;
     width: 80%;
     border: 2px solid rgb(159, 111, 235);
     border-radius: 40px;
     margin: auto;
-    margin-top: 10rem;
-    margin-bottom: 10rem;
+    margin-top: 2rem;
     padding: 20px;
 }
 .about-container p{
