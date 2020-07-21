@@ -3,21 +3,21 @@ from werkzeug.security import generate_password_hash
 
 from .extensions import db
 
+# This class is from the original file
+# Removing this affects auth.py
+class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    password = db.Column(db.String(100))
+    expert = db.Column(db.Boolean)
+    admin = db.Column(db.Boolean)
+
 
 class Users(db.Model):
     name = db.Column(db.String(50), nullable=False)
     username = db.Column(db.String(50), primary_key=True, unique=True, nullable=False)
     password = db.Column(db.String(30), unique=False, nullable=False)
     admin = db.Column(db.Boolean, default=True)
-
-    @property
-    def unhashed_password(self):
-        raise AttributeError('Cannot view unhashed password!')
-
-    @unhashed_password.setter
-    def unhashed_password(self, unhashed_password):
-        self.password = generate_password_hash(unhashed_password)
-
 
 class Projects(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
