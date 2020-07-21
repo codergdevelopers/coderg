@@ -2,14 +2,14 @@
 {% block body %}
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('{{url_for('static',filename='img/home-bg.jpg')}}')">
-    <div class="overlay"></div>
+<header class="">
+    <div class="py"></div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="">
+            <div class="">
                 <div class="site-heading">
-                    <h1>Dashboard</h1>
-                    <span class="subheading">Modify or delete</span>
+                    <h1 class="h-primary">Dashboard</h1>
+                    <span class="h-secondary"></span>
                 </div>
             </div>
         </div>
@@ -32,12 +32,12 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <h1>Basic actions</h1>
+            <h1 class="h-primary">Basic actions</h1>
 
-            <a href="/edit/0"><button class="btn btn-primary">Add a new post</button></a>
-            <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+            <a href="/edit/0"><button class="admin">Add a new post</button></a>
+            <a href="/logout"><button class="admin">Logout</button></a>
             <hr>
-            <h1>Upload a file</h1>
+            <h1 class="h-secondary">Upload a file</h1>
 
             <form action="/uploader" method="post" enctype="multipart/form-data">
                 <input type="file" name="file1">

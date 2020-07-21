@@ -1,11 +1,6 @@
 {% extends "layout.html" %}
 {% block head %}
 
-
-<link rel="stylesheet" href="index.html">
-<link rel="stylesheet" href="Projects.html">
-<link rel="stylesheet" href="Blog.html">
-<link rel="stylesheet" href="Contact.html">
 <title>About</title>
 <style>
     body {
@@ -24,9 +19,23 @@
 
 
     <div id="about">
-        {% for key, value in params['about_text'].items() %}
+        <!-- {% for key, value in params['about_text'].items() %} -->
+        <h1 class="h-primary">Team codergdevelopers</h1>
         <div class="about-container">
-            <p>{{ value }}</p>
+            <div class="founders">
+                <img src="\" alt="profile picture">
+                <h3>Deepansh Dubey</h3>
+                <h4>Pursuing B-Tech (Computer Science & Engineering)</h4>
+                <h4>Founder at "codergdevelopers"</h4>
+                
+            </div>
+            <div class="founders">
+                <img src="\" alt="profile picture">
+                <h3>Aqdas Ahmad Khan</h3>
+                <h4>Pursuing B.Sc(Hons) in Computer Applications</h4>
+                <h4>Founder at "codergdevelopers"</h4>
+                
+            </div>
         </div>
         {% endfor %}
     </div>
