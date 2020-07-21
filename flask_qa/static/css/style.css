@@ -277,6 +277,7 @@
     padding: 2rem;
     color: whitesmoke;
     border-radius: 5px;
+
 }
 
 #writings{
@@ -429,4 +430,11 @@ footer{
     cursor: pointer;
     transition-property: all;
     transition-duration: 1s;
+}
+
+.browse{
+    width: 2rem;
+    padding: 1rem;
+    border: 2px rgb(198, 168, 247);
+    border-radius: 1rem;
 }
