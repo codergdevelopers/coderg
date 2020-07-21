@@ -367,7 +367,7 @@ footer{
 #entercod{
     text-decoration: none;
     margin: 1rem;
-    padding: .4rem;
+    padding: .2rem;
     background-color: whitesmoke;
     border-radius: 20px;
     font-family:  'Open Sans', sans-serif;
@@ -376,7 +376,9 @@ footer{
 
 #entercod:hover{
     transition-property: all;
-    background-color: rgb(205, 178, 248);
+    background-color: black;
     transition-duration: 1s;
-    transform: scale3d(1.2,1.2,1.2)
+    transform: scale3d(1.2,1.2,1.2);
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
 }
