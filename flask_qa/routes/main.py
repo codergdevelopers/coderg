@@ -126,7 +126,36 @@ def display_projects():
 
 @main.route("/blog")
 def blog():
-    return render_template("blog.html")
+    posts = PostDb.query.filter_by().all()
+    last = math.ceil(len(posts) / int(params["no_of_posts"]))
+
+    page = request.args.get('page')
+    if not str(page).isnumeric():
+        page = 1
+    page = int(page)
+
+    posts = posts[(page - 1) * int(params['no_of_posts']):(page - 1) * int(params['no_of_posts']) + int(
+        params['no_of_posts'])]
+
+    if page == 1:
+        prev = '#'
+        next = '/?page=' + str(page + 1)
+    elif page == last:
+        prev = '/?page=' + str(page - 1)
+        next = '#'
+    else:
+        prev = '/?page=' + str(page - 1)
+        next = '/?page=' + str(page + 1)
+
+    return render_template("blog.html", posts=posts, params=params)
+
+
+@main.route("/post/<string:post_slug>", methods=['GET'])
+def post_route(post_slug):
+    post = PostDb.query.filter_by(
+        slug=post_slug).first()  # first(), if multiple post by same slug are found. We avoid it as it would be unique
+
+    return render_template('post.html', params=params, post=post)
 
 
 @main.route("/edit/<string:sno>", methods=['GET', 'POST'])
