@@ -31,7 +31,10 @@
 /* CODERG */
 #coderg{
     height: 250px;
-    padding: 10px 43px; 
+    padding: 10px 43px;
+}
+#coderg h1{
+    margin-top: 1.2rem;
 }
 #coderg::before{
     height: 350px;
