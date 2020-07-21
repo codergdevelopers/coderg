@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, request, session, redirect, flash
 
-from flask_qa.models import Projects
+from flask_qa.models import Projects, Users, Posts
 from flask_qa.extensions import db
 
 from config.config import params
+from hashlib import sha256
 
 main = Blueprint('main', __name__)
 
@@ -47,7 +48,7 @@ def dashboard():
         password = sha256(password.encode('utf-8')).hexdigest()
         # admin
         if username == params["admin_user"] and password == params["admin_password"]:
-            # Logged in & Redirect to admin panel
+            # Log in & Redirect to admin panel
             session['user'] = username
             posts = Posts.query.all()
             return render_template('dashboard.html', params=params, posts=posts)
@@ -66,6 +67,43 @@ def dashboard():
             flash(username + " does not have account", "danger")
 
     return render_template('lisu.html', params=params)
+
+
+@main.route("/signup", methods=['GET','POST'])
+def signup():
+    # user/admin already logged in
+    if 'user' in session:
+        return redirect("/dashboard")
+
+    if request.method == 'POST':
+        name = request.form.get('name')
+        username = request.form.get('uname')
+        password1 = request.form.get('pass1')
+        password2 = request.form.get('pass2')
+        # checking against existing usernames
+        user = Users.query.filter_by(username=username).first()
+        if not user:
+            if password1 == password2:
+                user = Users(name=name, username=username, password=sha256(password1.encode('utf-8')).hexdigest())
+                db.session.add(user)
+                db.session.commit()
+
+                # TO DO flash in html and dashboard change checking
+                flash("Sign up completed", "success")
+                # signing in
+                session['user'] = username
+                return redirect("/dashboard")
+            else:
+                flash("Wrong values entered", "danger")
+                return redirect("/dashboard")
+
+        else:
+            flash("Username not available", "danger")
+            return redirect("/dashboard")
+
+    return redirect("/dashboard")
+
+
 
 @main.route("/projects")
 def display_projects():
