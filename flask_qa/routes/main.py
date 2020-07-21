@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, session, redirect, flash
 
 from flask_qa.models import Projects
 from flask_qa.extensions import db
@@ -22,10 +22,50 @@ def about():
 def contact():
     return render_template("contact.html")
 
-@main.route("/lisu")
-def lisu():
-    return render_template("lisu.html")
 
+# @main.route("/lisu")
+# def lisu():
+#     return render_template("lisu.html")
+
+
+@main.route("/dashboard", methods=['GET', 'POST'])
+def dashboard():
+    # admin already logged in
+    if 'user' in session and session['user'] == params["admin_user"]:
+        posts = Posts.query.all()
+        return render_template('dashboard.html', params=params, posts=posts)
+
+    # user already logged in
+    if 'user' in session:
+        posts = Posts.query.filter_by(author=session['user'])
+        return render_template('dashboard.html', params=params, posts=posts)
+
+    # logging in
+    if request.method == 'POST':
+        username = request.form.get('uname')
+        password = request.form.get('pass')
+        password = sha256(password.encode('utf-8')).hexdigest()
+        # admin
+        if username == params["admin_user"] and password == params["admin_password"]:
+            # Logged in & Redirect to admin panel
+            session['user'] = username
+            posts = Posts.query.all()
+            return render_template('dashboard.html', params=params, posts=posts)
+
+        # user
+        user = Users.query.filter_by(username=username).first()
+        if user:
+            if password == user.password:
+                session['user'] = username
+                posts = Posts.query.filter_by(author=username)
+                return render_template('dashboard.html', params=params, posts=posts)
+            else:
+                flash("Wrong password", "danger")
+
+        else:
+            flash(username + " does not have account", "danger")
+
+    return render_template('lisu.html', params=params)
 
 @main.route("/projects")
 def display_projects():
