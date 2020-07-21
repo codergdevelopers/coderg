@@ -271,12 +271,12 @@
     flex-direction: column;
 }
 
-.table-blog thread tr th{
-    font-size: 2.5rem;
-    margin: 2rem;
-    padding: 2rem;
-    color: whitesmoke;
-    border-radius: 5px;
+.py .table-blog thread tr th{
+    font-size: 7rem;
+    margin: 5rem;
+    padding: 5rem;
+    border-radius: 2rem;
+    background-color: whitesmoke;
 
 }
 
