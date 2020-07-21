@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session, redirect, flash
 
-from flask_qa.models import Projects, Users, Posts
+from flask_qa.models import Projects, UserDb, PostDb
 from flask_qa.extensions import db
 
 from config.config import params
@@ -33,12 +33,12 @@ def contact():
 def dashboard():
     # admin already logged in
     if 'user' in session and session['user'] == params["admin_user"]:
-        posts = Posts.query.all()
+        posts = PostDb.query.all()
         return render_template('dashboard.html', params=params, posts=posts)
 
     # user already logged in
     if 'user' in session:
-        posts = Posts.query.filter_by(author=session['user'])
+        posts = PostDb.query.filter_by(author=session['user'])
         return render_template('dashboard.html', params=params, posts=posts)
 
     # logging in
@@ -50,15 +50,15 @@ def dashboard():
         if username == params["admin_user"] and password == params["admin_password"]:
             # Log in & Redirect to admin panel
             session['user'] = username
-            posts = Posts.query.all()
+            posts = PostDb.query.all()
             return render_template('dashboard.html', params=params, posts=posts)
 
         # user
-        user = Users.query.filter_by(username=username).first()
+        user = UserDb.query.filter_by(username=username).first()
         if user:
             if password == user.password:
                 session['user'] = username
-                posts = Posts.query.filter_by(author=username)
+                posts = PostDb.query.filter_by(author=username)
                 return render_template('dashboard.html', params=params, posts=posts)
             else:
                 flash("Wrong password", "danger")
@@ -81,10 +81,10 @@ def signup():
         password1 = request.form.get('pass1')
         password2 = request.form.get('pass2')
         # checking against existing usernames
-        user = Users.query.filter_by(username=username).first()
+        user = UserDb.query.filter_by(username=username).first()
         if not user:
             if password1 == password2:
-                user = Users(name=name, username=username, password=sha256(password1.encode('utf-8')).hexdigest())
+                user = UserDb(name=name, username=username, password=sha256(password1.encode('utf-8')).hexdigest())
                 db.session.add(user)
                 db.session.commit()
 
