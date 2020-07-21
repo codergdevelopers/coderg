@@ -76,6 +76,7 @@ def signup():
         return redirect("/dashboard")
 
     if request.method == 'POST':
+        name = request.form.get('name')
         username = request.form.get('uname')
         password1 = request.form.get('pass1')
         password2 = request.form.get('pass2')
