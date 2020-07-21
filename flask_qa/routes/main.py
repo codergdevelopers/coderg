@@ -48,7 +48,7 @@ def dashboard():
         password = sha256(password.encode('utf-8')).hexdigest()
         # admin
         if username == params["admin_user"] and password == params["admin_password"]:
-            # Logged in & Redirect to admin panel
+            # Log in & Redirect to admin panel
             session['user'] = username
             posts = Posts.query.all()
             return render_template('dashboard.html', params=params, posts=posts)
