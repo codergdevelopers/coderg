@@ -43,7 +43,7 @@ def dashboard():
 
     # logging in
     if request.method == 'POST':
-        username = request.form.get('uname')
+        username = request.form.get('uname').lower()
         password = request.form.get('pass')
         password = sha256(password.encode('utf-8')).hexdigest()
         # admin
@@ -83,7 +83,7 @@ def signup():
 
     if request.method == 'POST':
         name = request.form.get('name')
-        username = request.form.get('uname')
+        username = request.form.get('uname').lower()
         password1 = request.form.get('pass1')
         password2 = request.form.get('pass2')
         # checking against existing usernames
