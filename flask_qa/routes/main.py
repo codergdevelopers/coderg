@@ -27,6 +27,11 @@ def lisu():
     return render_template("lisu.html")
 
 
+@main.route("/dashboard", methods=['GET', 'POST'])
+def dashboard():
+    return render_template("dashboard.html", params=params)
+
+
 @main.route("/projects")
 def display_projects():
     categories = set()
