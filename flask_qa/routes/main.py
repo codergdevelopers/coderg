@@ -13,7 +13,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return render_template('index.html',)
+    return render_template('index.html', )
 
 
 @main.route("/about")
@@ -77,7 +77,7 @@ def logout():
     return redirect("/")
 
 
-@main.route("/signup", methods=['GET','POST'])
+@main.route("/signup", methods=['GET', 'POST'])
 def signup():
     # user/admin already logged in
     if 'user' in session:
@@ -110,7 +110,6 @@ def signup():
             return redirect("/dashboard")
 
     return redirect("/dashboard")
-
 
 
 @main.route("/projects")
@@ -172,8 +171,8 @@ def edit(sno):
             # New post can be added by anyone logged in
             if sno == '0':
                 post = PostDb(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
-                             author=session['user'],
-                             date=datetime.now())
+                              author=session['user'],
+                              date=datetime.now())
                 db.session.add(post)
                 db.session.commit()
                 flash("New post added", "success")
@@ -193,7 +192,7 @@ def edit(sno):
                 return redirect("/edit/" + sno)
 
         post = PostDb.query.filter_by(sno=sno).first()
-        if post:
+        if post or sno == 0:
             return render_template('edit.html', params=params, post=post, sno=sno)
         return redirect("/dashboard")
 
@@ -207,9 +206,6 @@ def delete(sno):
         db.session.delete(post)
         db.session.commit()
     return redirect("/dashboard")
-
-
-
 
 #      THIS IS TO ADD PROJECTS IN DATABASE
 #      SHOULD BE RUN ONLY ONE TIME ON THE WEBSITE
