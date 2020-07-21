@@ -84,7 +84,7 @@ def signup():
         user = Users.query.filter_by(username=username).first()
         if not user:
             if password1 == password2:
-                user = Users(username=username, password=sha256(password1.encode('utf-8')).hexdigest())
+                user = Users(name=name, username=username, password=sha256(password1.encode('utf-8')).hexdigest())
                 db.session.add(user)
                 db.session.commit()
 
