@@ -269,6 +269,7 @@
 .table-blog thread tr{
     display: flex;
     flex-direction: column;
+    background-color: whitesmoke;
 }
 
 .py .table-blog thread tr th{
@@ -432,7 +433,7 @@ footer{
 }
 
 .browse{
-    width: 2rem;
+    width: max-content;
     padding: 1rem;
     border: 2px rgb(198, 168, 247);
     border-radius: 1rem;
