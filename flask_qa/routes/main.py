@@ -148,7 +148,7 @@ def blog():
         prev = '/?page=' + str(page - 1)
         next = '/?page=' + str(page + 1)
 
-    return render_template("blog.html", posts=posts, params=params)
+    return render_template("blog.html", posts=posts, params=params, prev=prev, next=next)
 
 
 @main.route("/post/<string:post_slug>", methods=['GET'])
@@ -197,6 +197,14 @@ def edit(sno):
 
     return redirect("/")
 
+
+@main.route("/delete/<string:sno>", methods=['GET', 'POST'])
+def delete(sno):
+    if 'user' in session and session['user'] == params["admin_user"]:
+        post = Posts.query.filter_by(sno=sno).first()
+        db.session.delete(post)
+        db.session.commit()
+    return redirect("/dashboard")
 
 
 
