@@ -3,7 +3,8 @@ from flask.cli import with_appcontext
 
 from .extensions import db
 # from .models import User, Question
-from .models import Projects
+from .models import Projects, Users, Posts
+
 
 @click.command(name='create_tables')
 @with_appcontext
