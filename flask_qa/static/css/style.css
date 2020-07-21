@@ -273,10 +273,15 @@
 
 /* ABOUT */
 
+.founders{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+}
+
 .about-container{
     display: flex;
     height: 25rem;
-    width: 60%;
+    width: 80%;
     border: 2px solid rgb(159, 111, 235);
     border-radius: 40px;
     margin: auto;
@@ -382,4 +387,28 @@ footer{
     transform: scale3d(1.2,1.2,1.2);
     color: whitesmoke;
     border: 1.5px solid whitesmoke;
+}
+
+.admin-btn a{
+    display: flex;
+    margin:1.5rem;
+    border: 2px solid rgb(159, 111, 235);
+    justify-content: center;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(236, 232, 232);
+    padding: 7px 20px;
+    border-radius: 15px;
+    font-family:  'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+
+.admin-btn:hover{
+    color: whitesmoke;
+    background-color: black;
+    border: 2px solid whitesmoke;
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 1s;
 }
