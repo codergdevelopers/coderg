@@ -393,7 +393,7 @@
     color: seagreen;
     transition-property: all;
     transition-duration: 1sec;
-    
+
 }
 /* FOOTER */
 
@@ -409,14 +409,14 @@ footer{
 #time{
     /* display: block; */
     float: right;
-    margin-right: -6rem;
+    margin-right: -9.5rem;
     position: relative;
 }
 
 #updateinfo{
     display: block;
     float: right;
-    margin-right: .5rem;
+    margin-right: -9.5rem;
     position: relative;
 }
 
