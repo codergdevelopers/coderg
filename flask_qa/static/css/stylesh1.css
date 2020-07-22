@@ -383,7 +383,7 @@
 #cont{
     color:rgb(68, 0, 177);
     text-decoration: none; 
-    font-size: large;
+    font-size: larger;
     float: right;
     margin-right: 1.2rem;
     position: relative;
@@ -399,15 +399,13 @@ footer{
     height: 1;
 }
 #time{
-    display: inline-flex;
-    flex-direction: column;
+    display: block;
     float: right;
     margin-right: .5rem;
     position: relative;
 }
 #updateinfo{
-    display: inline-flex;
-    flex-direction: column;
+    display: inline-block;
     float: right;
     margin-right: .5rem;
     position: relative;
