@@ -1,97 +1,94 @@
 {% extends "layout.html" %}
 {% block body %}
 
+<head>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
 
-<header class="masthead" style="background-image: url('{{url_for('static',filename='img/contact-bg.jpg')}}')">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="page-heading">
-                    <h1>Editor</h1>
-                    <span class="subheading">Add Edit Delete</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+
+<div class="h-primary centre">
+    <h1>Editor</h1>
+    hr style="width: 30%;">
+</div>
 
 <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <h1>Basic actions</h1>
+<div class="py whtsmk">
+    <h1 class="h-primary">Basic actions</h1>
 
-            <a href="/dashboard"><button class="btn btn-primary">Dashboard home</button></a>
-            <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+    <a href="/dashboard" style="text-decoration: none;"><button class="admin">Dashboard home</button></a>
+    <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
 
-            <!-- Flash message -->
-            {% with messages=get_flashed_messages(with_categories=True) %}
-            {% if messages %}
-            {% for category,message in messages %}
-            <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
-                {{message}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
-
-            <hr>
-            <form name="sentMessage" id="contactForm" action="/edit/{{sno}}" method="post" novalidate>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls">
-                        <label>Title</label>
-                        <input type="text" class="form-control" placeholder="Title" id="title" name="title"
-                            value="{{post.title}}" required data-validation-required-message="Please enter a title.">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls">
-                        <label>Tagline</label>
-                        <input type="text" class="form-control" placeholder="Tagline" id="tline" name="tline"
-                            value="{{post.tagline}}" required
-                            data-validation-required-message="Please enter your email address.">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="form-group col-xs-12 floating-label-form-group controls">
-                        <label>Slug</label>
-                        <input type="text" class="form-control" placeholder="Slug" id="slug" name="slug"
-                            value="{{post.slug}}" required data-validation-required-message="Please enter slug.">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls">
-                        <label>Content</label>
-                        <textarea rows="5" class="form-control" placeholder="Content" id="content" name="content"
-                            required
-                            data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="form-group col-xs-12 floating-label-form-group controls">
-                        <label>Image File</label>
-                        <input type="text" class="form-control" placeholder="Image File" id="img_file" name="img_file"
-                            value="{{post.img_file}}">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-                <br>
-                <div id="success"></div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
-                </div>
-            </form>
-
-
-        </div>
+    <!-- Flash message -->
+    {% with messages=get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    {% for category,message in messages %}
+    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <hr>
+    <div class="form-ed">
+        <form name="sentMessage" id="" action="/edit/{{sno}}" method="post" novalidate>
+            <div class="">
+                <div class="">
+                    <label>Title</label>
+                    <input type="text" class="" placeholder="Title" id="" name="title" value="{{post.title}}" required
+                        data-validation-required-message="Please enter a title.">
+                    <p class=""></p>
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <label>Tagline</label>
+                    <input type="text" class="" placeholder="Tagline" id="" name="tline" value="{{post.tagline}}"
+                        required data-validation-required-message="Please enter your email address.">
+                    <p class="help-block text-danger"></p>
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <label>Slug</label>
+                    <input type="text" class="" placeholder="Slug" id="" name="slug" value="{{post.slug}}" required
+                        data-validation-required-message="Please enter slug.">
+                    <p class=""></p>
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <label style="box-sizing: content-box;">Content</label>
+                    <textarea rows="5" class="" placeholder="Content" id="" name="content" required
+                        data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
+                    <p class="help-block text-danger"></p>
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <label>Image File</label>
+                    <input type="image" class="" placeholder="Image File" id="" name="img_file"
+                        value="{{post.img_file}}">
+                    <p class="help-block text-danger"></p>
+                </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="">
+                <button type="submit" class="admin" id="">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+</div>
 </div>
 {% endblock %}

@@ -266,16 +266,17 @@
 
 
 
-tr{
+.tab{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-th{
+.tab-item{
     margin: 1rem;
-    border: 2px solid whitesmoke;
     padding: .5rem;
+    border: 2px solid whitesmoke;
     border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 }
@@ -367,6 +368,21 @@ footer{
     position: relative;
 
 }
+
+/* EDITOR */
+
+.form-ed{
+    margin: 1rem;
+    padding: 1rem;
+    align-items: left;
+    font-family:  'Open Sans', sans-serif;
+}
+
+.form-ed label{
+    margin: 1rem;
+    padding: 5px;
+}
+
 /* UTILITY CLASS */
 
 .h-primary{
