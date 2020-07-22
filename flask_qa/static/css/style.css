@@ -411,11 +411,11 @@ footer{
     text-decoration: none;
     margin: .5rem;
     padding: .2rem;
-    background-color: whitesmoke;
+    background-color: rgb(188, 151, 247);
     border-radius: 20px;
     font-family:  'Open Sans', sans-serif;
     color: black;
-    border: 1.5px solid rgb(159, 111, 235);
+    border: 1.5px solid rgb(134, 104, 182);
 }
 
 #entercod:hover{
