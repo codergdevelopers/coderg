@@ -42,12 +42,12 @@
             <table class="table-blog">
                 <thead>
                     <tr>
-                        <th>S.no.</th>
+                        <th style="border-bottom-left-radius: 20px;">S.no.</th>
                         <th>Title</th>
                         <th>Tagline</th>
-                        <th>Author</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th style="border-bottom-right-radius: 20px;">Author</th>
+                        <!-- <th>Edit</th>
+                        <th>Delete</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -58,8 +58,8 @@
                         <td>{{post.title}}</td>
                         <td>{{post.tagline}}</td>
                         <td>{{post.author}}</td>
-                        <td><a href="/edit/{{post.sno}}"><button class="admin" style="text-decoration: none;">Edit</button></a></td>
-                        <td><a href="/delete/{{post.sno}}"><button class="admin" style="text-decoration: none;">Delete</button></a></td>
+                        <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button class="admin" >Edit</button></a></td>
+                        <td><a href="/delete/{{post.sno}}" style="text-decoration: none;"><button class="admin" >Delete</button></a></td>
                     </tr>
 
                     {% endfor %}

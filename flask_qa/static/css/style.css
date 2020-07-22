@@ -266,18 +266,17 @@
 
 
 
-.table-blog thread tr{
+tr{
     display: flex;
     flex-direction: column;
-    background-color: whitesmoke;
 }
 
-.py .table-blog thread tr th{
-    font-size: 7rem;
-    margin: 5rem;
-    padding: 5rem;
-    border-radius: 2rem;
-    background-color: whitesmoke;
+th{
+    margin: 1rem;
+    border: 2px solid whitesmoke;
+    padding: .5rem;
+    border-radius: 5px;
+}
 
 }
 
@@ -435,7 +434,7 @@ footer{
 
 .browse{
     width: max-content;
-    padding: 1.5rem;
+    padding: 1.rem;
     border: 2px rgb(198, 168, 247);
     border-radius: 1rem;
     background-color: whitesmoke;
