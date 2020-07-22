@@ -1,0 +1,36 @@
+<head>
+    <link rel="stylesheet" href="/flask_qa/static/css/style.css">
+    <link rel="stylesheet" href="/flask_qa/static/css/smallphone.css">
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<div class="pre-footer">
+    <p id="version">v 3.0.0</p>
+   
+</div>
+
+&nbsp;
+
+<footer>
+        
+    <div class="left">Copyright &copy CODERG.2020 | <span   id="time"> </span></div>
+
+    <p><a id="cont" href="/contact">Contact Us</a></p>
+    
+    <div><p class="comp">Designed and Managed by: <a href="/about" style="text-decoration: none; color: rgb(247, 217, 85); ">codergdevelopers.</a> <span id="updateinfo">| Last updated on: July 21,2020.</span></p></div>
+</footer>
+<script>
+    function currenttime() {
+        time = new Date();
+        console.log(time);
+        document.getElementById('time').innerHTML = time;
+    }
+
+    setInterval(currenttime, 1000);
+
+</script>
+</body>

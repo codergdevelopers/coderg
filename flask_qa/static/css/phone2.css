@@ -73,7 +73,17 @@
 }
 
 #version{
-    font-size: .75rem;
+    font-size: .9rem;
+}
+
+/* PRE-FOOTERT */
+
+#time{
+    margin-right: -10rem;
+}
+
+#updateinfo{
+    margin-right: -10rem;
 }
 
 /* FOOTER */
