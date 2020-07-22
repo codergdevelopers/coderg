@@ -340,10 +340,21 @@
     font-family: 'Baloo Bhaina 2', cursive;
 }
 
+/* PRE-FOOTER */
+
+.pre-footer{
+    display: inline-flex;
+}
+
 #version span{
     color:rgb(68, 0, 177); 
     font-size: .8rem;
     padding-left: .5rem;
+}
+#cont{
+    text-decoration: none; 
+    font-size: large;
+    margin-inline-end: .5rem;
 }
 /* FOOTER */
 footer{
@@ -368,11 +379,7 @@ footer{
     position: relative;
 }
 
-#cont{
-    text-decoration: none; 
-    font-size: large;
-    padding-inline-end: .5rem;
-}
+
 
 
 /* EDITOR */
