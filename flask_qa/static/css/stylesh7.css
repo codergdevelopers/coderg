@@ -541,3 +541,10 @@ td{
     padding: 0rem 2.95rem;
     border: 2px solid grey;
 }
+
+.icon-box{
+    height: 2rem;
+    width: 50%;
+    margin: auto;
+    border: 2px solid green;
+}
