@@ -96,6 +96,10 @@
     font-size: 1rem;
 }
 
+#cont{
+    font-size: 1.5rem;
+}
+
 
 /* FOOTER */
 
@@ -104,7 +108,7 @@ footer {
 }
 
 #time{
-    margin-right: -6.5rem;
+    margin-right: -7.5rem;
 }
 
 /* UTILITY CLASS */
