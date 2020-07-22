@@ -75,7 +75,7 @@
 
 .admin{
     display: flex;
-    margin:1.5rem;
+    margin:1.5rem 0.8rem;
     border: 2px solid rgb(159, 111, 235);
     justify-content: center;
     cursor: pointer;
@@ -520,4 +520,18 @@ footer{
 
 .whtsmk{
     color: whitesmoke;
+}
+
+.table-blog{
+    color: white;
+}
+
+th{
+    padding: 0.5rem 1.5rem;
+    border: 2px solid grey;
+}
+
+td{
+    padding: 0rem 2.95rem;
+    border: 2px solid grey;
 }
