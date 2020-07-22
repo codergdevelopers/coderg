@@ -98,7 +98,7 @@
 
 #cont{
     font-size: 1.5rem;
-    bottom: 1.5rem;
+    bottom: .75rem;
 }
 
 
@@ -123,7 +123,8 @@ footer {
 }
 
 #connect{
-    padding-left: 1.5rem;
+    font-size: 1rem;
+    padding-left: 4.5rem;
 }
 
 .icon-box{

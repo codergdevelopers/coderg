@@ -542,10 +542,15 @@ td{
     border: 2px solid grey;
 }
 
+.s-m{
+    width: 90%;
+    margin: auto;
+}
+
 
 #connect{
     display:block;
-    padding-left: 5rem;
+    /* padding-left: 5rem; */
 }
 
 .icon-box{
