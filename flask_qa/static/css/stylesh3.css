@@ -399,9 +399,9 @@ footer{
     height: 1;
 }
 #time{
-    display: block;
+    /* display: block; */
     float: right;
-    margin-right: .5rem;
+    margin-right: -6rem;
     position: relative;
 }
 #updateinfo{
