@@ -405,7 +405,7 @@ footer{
     position: relative;
 }
 #updateinfo{
-    display: inline-block;
+    display: block;
     float: right;
     margin-right: .5rem;
     position: relative;
