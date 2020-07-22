@@ -385,7 +385,7 @@
     text-decoration: none; 
     font-size: large;
     float: right;
-    margin-right: .5rem;
+    margin-right: 1.2rem;
     position: relative;
     bottom: 1.1rem;
 }
@@ -402,14 +402,14 @@ footer{
     display: inline-flex;
     flex-direction: column;
     float: right;
-    margin-right: .5rem;
+    margin-right: -4.9rem;
     position: relative;
 }
 #updateinfo{
     display: inline-flex;
     flex-direction: column;
     float: right;
-    margin-right: .5rem;
+    margin-right: -5.1rem;
     position: relative;
 }
 
