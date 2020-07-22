@@ -61,11 +61,8 @@
 }
 
 
-#about .about-cantainer{
-    height: auto;
-}
-
 #about .about-cantainer {
+    height: auto;
     font-size: smaller;
 }
 
@@ -83,7 +80,7 @@
 
 
 
-footer p{
+footer {
     font-size: .70rem;
 }
 /* UTILITY CLASS */
