@@ -10,17 +10,17 @@
 </head>
 
 
-<div class="h-primary centre">
-    <h1>Editor</h1>
-    <hr style="width: 30%;">
+<div >
+    <h1 class="h-primary centre">Editor</h1>
+    <hr style="width: 30%; align-items: center;">
 </div>
 
 <!-- Main Content -->
 <div class="py whtsmk">
     <h1 class="h-primary">Basic actions</h1>
 
-    <a href="/dashboard" style="text-decoration: none;"><button class="admin">Dashboard home</button></a>
-    <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
+    <button class="admin"><a href="/dashboard" style="text-decoration: none;"></a>Dashboard home</button>
+    <button class="admin"><a href="/logout" style="text-decoration: none;"></a>Logout</button>
 
     <!-- Flash message -->
     {% with messages=get_flashed_messages(with_categories=True) %}
@@ -37,7 +37,7 @@
     {% endwith %}
 
     <hr>
-    <div class="form-ed">
+    <div class=" py form-ed">
         <form name="sentMessage" id="" action="/edit/{{sno}}" method="post" novalidate>
 
             <label>Title</label>
