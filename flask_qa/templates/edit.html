@@ -12,7 +12,7 @@
 
 <div class="h-primary centre">
     <h1>Editor</h1>
-    hr style="width: 30%;">
+    <hr style="width: 30%;">
 </div>
 
 <!-- Main Content -->
@@ -39,46 +39,34 @@
     <hr>
     <div class="form-ed">
         <form name="sentMessage" id="" action="/edit/{{sno}}" method="post" novalidate>
-            <div class="">
-                <div class="">
-                    <label>Title</label>
-                    <input type="text" class="" placeholder="Title" id="" name="title" value="{{post.title}}" required
-                        data-validation-required-message="Please enter a title.">
-                    <p class=""></p>
-                </div>
-            </div>
-            <div class="">
-                <div class="">
-                    <label>Tagline</label>
-                    <input type="text" class="" placeholder="Tagline" id="" name="tline" value="{{post.tagline}}"
-                        required data-validation-required-message="Please enter your email address.">
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
-            <div class="">
-                <div class="">
-                    <label>Slug</label>
-                    <input type="text" class="" placeholder="Slug" id="" name="slug" value="{{post.slug}}" required
-                        data-validation-required-message="Please enter slug.">
-                    <p class=""></p>
-                </div>
-            </div>
-            <div class="">
-                <div class="">
-                    <label style="box-sizing: content-box;">Content</label>
-                    <textarea rows="5" class="" placeholder="Content" id="" name="content" required
-                        data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
-            <div class="">
-                <div class="">
-                    <label>Image File</label>
-                    <input type="image" class="" placeholder="Image File" id="" name="img_file"
-                        value="{{post.img_file}}">
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
+
+            <label>Title</label>
+            <input type="text" class="" placeholder="Title" id="" name="title" value="{{post.title}}" required
+                data-validation-required-message="Please enter a title.">
+            <p class=""></p>
+
+            <label>Tagline</label>
+            <input type="text" class="" placeholder="Tagline" id="" name="tline" value="{{post.tagline}}" required
+                data-validation-required-message="Please enter your email address.">
+            <p class="help-block text-danger"></p>
+
+
+            <label>Slug</label>
+            <input type="text" class="" placeholder="Slug" id="" name="slug" value="{{post.slug}}" required
+                data-validation-required-message="Please enter slug.">
+            <p class=""></p>
+
+
+            <label >Content</label>
+            <textarea rows="5" class="" placeholder="Content" id="" name="content" required
+                data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
+            <p class="help-block text-danger"></p>
+
+
+            <label>Image File</label>
+            <input type="text" class="" placeholder="Image File" id="" name="img_file" value="{{post.img_file}}">
+            <p class="help-block text-danger"></p>
+
             <br>
             <div id="success"></div>
             <div class="">

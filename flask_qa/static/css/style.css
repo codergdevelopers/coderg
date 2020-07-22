@@ -371,16 +371,19 @@ footer{
 
 /* EDITOR */
 
-.form-ed{
+.form-ed form{
     margin: 1rem;
     padding: 1rem;
-    align-items: left;
     font-family:  'Open Sans', sans-serif;
 }
 
-.form-ed label{
+.form-ed form label{
     margin: 1rem;
     padding: 5px;
+}
+
+.form-ed form label input{
+    box-sizing: content-box;
 }
 
 /* UTILITY CLASS */
