@@ -84,7 +84,7 @@ def signup():
         return redirect("/dashboard")
 
     if request.method == 'POST':
-        name = request.form.get('name')
+        fullname = request.form.get('fullname').title()
         username = request.form.get('uname').lower()
         password1 = request.form.get('pass1')
         password2 = request.form.get('pass2')
@@ -92,7 +92,7 @@ def signup():
         user = UserDb.query.filter_by(username=username).first()
         if not user:
             if password1 == password2:
-                user = UserDb(name=name, username=username, password=sha256(password1.encode('utf-8')).hexdigest())
+                user = UserDb(fullname=fullname, username=username, password=sha256(password1.encode('utf-8')).hexdigest())
                 db.session.add(user)
                 db.session.commit()
 
