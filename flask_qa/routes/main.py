@@ -40,7 +40,7 @@ def dashboard():
 
     # user already logged in
     if 'user' in session:
-        posts = PostDb.query.filter_by(author=session['user'])
+        posts = PostDb.query.filter_by(username=session['user'])
         return render_template('dashboard.html', params=params, posts=posts)
 
     # logging in
@@ -60,7 +60,7 @@ def dashboard():
         if user:
             if password == user.password:
                 session['user'] = username
-                posts = PostDb.query.filter_by(author=username)
+                posts = PostDb.query.filter_by(username=username)
                 return render_template('dashboard.html', params=params, posts=posts)
             else:
                 flash("Wrong password", "danger")
@@ -169,9 +169,10 @@ def edit(sno):
             nimg_file = request.form.get('img_file')
 
             # New post can be added by anyone logged in
+            fullname=(UserDb.query.filter_by(username=session['user']).first()).name
             if sno == '0':
                 post = PostDb(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
-                              author=session['user'],
+                              username=session['user'], fullname=fullname,
                               date=datetime.now())
                 db.session.add(post)
                 db.session.commit()
@@ -180,7 +181,7 @@ def edit(sno):
 
             post = PostDb.query.filter_by(sno=sno).first()
             # Post can be edited by either admin or author
-            if session['user'] == params["admin_user"] or session['user'] == post.author:
+            if session['user'] == params["admin_user"] or session['user'] == post.username:
                 post = PostDb.query.filter_by(sno=sno).first()
                 post.title = ntitle
                 post.tagline = ntagline
