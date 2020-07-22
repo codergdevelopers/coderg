@@ -16,7 +16,7 @@ class User(UserMixin, db.Model):
 class UserDb(db.Model):
     name = db.Column(db.String(), nullable=False)
     username = db.Column(db.String(), primary_key=True, unique=True, nullable=False)
-    password = db.Column(db.String(200), unique=False, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
     admin = db.Column(db.Boolean, default=False)
 
 class Projects(db.Model):
@@ -31,13 +31,14 @@ class Projects(db.Model):
 
 class PostDb(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(), unique=True, nullable=False)
-    tagline = db.Column(db.String(), unique=True, nullable=False)
-    author = db.Column(db.String(), unique=True, nullable=False)
+    title = db.Column(db.String(), nullable=False)
+    tagline = db.Column(db.String(), nullable=False)
+    username = db.Column(db.String(), nullable=False)
+    fullname = db.Column(db.String(), nullable=False)
     slug = db.Column(db.String(), unique=True, nullable=False)
-    content = db.Column(db.String(), unique=True, nullable=False)
-    date = db.Column(db.String(), unique=True, nullable=True)
-    img_file = db.Column(db.String(), unique=True, nullable=True)
+    content = db.Column(db.String(), nullable=False)
+    date = db.Column(db.String(), nullable=True)
+    img_file = db.Column(db.String(), nullable=True)
 # author is the username of the user
 # name should be fetched from UserDb
 
