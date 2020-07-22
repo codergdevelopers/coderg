@@ -74,7 +74,7 @@
 
 
 .admin{
-    display: flex;
+    display: inline;
     margin:1.5rem 0.8rem;
     border: 2px solid rgb(159, 111, 235);
     justify-content: center;
@@ -458,7 +458,7 @@ footer{
 }
 
 .centre{
-    align-items: centre;
+    align-items: center;
     text-align: center;
 }
 
