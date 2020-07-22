@@ -434,7 +434,12 @@ footer{
 
 .browse{
     width: max-content;
-    padding: 1rem;
+    padding: 1.5rem;
     border: 2px rgb(198, 168, 247);
     border-radius: 1rem;
+    background-color: whitesmoke;
+}
+
+.whtsmk{
+    color: whitesmoke;
 }
