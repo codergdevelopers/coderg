@@ -377,7 +377,7 @@
 
 #version{
     color:rgb(68, 0, 177); 
-    font-size: .8rem;
+    font-size: 1rem;
     padding-left: .5rem;
 }
 #cont{
@@ -412,7 +412,7 @@ footer{
     position: relative;
 }
 
-.right p a:hover{
+.comp  a:hover{
     text-shadow: currentColor;
     transition-property: all;
     transition-duration: .5s;
