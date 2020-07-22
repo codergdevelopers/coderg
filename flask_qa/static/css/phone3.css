@@ -56,16 +56,13 @@
 /* ABOUT */
 
 .pro-pic img{
-    height: 6rem;
-    width: 6rem;
+    height: 4rem;
+    width: 4rem;
 }
 
-
-#about .about-cantainer{
-    height: 50rem;
-}
 
 #about .about-cantainer {
+    height: auto;
     font-size: smaller;
 }
 
@@ -76,16 +73,25 @@
 }
 
 #version{
-    font-size: .4rem;
+    font-size: .9rem;
+}
+
+/* PRE-FOOTERT */
+
+#time{
+    margin-right: -10rem;
+}
+
+#updateinfo{
+    margin-right: -10rem;
 }
 
 /* FOOTER */
 
-
-
-footer p{
+footer{
     font-size: .70rem;
 }
+
 /* UTILITY CLASS */
 
 .h-primary{

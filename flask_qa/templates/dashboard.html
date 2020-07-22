@@ -59,7 +59,7 @@
                         <td>{{post.tagline}}</td>
                         <td>{{post.author}}</td>
                         <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button class="admin" >Edit</button></a></td>
-                        <td><a href="/delete/{{post.sno}}" style="text-decoration: none;"><button class="admin" >Delete</button></a></td>
+                        <td><a onclick="onclick= disp_warn()" href="/delete/{{post.sno}}" style="text-decoration: none;"><button class="admin" >Delete</button></a></td>
                     </tr>
 
                     {% endfor %}
@@ -72,5 +72,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    function disp_warn()
+     {
+         alert('Your post will be permanently deleted.')
+     }
+     
+</script>
 
 {% endblock %}

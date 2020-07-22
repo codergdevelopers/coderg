@@ -66,14 +66,15 @@
 /* ABOUT */
 
 .pro-pic img{
-    height: 3rem;
-    width: 3rem;
+    height: 3.5rem;
+    width: 3.5rem;
 }
 
 .founders{
     flex-direction: column;
     justify-content: center;
     padding: inherit;
+    width: auto;
     margin: auto;
 }
 
@@ -92,16 +93,27 @@
 }
     
 #version{
-    font-size: .50rem;
+    font-size: 1rem;
+}
+
+#cont{
+    font-size: 1.5rem;
 }
 
 
 /* FOOTER */
 
-footer p{
+footer {
     font-size: .5rem;
 }
 
+#time{
+    margin-right: -7.5rem;
+}
+
+#updateinfo{
+    margin-right: .5rem;
+}
 
 /* UTILITY CLASS */
 

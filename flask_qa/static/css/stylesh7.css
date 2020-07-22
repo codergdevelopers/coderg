@@ -294,7 +294,7 @@
 .founders{
     display: flex;
     flex-direction: row;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
     margin: auto;
     box-sizing: border-box;
@@ -322,7 +322,7 @@
     
     width: min-content;
     border: 2px solid rgb(159, 111, 235);
-    border-radius: 100em;
+    border-radius: 200em;
 }
 
 
@@ -377,19 +377,26 @@
 
 #version{
     color:rgb(68, 0, 177); 
-    font-size: .8rem;
+    font-size: 1.5rem;
     padding-left: .5rem;
 }
 #cont{
-    color:rgb(68, 0, 177);
+    color:rgb(85, 177, 43);
     text-decoration: none; 
-    font-size: large;
+    font-size: 2rem;
     float: right;
     margin-right: 1.2rem;
     position: relative;
     bottom: 1.1rem;
 }
+#cont:hover{
+    color: seagreen;
+    transition-property: all;
+    transition-duration: 1sec;
+
+}
 /* FOOTER */
+
 footer{
     background-color: black;
     color: rgb(159, 111, 235);
@@ -398,28 +405,27 @@ footer{
     padding-left: .5rem;
     height: 1;
 }
+
 #time{
-    display: inline-flex;
-    flex-direction: column;
+    /* display: block; */
     float: right;
-    margin-right: -4.9rem;
-    position: relative;
-}
-#updateinfo{
-    display: inline-flex;
-    flex-direction: column;
-    float: right;
-    margin-right: -5.1rem;
+    margin-right: -9.5rem;
     position: relative;
 }
 
-.right p a:hover{
+#updateinfo{
+    display: block;
+    float: right;
+    margin-right: -9.5rem;
+    position: relative;
+}
+
+.comp  a:hover{
     text-shadow: currentColor;
     transition-property: all;
     transition-duration: .5s;
     color: whitesmoke;
 }
-
 
 
 
