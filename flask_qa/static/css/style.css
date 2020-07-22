@@ -297,23 +297,32 @@
     padding: 2rem;
     width: 100%;
     margin: auto;
+    box-sizing: border-box;
     
 }
 
 #deep{
-    width: fit-content;
+    width: 40%;
     margin: auto;
+    padding: 1rem;
 }
 
 #aqua{
-    width: fit-content;
+    width: 40%;
     margin: auto;
+    padding: 1rem;
+}
+
+.pro-pic img{
+    height: 10rem;
+    width: 10rem;
 }
 
 .pro-pic{
+    
     width: min-content;
     border: 2px solid rgb(159, 111, 235);
-    border-radius: 9em;
+    border-radius: 100em;
 }
 
 

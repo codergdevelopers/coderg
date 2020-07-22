@@ -65,12 +65,24 @@
 
 /* ABOUT */
 
-#about .about-cantainer{
-    height: 50rem;
+.pro-pic img{
+    height: 3rem;
+    width: 3rem;
 }
 
+.founders{
+    flex-direction: column;
+    justify-content: center;
+    padding: inherit;
+    margin: auto;
+}
+
+
 #about .about-cantainer {
+    width: 80%;
+    height: auto;
     font-size: smaller;
+    /* width: min-content; */
 }
 
 /* CONTACT US */

@@ -55,6 +55,12 @@
 }
 /* ABOUT */
 
+.pro-pic img{
+    height: 6rem;
+    width: 6rem;
+}
+
+
 #about .about-cantainer{
     height: 50rem;
 }
