@@ -389,6 +389,9 @@ footer{
 
 .right p a:hover{
     text-shadow: currentColor;
+    transition-property: all;
+    transition-duration: .5s;
+    color: whitesmoke;
 }
 
 
@@ -463,12 +466,12 @@ footer{
     text-decoration: none;
     margin: .5rem;
     padding: .2rem;
-    background-color: rgb(188, 151, 247);
+    background-color: rgb(186, 153, 238);
     border-radius: 20px;
     font-family:  'Open Sans', sans-serif;
     color: black;
-    border: 1.5px solid rgb(134, 104, 182);
-    margin-inline-start: 35rem;
+    border: 1.5px solid rgb(136, 107, 182);
+    margin-inline-start: 36rem;
 }
 
 #entercod:hover{
