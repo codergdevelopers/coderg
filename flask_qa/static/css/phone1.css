@@ -73,16 +73,15 @@
 }
 
 #version{
-    font-size: .4rem;
+    font-size: .75rem;
 }
 
 /* FOOTER */
 
-
-
-footer {
+footer{
     font-size: .70rem;
 }
+
 /* UTILITY CLASS */
 
 .h-primary{

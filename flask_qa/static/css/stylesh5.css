@@ -381,13 +381,14 @@
     padding-left: .5rem;
 }
 #cont{
-    color:rgb(68, 0, 177);
+    color:rgb(132, 228, 87);
     text-decoration: none; 
-    font-size: larger;
+    font-size: 2rem;
     float: right;
     margin-right: 1.2rem;
     position: relative;
     bottom: 1.1rem;
+    font-weight: bolder;
 }
 /* FOOTER */
 footer{
