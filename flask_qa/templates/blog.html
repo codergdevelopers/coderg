@@ -1,33 +1,33 @@
 {% extends "layout.html" %}
 {% block head %}
 
-    
-    <link rel="stylesheet" href="index.html">
-    <link rel="stylesheet" href="Projects.html">
-    <link rel="stylesheet" href="About.html">
-    <title>Blogs</title>
-    <style>
-        body{
-            background-color: black;
-        }
-        
-    </style>
+
+<link rel="stylesheet" href="index.html">
+<link rel="stylesheet" href="Projects.html">
+<link rel="stylesheet" href="About.html">
+<title>Blogs</title>
+<style>
+    body {
+        background-color: black;
+    }
+</style>
 </head>
+
 <body>
 
-{% endblock %}
+    {% endblock %}
 
     <!-- NAVBAR -->
 
-    
-{% block body %}
+
+    {% block body %}
 
     <div>
-        <h1 class="name h-primary centre" >Blogs by "Username"</h1>
+        <h1 class="name h-primary centre">Blogs by "Username"</h1>
         <hr style="width: 90%; margin:auto; justify-content: center; ">
 
         &nbsp;
-
+        <!-- 
         <div class="blog-content">
 
             <h2 class="blog-title .h-secondary center">"Title of the Blog"</h2>
@@ -39,7 +39,51 @@
             <div class=" box">
                 <p id="writings" > YOUR CONTENT HERE.</p>
             </div>
+        </div> -->
+
+
+        <!-- Main Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+
+
+
+
+                    {% for post in posts %}
+                    <div class="post-preview">
+                        <a href="/post/{{post.slug}}">
+                            <h2 class="post-title">
+                                {{post.title}}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{post.tagline}}
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posted by
+                            <a href="#">{{post.author}}</a>
+                            on {{post.date}}</p>
+                        {{post.content[0:50]}}...
+                    </div>
+                    <hr>
+                    {% endfor %}
+
+
+
+
+                    <!-- Pager -->
+                    <div class="clearfix">
+                        {% if prev!='#' %}
+                        <a class="btn btn-primary float-left" href="{{prev}}">&larr; Previous</a>
+                        {% endif %}
+                        {% if next!='#' %}
+                        <a class="btn btn-primary float-right" href="{{next}}">Next &rarr;</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
+
 
     </div>
 

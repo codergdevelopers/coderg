@@ -5,13 +5,15 @@ from flask_qa.extensions import db
 
 from config.config import params
 from hashlib import sha256
+from datetime import datetime
+import math
 
 main = Blueprint('main', __name__)
 
 
 @main.route('/')
 def index():
-    return render_template('index.html',)
+    return render_template('index.html', )
 
 
 @main.route("/about")
@@ -75,7 +77,7 @@ def logout():
     return redirect("/")
 
 
-@main.route("/signup", methods=['GET','POST'])
+@main.route("/signup", methods=['GET', 'POST'])
 def signup():
     # user/admin already logged in
     if 'user' in session:
@@ -110,7 +112,6 @@ def signup():
     return redirect("/dashboard")
 
 
-
 @main.route("/projects")
 def display_projects():
     categories = set()
@@ -125,10 +126,86 @@ def display_projects():
 
 @main.route("/blog")
 def blog():
-    return render_template("blog.html")
+    posts = PostDb.query.filter_by().all()
+    last = math.ceil(len(posts) / int(params["no_of_posts"]))
+
+    page = request.args.get('page')
+    if not str(page).isnumeric():
+        page = 1
+    page = int(page)
+
+    posts = posts[(page - 1) * int(params['no_of_posts']):(page - 1) * int(params['no_of_posts']) + int(
+        params['no_of_posts'])]
+
+    if page == 1:
+        prev = '#'
+        next = '/?page=' + str(page + 1)
+    elif page == last:
+        prev = '/?page=' + str(page - 1)
+        next = '#'
+    else:
+        prev = '/?page=' + str(page - 1)
+        next = '/?page=' + str(page + 1)
+
+    return render_template("blog.html", posts=posts, params=params, prev=prev, next=next)
 
 
+@main.route("/post/<string:post_slug>", methods=['GET'])
+def post_route(post_slug):
+    post = PostDb.query.filter_by(
+        slug=post_slug).first()  # first(), if multiple post by same slug are found. We avoid it as it would be unique
 
+    return render_template('post.html', params=params, post=post)
+
+
+@main.route("/edit/<string:sno>", methods=['GET', 'POST'])
+def edit(sno):
+    if 'user' in session:
+        if request.method == 'POST':
+            ntitle = request.form.get('title')
+            ntagline = request.form.get('tline')
+            nslug = request.form.get('slug')
+            ncontent = request.form.get('content')
+            nimg_file = request.form.get('img_file')
+
+            # New post can be added by anyone logged in
+            if sno == '0':
+                post = PostDb(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
+                              author=session['user'],
+                              date=datetime.now())
+                db.session.add(post)
+                db.session.commit()
+                flash("New post added", "success")
+                return redirect("/dashboard")
+
+            post = PostDb.query.filter_by(sno=sno).first()
+            # Post can be edited by either admin or author
+            if session['user'] == params["admin_user"] or session['user'] == post.author:
+                post = PostDb.query.filter_by(sno=sno).first()
+                post.title = ntitle
+                post.tagline = ntagline
+                post.slug = nslug
+                post.content = ncontent
+                post.img_file = nimg_file
+                db.session.commit()
+                flash("Edited successfully", "success")
+                return redirect("/edit/" + sno)
+
+        post = PostDb.query.filter_by(sno=sno).first()
+        if post or sno == '0':
+            return render_template('edit.html', params=params, post=post, sno=sno)
+        return redirect("/dashboard")
+
+    return redirect("/dashboard")
+
+
+@main.route("/delete/<string:sno>", methods=['GET', 'POST'])
+def delete(sno):
+    if 'user' in session and session['user'] == params["admin_user"]:
+        post = PostDb.query.filter_by(sno=sno).first()
+        db.session.delete(post)
+        db.session.commit()
+    return redirect("/dashboard")
 
 #      THIS IS TO ADD PROJECTS IN DATABASE
 #      SHOULD BE RUN ONLY ONE TIME ON THE WEBSITE
