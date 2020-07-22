@@ -56,13 +56,13 @@
 /* ABOUT */
 
 .pro-pic img{
-    height: 6rem;
-    width: 6rem;
+    height: 4rem;
+    width: 4rem;
 }
 
 
 #about .about-cantainer{
-    height: 50rem;
+    height: auto;
 }
 
 #about .about-cantainer {

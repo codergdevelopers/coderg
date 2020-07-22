@@ -294,7 +294,7 @@
 .founders{
     display: flex;
     flex-direction: row;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
     margin: auto;
     box-sizing: border-box;
@@ -322,7 +322,7 @@
     
     width: min-content;
     border: 2px solid rgb(159, 111, 235);
-    border-radius: 100em;
+    border-radius: 200em;
 }
 
 
