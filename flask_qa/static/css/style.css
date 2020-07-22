@@ -297,6 +297,11 @@
     color: whitesmoke;
     width: 45%;
     margin: auto;
+    z-index: +1;
+}
+
+.founders img{
+    border: 1px rgb(198, 168, 247);
 }
 
 .about-container{
@@ -344,10 +349,11 @@
 /* PRE-FOOTER */
 
 .pre-footer{
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
 }
 
-#version span{
+#version{
     color:rgb(68, 0, 177); 
     font-size: .8rem;
     padding-left: .5rem;
@@ -383,7 +389,6 @@ footer{
 
 .right p a:hover{
     text-shadow: currentColor;
-    
 }
 
 
