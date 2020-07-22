@@ -542,9 +542,15 @@ td{
     border: 2px solid grey;
 }
 
+
+#connect{
+    display:block;
+    padding-left: 5rem;
+}
+
 .icon-box{
     height: 1rem;
-    width: 20%;
+    width: 40%;
     margin: auto;
     display: flex;
     flex-direction: row;
