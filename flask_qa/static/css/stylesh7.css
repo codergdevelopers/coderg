@@ -543,8 +543,16 @@ td{
 }
 
 .icon-box{
-    height: 2rem;
-    width: 50%;
+    height: 1rem;
+    width: 20%;
     margin: auto;
-    border: 2px solid green;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon{
+    /* height: 1px; */
+    width: 1px;
+    margin: auto;
+    padding: .1rem;
 }
