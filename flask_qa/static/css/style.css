@@ -293,21 +293,35 @@
 
 .founders{
     display: flex;
-    flex-direction: column;
-    color: whitesmoke;
-    width: 45%;
+    flex-direction: row;
+    padding: 2rem;
+    width: 100%;
     margin: auto;
-    z-index: +1;
+    
 }
 
-.founders img{
-    border: 1px rgb(198, 168, 247);
+#deep{
+    width: fit-content;
+    margin: auto;
 }
+
+#aqua{
+    width: fit-content;
+    margin: auto;
+}
+
+.pro-pic{
+    width: min-content;
+    border: 2px solid rgb(159, 111, 235);
+    border-radius: 9em;
+}
+
 
 .about-container{
     display: flex;
+    flex-direction: column;
     height: auto;
-    width: 80%;
+    width:50%;
     border: 2px solid rgb(159, 111, 235);
     border-radius: 40px;
     margin: auto;
@@ -317,7 +331,7 @@
 }
 .about-container p{
     color: whitesmoke;
-    font-family: 'Baloo Bhaina 2', cursive;
+    font-family:  'Open Sans', sans-serif;
     margin: auto;
     text-align: center;
     font-size: 1.2rem;
@@ -349,8 +363,7 @@
 /* PRE-FOOTER */
 
 .pre-footer{
-    display: flex;
-    flex-direction: row;
+    display: block;
 }
 
 #version{
@@ -359,10 +372,12 @@
     padding-left: .5rem;
 }
 #cont{
+    color:rgb(68, 0, 177);
     text-decoration: none; 
     font-size: large;
-    float: inline-end;
-    padding-inline-end: .5rem;
+    float: right;
+    margin-right: .5rem;
+    position: relative;
 }
 /* FOOTER */
 footer{
@@ -371,6 +386,7 @@ footer{
     font-family:  'Open Sans', sans-serif;
     font-size: small;
     padding-left: .5rem;
+    height: 1;
 }
 #time{
     display: inline-flex;
@@ -460,18 +476,19 @@ footer{
     cursor: pointer;
     transition-property: all;
     transition-duration: 1s;
+    font-weight: bold;
 }
 
 #entercod{
     text-decoration: none;
     margin: .5rem;
     padding: .2rem;
-    background-color: rgb(186, 153, 238);
+    background-color: rgb(137, 89, 214);
     border-radius: 20px;
     font-family:  'Open Sans', sans-serif;
     color: black;
-    border: 1.5px solid rgb(136, 107, 182);
-    margin-inline-start: 36rem;
+    border: 1.5px solid rgb(180, 147, 235);
+    margin-inline-start: 34rem;
 }
 
 #entercod:hover{
