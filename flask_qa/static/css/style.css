@@ -366,8 +366,14 @@ footer{
     float: right;
     margin-right: .5rem;
     position: relative;
-
 }
+
+#cont{
+    text-decoration: none; 
+    font-size: large;
+    padding-inline-end: .5rem;
+}
+
 
 /* EDITOR */
 
@@ -407,25 +413,7 @@ footer{
     text-align: center;
 }
 
-#entercod{
-    text-decoration: none;
-    margin: .5rem;
-    padding: .2rem;
-    background-color: rgb(188, 151, 247);
-    border-radius: 20px;
-    font-family:  'Open Sans', sans-serif;
-    color: black;
-    border: 1.5px solid rgb(134, 104, 182);
-}
 
-#entercod:hover{
-    transition-property: all;
-    background-color: black;
-    transition-duration: 1s;
-    transform: scale3d(1.2,1.2,1.2);
-    color: whitesmoke;
-    border: 1.5px solid whitesmoke;
-}
 
 .admin-btn a{
     display: flex;
@@ -449,6 +437,27 @@ footer{
     cursor: pointer;
     transition-property: all;
     transition-duration: 1s;
+}
+
+#entercod{
+    text-decoration: none;
+    margin: .5rem;
+    padding: .2rem;
+    background-color: rgb(188, 151, 247);
+    border-radius: 20px;
+    font-family:  'Open Sans', sans-serif;
+    color: black;
+    border: 1.5px solid rgb(134, 104, 182);
+    margin-inline-start: 35rem;
+}
+
+#entercod:hover{
+    transition-property: all;
+    background-color: black;
+    transition-duration: 1s;
+    transform: scale3d(1.2,1.2,1.2);
+    color: whitesmoke;
+    border: 1.5px solid whitesmoke;
 }
 
 .browse{
