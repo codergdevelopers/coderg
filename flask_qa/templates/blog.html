@@ -49,14 +49,14 @@
 
                     {% for post in posts %}
                     <div class="post-preview">
-                        <a href="/post/{{post.slug}}">
+                        <a id="post-link" href="/post/{{post.slug}}">
                             <h2 class="post-title">
                                 {{post.title}}
                             </h2>
-                            <h3 class="post-subtitle">
-                                {{post.tagline}}
-                            </h3>
                         </a>
+                        <h3 class="post-subtitle">
+                            {{post.tagline}}
+                        </h3>
                         <p class="post-meta">Posted by
                             <a id="fullname" href="#">{{post.fullname}}</a>
                             on {{post.date}}</p>
