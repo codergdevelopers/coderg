@@ -1,12 +1,20 @@
 {% extends "layout.html" %}
 {% block body %}
 
+<head>
+  <style>
+    body{
+      background-color: blanchedalmond;
+    }
+  </style>
+</head>
+
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('{{url_for('static',filename='img/' ~ post.img_file)}}')">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+
+
+  
+
+      <div class="py">
         <div class="post-heading">
           <h1>{{post.title}}</h1>
           <h2 class="subheading">{{post.tagline}}</h2>
@@ -15,9 +23,7 @@
             on {{post.date}}</span>
         </div>
       </div>
-    </div>
-  </div>
-</header>
+
 
 <!-- Post Content -->
 <article>
