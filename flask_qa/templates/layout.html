@@ -38,7 +38,7 @@
             <li class="item" id="blog"><a href="/blog">Blogs</a></li>
             <li class="item"><a href="/about">About</a></li>
             {% if 'user' in session %}
-            <li><button><a class="" id="entercod" style="border-color: green;" href="/dashboard">{{session['user']}}</a></button></li>
+            <li><button style="display: contents;"><a class="" id="entercod" style="border-color: green;" href="/dashboard">{{session['user']}}</a></button></li>
             {% else %}
             <li><button style="display: contents;"><a class="" id="entercod" href="/dashboard">Log In</a></button></li>
             {% endif %}
