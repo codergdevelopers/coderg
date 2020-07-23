@@ -273,6 +273,9 @@
     margin: 10px;
     text-justify: auto;
 }
+.post-box-content{
+    padding: 2rem;
+}
 
 .post{
     display: flex;
