@@ -586,9 +586,9 @@ footer{
 }
 
 #entercod{
-
-    /* font-family:  'Open Sans', sans-serif; */
-    border: 1.5px solid rgb(148, 116, 199);
+    background-color: black;
+    font-family:  'Open Sans', sans-serif;
+    border: 1.5px solid rgb(152, 186, 238);
     margin-inline-start: 34rem;
 }
 
