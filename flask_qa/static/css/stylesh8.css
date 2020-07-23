@@ -248,6 +248,20 @@
     color: whitesmoke;
 }
 
+.navigate{
+    text-decoration: none;
+    color: limegreen;
+    display: block;
+}
+
+#left{
+    float: left;
+}
+
+#right{
+    float: right;
+}
+
 .blog-content{
     display: flex;
     flex-direction: column;
@@ -567,3 +581,20 @@ td{
     margin: auto;
     padding: .1rem;
 }
+
+.post-title{
+    width: max-content;
+    margin: auto;
+    color: lightblue;
+    text-decoration: none;
+}
+
+.post-subtitle{
+    color: ivory;
+    text-decoration: none;
+}
+
+.post-preview{
+    padding: 1rem;
+}
+

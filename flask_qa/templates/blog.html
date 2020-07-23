@@ -69,12 +69,12 @@
 
 
                     <!-- Pager -->
-                    <div class="clearfix">
+                    <div class="navigate">
                         {% if prev!='#' %}
-                        <a class="btn btn-primary float-left" href="{{prev}}">&larr; Previous</a>
+                        <a id="left" href="{{prev}}">&larr; Previous</a>
                         {% endif %}
                         {% if next!='#' %}
-                        <a class="btn btn-primary float-right" href="{{next}}">Next &rarr;</a>
+                        <a id="right" href="{{next}}">Next &rarr;</a>
                         {% endif %}
                     </div>
                 </div>
