@@ -137,7 +137,10 @@ def blog():
     posts = posts[(page - 1) * int(params['no_of_posts']):(page - 1) * int(params['no_of_posts']) + int(
         params['no_of_posts'])]
 
-    if page == 1:
+    if page == 1 and page == last:
+        prev = '#'
+        next = '#'
+    elif page == 1:
         prev = '#'
         next = '/blog/?page=' + str(page + 1)
     elif page == last:
