@@ -64,7 +64,7 @@
     transition-duration: 1s;
 }
 
-#navbar ul li a:hover{
+#navbar ul li > a:hover{
     
     color: black;
     background-color: rgb(198, 168, 247);
