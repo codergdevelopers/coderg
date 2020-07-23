@@ -602,7 +602,7 @@ footer{
 
 .browse{
     width: max-content;
-    padding: 1.rem;
+    padding: .5rem;
     border: 2px rgb(198, 168, 247);
     border-radius: 1rem;
     background-color: whitesmoke;
