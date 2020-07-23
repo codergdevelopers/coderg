@@ -444,12 +444,13 @@ footer{
 }
 
 #updateinfo{
-    padding-left: .5rem;
+    /* padding-left: .5rem; */
 }
 
 #des-man{
     width: max-content;
     margin: auto;
+    font-size: medium;
 }
 
 .comp  a:hover{
