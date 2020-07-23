@@ -114,6 +114,7 @@ footer {
 
 #updateinfo{
     margin-right: .5rem;
+    float: right;
 }
 
 /* UTILITY CLASS */
