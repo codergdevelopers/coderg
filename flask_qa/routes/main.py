@@ -74,7 +74,7 @@ def dashboard():
 @main.route("/logout")
 def logout():
     session.pop('user')
-    return redirect("/")
+    return redirect("/dashboard")
 
 
 @main.route("/signup", methods=['GET', 'POST'])
