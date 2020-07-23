@@ -172,7 +172,7 @@ def edit(sno):
             nimg_file = request.form.get('img_file')
 
             # New post can be added by anyone logged in
-            fullname=(UserDb.query.filter_by(username=session['user']).first()).name
+            fullname=(UserDb.query.filter_by(username=session['user']).first()).fullname
             if sno == '0':
                 post = PostDb(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
                               username=session['user'], fullname=fullname,
@@ -193,7 +193,7 @@ def edit(sno):
                 post.img_file = nimg_file
                 db.session.commit()
                 flash("Edited successfully", "success")
-                return redirect("/edit/" + sno)
+                return redirect("/dashboard")
 
         post = PostDb.query.filter_by(sno=sno).first()
         if post or sno == '0':
