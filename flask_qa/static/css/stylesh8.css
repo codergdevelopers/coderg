@@ -244,22 +244,40 @@
 
 }
 
-.blog-title{
-    color: whitesmoke;
+.post-title{
+    width: max-content;
+    margin: auto;
+    color: lightblue;
+    text-decoration: inherit;
 }
 
+.post-subtitle{
+    color: ivory;
+    text-decoration: inherit;
+    margin-bottom: .5rem;
+}
+
+.post-preview{
+    padding: 1rem;
+}
+
+
 .navigate{
-    text-decoration: none;
-    color: limegreen;
+    
+    
     display: block;
 }
 
 #left{
     float: left;
+    color: limegreen;
+    text-decoration: none;
 }
 
 #right{
     float: right;
+    color: limegreen;
+    text-decoration: none;
 }
 
 .blog-content{
@@ -582,19 +600,4 @@ td{
     padding: .1rem;
 }
 
-.post-title{
-    width: max-content;
-    margin: auto;
-    color: lightblue;
-    text-decoration: none;
-}
-
-.post-subtitle{
-    color: ivory;
-    text-decoration: none;
-}
-
-.post-preview{
-    padding: 1rem;
-}
 
