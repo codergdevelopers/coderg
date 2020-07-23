@@ -245,6 +245,7 @@
 }
 
 .post-title{
+    font-size: 1.5rem;
     width: max-content;
     margin: auto;
     color: lightblue;
@@ -252,9 +253,19 @@
 }
 
 .post-subtitle{
+    font-size: 1.2rem;
     color: skyblue;
     text-decoration: inherit;
     margin-bottom: .5rem;
+}
+
+.post-meta{
+    font-size: 1rem;
+}
+
+.post-start{
+    font-size: .8rem;
+    padding: 1rem;
 }
 
 .post-preview{
@@ -264,9 +275,7 @@
     justify-items: center;
 }
 
-.post-start{
-    padding: 1rem;
-}
+
 
 .post-box{
     border: 2px solid black;
