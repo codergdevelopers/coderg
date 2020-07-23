@@ -176,7 +176,7 @@ def edit(sno):
             if sno == '0':
                 post = PostDb(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
                               username=session['user'], fullname=fullname,
-                              date=datetime.now())
+                              date=datetime.now().strftime("%a %d %b %Y"))
                 db.session.add(post)
                 db.session.commit()
                 flash("New post added", "success")
