@@ -265,9 +265,18 @@
     padding: 1rem;
 }
 
-#post-link{
-
+.post-box{
+    border: 2px solid black;
+    padding: 1rem;
+    border-radius: 20px;
+    height: auto;
+    margin: 10px;
+    text-justify: auto;
 }
+
+/* #post-link{
+
+} */
 
 
 .navigate{
@@ -318,7 +327,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-}
+
 
 #writings{
     text-align: center;
