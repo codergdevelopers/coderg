@@ -259,6 +259,8 @@
 
 .post-preview{
     padding: 1rem;
+    display: grid;
+    justify-content: center;
 }
 
 .post-start{
