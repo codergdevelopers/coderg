@@ -261,6 +261,10 @@
     padding: 1rem;
 }
 
+.post-start{
+    padding: 1rem;
+}
+
 
 .navigate{
     display: block;
@@ -479,6 +483,8 @@ footer{
     box-sizing: content-box;
 }
 
+
+
 /* UTILITY CLASS */
 
 .h-primary{
@@ -599,6 +605,11 @@ td{
     width: 1px;
     margin: auto;
     padding: .1rem;
+}
+
+#fullname{
+    text-decoration: none;
+    color: burlywood;
 }
 
 
