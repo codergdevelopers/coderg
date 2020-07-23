@@ -139,13 +139,13 @@ def blog():
 
     if page == 1:
         prev = '#'
-        next = '/?page=' + str(page + 1)
+        next = '/blog/?page=' + str(page + 1)
     elif page == last:
-        prev = '/?page=' + str(page - 1)
+        prev = '/blog/?page=' + str(page - 1)
         next = '#'
     else:
-        prev = '/?page=' + str(page - 1)
-        next = '/?page=' + str(page + 1)
+        prev = '/blog/?page=' + str(page - 1)
+        next = '/blog/?page=' + str(page + 1)
 
     return render_template("blog.html", posts=posts, params=params, prev=prev, next=next)
 
