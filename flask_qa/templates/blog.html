@@ -20,7 +20,7 @@
 
     <div class="post">
         <h1 class="name h-primary centre">Blogs</h1>
-        <!-- <hr style="width: 90%; margin:auto; justify-content: center; "> -->
+        <hr style="width: 30%; margin:auto; justify-content: center; ">
 
         &nbsp;
         <!-- 
@@ -39,53 +39,53 @@
 
     </div>
 
-
-        <!-- Main Content -->
-        <div class="">
-            <div class="">
-                <div class="post-box">
+    <hr style="width: 20%; margin: auto; margin-bottom: 1rem;">
 
 
+    <!-- Main Content -->
 
-
-                    {% for post in posts %}
-                    <div class="post-preview">
-                        <a id="post-link" href="/post/{{post.slug}}">
-                            <h2 class="post-title">
-                                {{post.title}}
-                            </h2>
-                        </a>
-                        <h3 class="post-subtitle">
-                            {{post.tagline}}
-                        </h3>
-                        <p class="post-meta">Posted by
-                            <a id="fullname" href="#">{{post.fullname}}</a>
-                            on {{post.date}}</p>
-                        <div class="post-start">
-                            {{post.content[0:50]}}...
-                        </div>
-                    </div>
-                    <hr>
-                    {% endfor %}
+    <div class="post-box">
 
 
 
 
-                    <!-- Pager -->
-                    <div class="navigate">
-                        {% if prev!='#' %}
-                        <a id="left" href="{{prev}}">&larr; Previous</a>
-                        {% endif %}
-                        {% if next!='#' %}
-                        <a id="right" href="{{next}}">Next &rarr;</a>
-                        {% endif %}
-                    </div>
-                </div>
+        {% for post in posts %}
+        <div class="post-preview">
+            <a id="post-link" href="/post/{{post.slug}}">
+                <h2 class="post-title">
+                    {{post.title}}
+                </h2>
+            </a>
+            <h3 class="post-subtitle">
+                {{post.tagline}}
+            </h3>
+            <p class="post-meta">Posted by
+                <a id="fullname" href="#">{{post.fullname}}</a>
+                on {{post.date}}</p>
+            <div class="post-start">
+                {{post.content[0:50]}}...
             </div>
         </div>
+        <hr>
+        {% endfor %}
 
 
-    
+
+
+        <!-- Pager -->
+        <div class="navigate">
+            {% if prev!='#' %}
+            <a id="left" href="{{prev}}">&larr; Previous</a>
+            {% endif %}
+            {% if next!='#' %}
+            <a id="right" href="{{next}}">Next &rarr;</a>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+
 
     &nbsp;
 
