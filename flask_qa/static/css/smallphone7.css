@@ -105,9 +105,11 @@
 /* FOOTER */
 
 footer {
-    font-size: 1rem;
+    font-size: .5rem;
 }
-
+#des-man{
+    font-size: 1rem;    
+}
 #time{
     margin-right: -8rem;
 }
