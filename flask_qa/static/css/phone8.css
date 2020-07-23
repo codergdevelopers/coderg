@@ -82,6 +82,10 @@
     margin-right: -9.5rem;
 }
 
+#updateinfo{
+    padding-left: 0rem;
+}
+
 
 
 #cont{
@@ -96,7 +100,7 @@ footer{
 }
 
 #des-man{
-    .85rem
+    font-size: .85rem;
 }
 
 /* UTILITY CLASS */
