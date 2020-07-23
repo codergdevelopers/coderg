@@ -248,13 +248,13 @@
     font-size: 1.5rem;
     width: max-content;
     margin: auto;
-    color: lightblue;
+    color: black;
     text-decoration: inherit;
 }
 
 .post-subtitle{
     font-size: 1.2rem;
-    color: skyblue;
+    color: rgb(102, 102, 102);
     text-decoration: inherit;
     margin-bottom: .5rem;
 }
@@ -586,24 +586,18 @@ footer{
 }
 
 #entercod{
-    text-decoration: none;
-    margin: .5rem;
-    padding: .2rem;
-    background-color: rgb(137, 89, 214);
-    border-radius: 20px;
-    font-family:  'Open Sans', sans-serif;
-    color: black;
-    border: 1.5px solid rgb(180, 147, 235);
+
+    /* font-family:  'Open Sans', sans-serif; */
+    border: 1.5px solid rgb(148, 116, 199);
     margin-inline-start: 34rem;
 }
 
 #entercod:hover{
     transition-property: all;
-    background-color: black;
     transition-duration: 1s;
     transform: scale3d(1.2,1.2,1.2);
-    color: whitesmoke;
-    border: 1.5px solid whitesmoke;
+    color: rgb(79, 216, 79);
+    border: 1.5px solid rgb(110, 207, 170);
 }
 
 .browse{
