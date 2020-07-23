@@ -444,10 +444,12 @@ footer{
 }
 
 #updateinfo{
-    display: block;
-    float: right;
-    margin-right: -9.5rem;
-    position: relative;
+    padding-left: .5rem;
+}
+
+#des-man{
+    width: max-content;
+    margin: auto;
 }
 
 .comp  a:hover{
