@@ -1,29 +1,50 @@
 {% extends "layout.html" %}
 {% block body %}
 
+<head>
+  <style>
+    body {
+      background-color: white;
+    }
+  </style>
+</head>
+
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('{{url_for('static',filename='img/' ~ post.img_file)}}')">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-heading">
-          <h1>{{post.title}}</h1>
-          <h2 class="subheading">{{post.tagline}}</h2>
-          <span class="meta">Posted by
-            <a href="#">{{post.username}}</a>
-            on {{post.date}}</span>
-        </div>
-      </div>
-    </div>
+
+
+1
+
+<div class="post">
+
+  <div style="padding-bottom: 5rem;">
+    <h1 class="h-primary" >Happy Reading :)</h1>
+    <hr style="width: 95%; margin: auto;">
   </div>
-</header>
+
+
+
+</div>
+
+<hr style="width: 20%; margin: auto; margin-bottom: 1rem;">
+
+
+
 
 <!-- Post Content -->
 <article>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+  <div class="post-box">
+
+    <div class="post-info">
+      <h1>{{post.title}}</h1>
+      <div class="">
+        <h2 class="">{{post.tagline}}</h2>
+        <span class="">Posted by
+          <a href="#">{{post.username}}</a>
+          on {{post.date}}</span>
+      </div>
+    </div>
+    <div class="">
+      <div class="post-box-content">
         {{post.content}}
       </div>
     </div>
