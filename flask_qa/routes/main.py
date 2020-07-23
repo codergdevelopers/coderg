@@ -193,7 +193,7 @@ def edit(sno):
                 post.img_file = nimg_file
                 db.session.commit()
                 flash("Edited successfully", "success")
-                return redirect("/edit/" + sno)
+                return redirect("/dashboard")
 
         post = PostDb.query.filter_by(sno=sno).first()
         if post or sno == '0':
