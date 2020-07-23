@@ -107,14 +107,14 @@
 footer {
     font-size: .5rem;
 }
-
+#des-man{
+    font-size: 1rem;    
+}
 #time{
-    margin-right: -7.7rem;
+    margin-right: -8rem;
 }
 
-#updateinfo{
-    margin-right: .5rem;
-}
+
 
 /* UTILITY CLASS */
 

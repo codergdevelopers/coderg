@@ -82,9 +82,7 @@
     margin-right: -9.5rem;
 }
 
-#updateinfo{
-    margin-right: -9.5rem;
-}
+
 
 #cont{
     font-size: 2rem;
@@ -95,6 +93,10 @@
 
 footer{
     font-size: .70rem;
+}
+
+#des-man{
+    .85rem
 }
 
 /* UTILITY CLASS */
