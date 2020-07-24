@@ -13,7 +13,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return render_template('index.html', )
+    return render_template('index.html', session_user=(session['user'].split()[0])[:10])
 
 
 @main.route("/about/")
@@ -23,7 +23,7 @@ def about():
 
 @main.route("/contact/")
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html", session_user=(session['user'].split()[0])[:10])
 
 
 # @main.route("/lisu")
@@ -36,12 +36,12 @@ def dashboard():
     # admin already logged in
     if 'user' in session and session['user'] == params["admin_user"]:
         posts = PostDb.query.all()
-        return render_template('dashboard.html', params=params, posts=posts)
+        return render_template('dashboard.html', params=params, posts=posts, session_user=(session['user'].split()[0])[:10])
 
     # user already logged in
     if 'user' in session:
         posts = PostDb.query.filter_by(username=session['user'])
-        return render_template('dashboard.html', params=params, posts=posts)
+        return render_template('dashboard.html', params=params, posts=posts, session_user=(session['user'].split()[0])[:10])
 
     # logging in
     if request.method == 'POST':
@@ -53,7 +53,7 @@ def dashboard():
             # Log in & Redirect to admin panel
             session['user'] = username
             posts = PostDb.query.all()
-            return render_template('dashboard.html', params=params, posts=posts)
+            return render_template('dashboard.html', params=params, posts=posts, session_user=(session['user'].split()[0])[:10])
 
         # user
         user = UserDb.query.filter_by(username=username).first()
@@ -61,14 +61,14 @@ def dashboard():
             if password == user.password:
                 session['user'] = username
                 posts = PostDb.query.filter_by(username=username)
-                return render_template('dashboard.html', params=params, posts=posts)
+                return render_template('dashboard.html', params=params, posts=posts, session_user=(session['user'].split()[0])[:10])
             else:
                 flash("Wrong password", "danger")
 
         else:
             flash(username + " does not have account", "danger")
 
-    return render_template('lisu.html', params=params)
+    return render_template('lisu.html', params=params, session_user=(session['user'].split()[0])[:10])
 
 
 @main.route("/logout/")
@@ -122,7 +122,7 @@ def display_projects():
     for project in projects:
         categories.add(project.category)
 
-    return render_template("projects.html", categories=list(categories), projects=projects)
+    return render_template("projects.html", categories=list(categories), projects=projects, session_user=(session['user'].split()[0])[:10])
 
 
 @main.route("/blog/")
@@ -151,7 +151,7 @@ def blog():
         prev = '/blog/?page=' + str(page - 1)
         next = '/blog/?page=' + str(page + 1)
 
-    return render_template("blog.html", posts=posts, params=params, prev=prev, next=next)
+    return render_template("blog.html", posts=posts, params=params, prev=prev, next=next, session_user=(session['user'].split()[0])[:10])
 
 
 @main.route("/post/<string:post_slug>", methods=['GET'])
@@ -159,7 +159,7 @@ def post_route(post_slug):
     post = PostDb.query.filter_by(
         slug=post_slug).first()  # first(), if multiple post by same slug are found. We avoid it as it would be unique
 
-    return render_template('post.html', params=params, post=post)
+    return render_template('post.html', params=params, post=post, session_user=(session['user'].split()[0])[:10])
 
 
 @main.route("/edit/<string:sno>", methods=['GET', 'POST'])
