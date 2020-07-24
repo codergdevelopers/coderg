@@ -18,7 +18,7 @@ def index():
 
 @main.route("/about/")
 def about():
-    return render_template("about.html", params=params, session_user=session['user'].split()[:10])
+    return render_template("about.html", params=params, session_user=(session['user'].split()[0])[:10])
 
 
 @main.route("/contact/")
