@@ -460,11 +460,10 @@
     display: block;
 }
 
-
-
 .contact{
     display: block;
-    text-decoration: none; 
+    text-decoration: none;
+    padding: .5rem;
     font-size: 2rem;
     width: max-content;
     margin: auto;
