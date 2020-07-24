@@ -62,13 +62,14 @@
     padding-bottom: 1px;
     transition-property: all;
     transition-duration: 1s;
-    transform: scale3d(1.2,1.2,1.2);
+    
 }
 
 #navbar ul li > a:hover{
     
     color: black;
     background-color: rgb(198, 168, 247);
+    transform: scale3d(1.2,1.2,1.2);
     
 
 }
