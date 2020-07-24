@@ -43,7 +43,7 @@
             <li class="item"><a href="/about">About</a></li>
             {% if 'user' in session %}
             <li><button style="display: contents;"><a class="" id="entercod" style="border-color: green;"
-                        href="/dashboard">{{session['user']}}</a></button></li>
+                        href="/dashboard">{{ session_user }}</a></button></li>
             {% else %}
             <li><button style="display: contents; border: 1.5px solid rgb(143, 181, 236);"><a class="" id="entercod" href="/dashboard">Log In</a></button></li>
             {% endif %}

@@ -18,7 +18,7 @@ def index():
 
 @main.route("/about/")
 def about():
-    return render_template("about.html", params=params)
+    return render_template("about.html", params=params, session_user=session['user'].split()[:10])
 
 
 @main.route("/contact/")
@@ -92,7 +92,8 @@ def signup():
         user = UserDb.query.filter_by(username=username).first()
         if not user:
             if password1 == password2:
-                user = UserDb(fullname=fullname, username=username, password=sha256(password1.encode('utf-8')).hexdigest())
+                user = UserDb(fullname=fullname, username=username,
+                              password=sha256(password1.encode('utf-8')).hexdigest())
                 db.session.add(user)
                 db.session.commit()
 
@@ -172,7 +173,7 @@ def edit(sno):
             nimg_file = request.form.get('img_file')
 
             # New post can be added by anyone logged in
-            fullname=(UserDb.query.filter_by(username=session['user']).first()).fullname
+            fullname = (UserDb.query.filter_by(username=session['user']).first()).fullname
             if sno == '0':
                 post = PostDb(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
                               username=session['user'], fullname=fullname,
@@ -212,7 +213,7 @@ def delete(sno):
 
     if 'user' in session:
         post = PostDb.query.filter_by(sno=sno).first()
-        if post and post.username==session['user']:
+        if post and post.username == session['user']:
             db.session.delete(post)
             db.session.commit()
 
