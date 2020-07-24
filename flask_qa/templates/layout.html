@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/stylesh21.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/stylesh22.css')}}">
     <link rel="stylesheet" media="screen and (min-width: 481px) and (max-width:1100px)"
-        href="{{url_for('static',filename='css/phone17.css')}}">
+        href="{{url_for('static',filename='css/phone18.css')}}">
     <link rel="stylesheet" media="screen and  (max-width:480px)"
-        href="{{url_for('static',filename='css/smallphone17.css')}}">
+        href="{{url_for('static',filename='css/smallphone18.css')}}">
 
 
 
@@ -45,7 +45,7 @@
             <li><button style="display: contents;"><a class="" id="entercod" style="border-color: green;"
                         href="/dashboard">{{session['user']}}</a></button></li>
             {% else %}
-            <li><button style="display: contents;"><a class="" id="entercod" href="/dashboard">Log In</a></button></li>
+            <li><button style="display: contents; border: 1.5px solid rgb(143, 181, 236);"><a class="" id="entercod" href="/dashboard">Log In</a></button></li>
             {% endif %}
         </ul>
 

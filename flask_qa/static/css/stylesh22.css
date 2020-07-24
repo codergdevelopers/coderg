@@ -62,6 +62,7 @@
     padding-bottom: 1px;
     transition-property: all;
     transition-duration: 1s;
+    transform: scale3d(1.2,1.2,1.2);
 }
 
 #navbar ul li > a:hover{
@@ -601,7 +602,7 @@ footer{
 #entercod{
     background-color: black;
     font-family:  'Open Sans', sans-serif;
-    border: 1.5px solid rgb(152, 186, 238);
+    border: 1.5px solid rgb(143, 181, 236);
     margin-inline-start: 34rem;
 }
 

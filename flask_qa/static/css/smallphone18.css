@@ -119,6 +119,14 @@ footer {
     font-size: 1rem;
 }
 
+.h-primary-head{
+    font-size: 2rem;
+    font-weight: lighter;
+    color: whitesmoke;
+    padding: 20px;
+    font-family:  'Open Sans', sans-serif;
+}
+
 #connect{
     font-size: 1rem;
     padding-left: 4.5rem;
