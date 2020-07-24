@@ -124,7 +124,7 @@ def display_projects():
     return render_template("projects.html", categories=list(categories), projects=projects)
 
 
-@main.route("/blog/")
+@main.route("/blog")
 def blog():
     posts = PostDb.query.filter_by().all()
     last = math.ceil(len(posts) / int(params["no_of_posts"]))
@@ -142,13 +142,13 @@ def blog():
         next = '#'
     elif page == 1:
         prev = '#'
-        next = '/blog/?page=' + str(page + 1)
+        next = '/blog?page=' + str(page + 1)
     elif page == last:
-        prev = '/blog/?page=' + str(page - 1)
+        prev = '/blog?page=' + str(page - 1)
         next = '#'
     else:
-        prev = '/blog/?page=' + str(page - 1)
-        next = '/blog/?page=' + str(page + 1)
+        prev = '/blog?page=' + str(page - 1)
+        next = '/blog?page=' + str(page + 1)
 
     return render_template("blog.html", posts=posts, params=params, prev=prev, next=next)
 
