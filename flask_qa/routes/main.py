@@ -124,7 +124,7 @@ def display_projects():
     return render_template("projects.html", categories=list(categories), projects=projects)
 
 
-@main.route("/blog")
+@main.route("/blog/")
 def blog():
     posts = PostDb.query.filter_by().all()
     last = math.ceil(len(posts) / int(params["no_of_posts"]))
