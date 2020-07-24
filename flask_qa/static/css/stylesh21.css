@@ -551,6 +551,14 @@ footer{
     font-family:  'Open Sans', sans-serif;
 }
 
+.h-primary-head{
+    font-size: 4rem;
+    font-weight: lighter;
+    color: whitesmoke;
+    padding: 20px;
+    font-family:  'Open Sans', sans-serif;
+}
+
 .h-secondary{
     font-size: 1.5rem;
     color: black;
