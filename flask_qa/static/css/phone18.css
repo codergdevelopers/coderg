@@ -62,14 +62,7 @@
 
 /* BLOGS AND POST */
 
-.post::before{
-    height: 17rem;
 
-}
-
-h1{
-    padding-bottom: 6rem;
-}
 
 
 #about .about-cantainer {
@@ -83,26 +76,13 @@ h1{
     font-size: 1.2rem;
 }
 
-#version{
-    font-size: .9rem;
-}
+
 
 /* PRE-FOOTERT */
 
-#time{
-    margin-right: -9.5rem;
-}
-
-#updateinfo{
-    padding-left: 0rem;
-}
 
 
 
-#cont{
-    font-size: 2rem;
-    bottom: 1.5rem;
-}
 
 /* FOOTER */
 
@@ -115,6 +95,14 @@ footer{
 }
 
 /* UTILITY CLASS */
+
+.h-primary-head{
+    font-size: 3rem;
+    font-weight: lighter;
+    color: whitesmoke;
+    padding: 20px;
+    font-family:  'Open Sans', sans-serif;
+}
 
 .h-primary{
     font-size: 1.5rem;

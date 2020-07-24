@@ -4,26 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/stylesh16.css')}}">
-    <link rel="stylesheet" media="screen and (min-width: 481px) and (max-width:1100px)" href="{{url_for('static',filename='css/phone12.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/stylesh22.css')}}">
+    <link rel="stylesheet" media="screen and (min-width: 481px) and (max-width:1100px)"
+        href="{{url_for('static',filename='css/phone18.css')}}">
     <link rel="stylesheet" media="screen and  (max-width:480px)"
-        href="{{url_for('static',filename='css/smallphone12.css')}}">
-
-    
-
-<link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='favicon_io/apple-touch-icon.png')}}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='favicon_io/favicon-32x32.png')}}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename='favicon_io/favicon-16x16.png')}}">
-<link rel="manifest" href="{{url_for('static',filename='favicon_io/site.webmanifest')}}">
+        href="{{url_for('static',filename='css/smallphone18.css')}}">
 
 
 
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{url_for('static',filename='favicon_io/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{url_for('static',filename='favicon_io/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{url_for('static',filename='favicon_io/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static',filename='favicon_io/site.webmanifest')}}">
 
-        <Style>
-            body{
-                background-color: black;
-            }
-        </Style>
+
+
+
+    <Style>
+        body {
+            background-color: black;
+        }
+    </Style>
 
 
 
@@ -38,9 +42,10 @@
             <li class="item" id="blog"><a href="/blog">Blogs</a></li>
             <li class="item"><a href="/about">About</a></li>
             {% if 'user' in session %}
-            <li><a class="admin" id="entercod" style="border-color: green;" href="/dashboard">{{session['user']}}</a></li>
+            <li><button style="display: contents;"><a class="" id="entercod" style="border-color: green;"
+                        href="/dashboard">{{session['user']}}</a></button></li>
             {% else %}
-            <li><a class="admin" id="entercod" href="/dashboard">Log In</a></li>
+            <li><button style="display: contents; border: 1.5px solid rgb(143, 181, 236);"><a class="" id="entercod" href="/dashboard">Log In</a></button></li>
             {% endif %}
         </ul>
 
@@ -54,23 +59,23 @@
     &nbsp;
     &nbsp;
 
-    <div class="pre-footer">
-         <p id="version">v 3.0.0</p>
-        <p><a id="cont" href="/contact">Contact Us</a></p>
-    </div>
-
-    &nbsp;
-
 
     <footer>
-        
-        <div class="left">Copyright &copy CODERG.2020 | <span   id="time"> </span></div>
 
-        
-        <div id="updateinfo">Last updated on: July 23,2020. |</div>
-        
+        <div class="contact">
+            <p><a id="cont" href="/contact">Contact Us</a></p>
+        </div>
+
+        <div class="copyright">Copyright &copy CODERG.2020 | <span id="time"> </span></div>
+
+
+        <div class="updateinfo">Last updated on: July 23,2020. <span id="version">
+                <p>| Version: 3.0.0</p>
+            </span> </div>
+
         <div id="des-man">
-            <p class="comp">| Designed and Managed by: <a href="/about" style="text-decoration: none; color: rgb(247, 217, 85); ">codergdevelopers. </a>|</p>
+            <p class="comp">| Designed and Managed by: <a href="/about"
+                    style="text-decoration: none; color: rgb(247, 217, 85); ">codergdevelopers. </a>|</p>
         </div>
     </footer>
     <script>

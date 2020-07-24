@@ -88,29 +88,17 @@
 
 /* CONTACT US */
 
+.contact{
+    font-size: 1.75rem;
+}
+
 .small{
     font-size: .8rem;
 }
-    
-#version{
-    font-size: 1rem;
-}
 
-#cont{
-    font-size: 1.5rem;
-    bottom: .75rem;
-}
 
 /* BLOGS AND POST */
 
-.post::before{
-    height: 20rem;
-
-}
-
-h1{
-    padding-bottom: 2rem;
-}
 
 
 /* FOOTER */
@@ -121,13 +109,7 @@ footer {
 #des-man{
     font-size: .75rem;    
 }
-#time{
-    margin-right: -7.55rem;
-}
 
-#updateinfo{
-    padding-left: 0rem;
-}
 
 
 
@@ -135,6 +117,14 @@ footer {
 
 .h-primary{
     font-size: 1rem;
+}
+
+.h-primary-head{
+    font-size: 2rem;
+    font-weight: lighter;
+    color: whitesmoke;
+    padding: 20px;
+    font-family:  'Open Sans', sans-serif;
 }
 
 #connect{

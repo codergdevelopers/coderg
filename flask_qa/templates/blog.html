@@ -19,36 +19,21 @@
     {% block body %}
 
     <div class="post">
-        <h1 class="name h-primary centre">Blogs</h1>
-        <hr style="width: 30%; margin:auto; justify-content: center; ">
 
-        &nbsp;
-        <!-- 
-        <div class="blog-content">
+        <div style="padding-bottom: 5rem;">
+            <h1 class="h-primary-head">Blogs</h1>
+            <hr style="width: 95%; margin: auto;">
+        </div>
 
-            <h2 class="blog-title .h-secondary center">"Title of the Blog"</h2>
-
-            <hr style="width: 50%; margin:auto; justify-content: center; ">
-
-            &nbsp;
-
-            <div class=" box">
-                <p id="writings" > YOUR CONTENT HERE.</p>
-            </div>
-        </div> -->
 
     </div>
 
-    <hr style="width: 20%; margin: auto; margin-bottom: 1rem;">
+    <hr style="width: 20%; margin: auto; margin-bottom: 2rem;">
 
 
     <!-- Main Content -->
 
     <div class="post-box">
-
-
-
-
         {% for post in posts %}
         <div class="post-preview">
             <a id="post-link" href="/post/{{post.slug}}">

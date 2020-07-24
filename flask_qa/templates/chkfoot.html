@@ -1,90 +1,47 @@
+&nbsp;
+
+
 <head>
-    <title>Coderg | coderg.org</title>
+    <link rel="stylesheet" href="/flask_qa/static/css/stylesh20.css">
 
-    <link rel="stylesheet" href="/flask_qa/static/css/stylesh7.css">
-    <link rel="stylesheet" href="/flask_qa/static/css/smallphone3.css">
-
-
-    <Style>
-        body {
-            background-color: white;
+    <style>
+        body{
+            background-color: black;
         }
-    </Style>
-
-
+    </style>
 </head>
 
-<body>
+&nbsp;
 
-    {% endblock %}
+<!-- <div class="pre-footer">
+    
+    <p><a id="cont" href="/contact">Contact Us</a></p>
+</div> -->
 
-    <!-- NAVBAR -->
-
-
-    {% block body %}
-
-    <div class="section" id="coderg">
-        <h1 class="h-primary"> WELCOME TO CODERG</h1>
-        <hr id="horl">
-        <p>Hey programmer, Welcome to this world of coding society.</p>
-        <p>We are the bunch of enthusiasts who are crazy about programming and want to learn new tricks and
-            picks together.</p>
-
-        <!-- <div class="btn-lgsu"><button onclick=onclick="window.location.href='/lisu';" id="admin"></button></div> -->
-        &nbsp;
+&nbsp;
 
 
+<footer>
+
+    <div class="left">Copyright &copy CODERG.2020 | <span id="time"> </span></div>
+
+
+    <div id="updateinfo">Last updated on: July 23,2020. | <span><p id="version">v 3.0.0</p></span> </div>
+
+    <div id="des-man">
+        <p class="comp">| Designed and Managed by: <a href="/about"
+                style="text-decoration: none; color: rgb(247, 217, 85); ">codergdevelopers. </a>|</p>
     </div>
+</footer>
+<script>
+    function currenttime() {
+        time = new Date();
+        console.log(time);
+        document.getElementById('time').innerHTML = time;
+    }
+
+    setInterval(currenttime, 1000);
+
+</script>
 
 
-
-
-
-
-    <div class="projects-container">
-        <h1 class="h-primary centre">Our Projects</h1>
-        <div id="projects">
-            <div class="box">
-                <img src="{{url_for('static',filename='img/python.png')}}" alt="python.png">
-                <h2 class=".h-secondary">Python projects</h2>
-                <p>Python, the programmers language, here we have some of our ongoing live projects.</p>
-                <div class="explore">
-                    <a href="/projects">Explore</a>
-                </div>
-            </div>
-            <div class="box">
-                <img src="{{url_for('static',filename='img/java.png')}}" alt="java.png">
-                <h2 class=".h-secondary">Java projects</h2>
-                <p>To check out some of our java projects just click on the explore.</p>
-                <div class="explore">
-                    <a href="/projects">Explore</a>
-                </div>
-            </div>
-            <div class="box">
-                <img src="{{url_for('static',filename='img/css.png')}}" alt="css.png">
-                <h2 class=".h-secondary">WebD projects</h2>
-                <p>Well guys, the site you are using right now is one of our project only.</p>
-                <div class="explore">
-                    <a href="/projects">Explore</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="s-m">
-        <!-- <strong><p class="h-secondary centre" style=" display:block ; padding-left: 5rem;">Connect At :-</p></strong> -->
-        <div class="icon-box">
-            <div class="icon">
-                <a href=""><img src="/flask_qa/static/icons/github.png" alt="github" width="40px" height="40px"></a>
-            </div>
-            <div class="icon">
-                <a href=""><img src="/flask_qa/static/icons/twitter.png" alt="twitter" width="40px" height="40px"></a>
-            </div>
-            <div class="icon">
-                <a href=""><img src="/flask_qa/static/icons/instagram.png" alt="instagram" width="40px" height="40px"></a>
-            </div>
-        </div>
-    </div>
-
-
-   
