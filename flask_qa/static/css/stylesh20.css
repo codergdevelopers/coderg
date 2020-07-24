@@ -460,21 +460,16 @@
     display: block;
 }
 
-#version{
-    color:rgb(68, 0, 177); 
-    font-size: 1.5rem;
-    padding-left: .5rem;
-}
-#cont{
-    color:rgb(89, 157, 247);
+
+
+.contact{
+    display: block;
     text-decoration: none; 
     font-size: 2rem;
-    float: right;
-    margin-right: 1.2rem;
-    position: relative;
-    bottom: 2rem;
+    width: max-content;
+    margin: auto;
 }
-#cont:hover{
+.contact:hover{
     color: seagreen;
     transition-property: all;
     transition-duration: 1sec;
@@ -491,15 +486,22 @@ footer{
     height: 1;
 }
 
-#time{
-    /* display: block; */
-    float: right;
-    margin-right: -9.5rem;
-    position: relative;
+
+.copyright{
+    display: block;
 }
 
-#updateinfo{
-    padding-left: 0rem;
+#time{
+    float: right;
+    margin-right: .5rem;
+}
+.updateinfo{
+    display: block;
+}
+
+#version{
+    float: right;
+    margin-right: .5rem;
 }
 
 #des-man{
