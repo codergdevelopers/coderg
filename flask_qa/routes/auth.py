@@ -7,6 +7,7 @@ from flask_qa.models import User
 
 auth = Blueprint('auth', __name__)
 
+
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -14,9 +15,9 @@ def register():
         unhashed_password = request.form['password']
 
         user = User(
-            name=name, 
+            name=name,
             unhashed_password=unhashed_password,
-            admin=False,  
+            admin=False,
             expert=False
         )
 
@@ -26,6 +27,7 @@ def register():
         return redirect(url_for('auth.login'))
 
     return render_template('register.html')
+
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -45,6 +47,7 @@ def login():
             return redirect(url_for('main.index'))
 
     return render_template('login.html')
+
 
 @auth.route('/logout')
 def logout():
