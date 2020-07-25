@@ -216,6 +216,7 @@
 }
 
 .h-primary-projects{
+    padding: 1rem;
     color: black;
 }
 .para{
@@ -471,7 +472,7 @@
     text-decoration: none;
     color: silver;
 }
-.contact:hover{
+.contact p a:hover{
     color: seagreen;
     transition-property: all;
     transition-duration: 1sec;
@@ -683,4 +684,7 @@ td{
     color: burlywood;
 }
 
-
+.hr-all{
+    width: 95%;
+    margin: auto;
+}
