@@ -325,13 +325,13 @@
 
 #left{
     float: left;
-    color: limegreen;
+    color: rgb(22, 21, 21);
     text-decoration: none;
 }
 
 #right{
     float: right;
-    color: limegreen;
+    color: rgb(22, 21, 21);
     text-decoration: none;
 }
 
