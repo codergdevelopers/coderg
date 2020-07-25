@@ -62,7 +62,9 @@
 
 /* BLOGS AND POST */
 
-
+.post > p{
+    font-size: 1rem;
+}
 
 
 #about .about-cantainer {

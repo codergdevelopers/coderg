@@ -210,9 +210,13 @@
 
 .pro-details{
     
-    color: whitesmoke;
+    color: black;
     font-family:   'Open Sans', sans-serif;
     font-size: medium;
+}
+
+.h-primary-projects{
+    color: black;
 }
 .para{
     color: white;
@@ -552,6 +556,15 @@ footer{
     color: whitesmoke;
     padding: 20px;
     font-family:  'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.post > p{
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .h-secondary{

@@ -76,6 +76,11 @@
 
 .post::before{
     height: 20rem;
+    
+}
+
+.post > p{
+    font-size: 1rem;
 }
 
 /* ABOUT */
