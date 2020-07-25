@@ -94,13 +94,6 @@
     width: 3.5rem;
 }
 
-.founders{
-    flex-direction: column;
-    justify-content: center;
-    padding: inherit;
-    width: auto;
-    margin: auto;
-}
 
 
 #about .about-cantainer {

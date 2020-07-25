@@ -385,11 +385,6 @@
 .founders{
     display: flex;
     flex-direction: row;
-    padding: 1rem;
-    width: 100%;
-    margin: auto;
-    box-sizing: border-box;
-    
 }
 
 #deep{
