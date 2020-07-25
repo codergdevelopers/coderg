@@ -219,7 +219,7 @@
     color: black;
 }
 .para{
-    color: white;
+    color: black;
 }
 .Java p{
     text-align: left;
@@ -230,7 +230,7 @@
 .pro{
     padding: 2px;
     text-decoration: none;
-    color:  rgb(181, 146, 238);
+    color:  rgb(128, 38, 211);
 }
 .pro:hover{
     font-weight: bold;
@@ -558,6 +558,10 @@ footer{
     font-family:  'Open Sans', sans-serif;
     display: flex;
     justify-content: center;
+}
+
+.description{
+    margin-top: 1rem;
 }
 
 .description p{
