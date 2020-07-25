@@ -296,8 +296,7 @@
 .post{
     display: flex;
     flex-direction: column;
-    padding: 10x 250px;
-    height: 20rem;
+    height: 26rem;
     justify-content: center;
     align-items: center;
 }
@@ -306,7 +305,7 @@
     content: '';
     background-color: rgb(0, 0, 0);
     position: absolute;
-    height: 22rem;
+    height: 28rem;
     width: 100%;
     z-index: -1;
     opacity: .85;
@@ -405,12 +404,6 @@
     width: 10rem;
 }
 
-.pro-pic{
-    
-    width: min-content;
-    border: 2px solid rgb(159, 111, 235);
-    border-radius: 200em;
-}
 
 
 .about-container{
