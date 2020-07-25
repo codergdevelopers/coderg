@@ -210,12 +210,17 @@
 
 .pro-details{
     
-    color: whitesmoke;
+    color: black;
     font-family:   'Open Sans', sans-serif;
     font-size: medium;
 }
+
+.h-primary-projects{
+    padding: 1rem;
+    color: black;
+}
 .para{
-    color: white;
+    color: black;
 }
 .Java p{
     text-align: left;
@@ -226,7 +231,7 @@
 .pro{
     padding: 2px;
     text-decoration: none;
-    color:  rgb(181, 146, 238);
+    color:  rgb(128, 38, 211);
 }
 .pro:hover{
     font-weight: bold;
@@ -296,8 +301,7 @@
 .post{
     display: flex;
     flex-direction: column;
-    padding: 10x 250px;
-    height: 20rem;
+    height: 26rem;
     justify-content: center;
     align-items: center;
 }
@@ -306,7 +310,7 @@
     content: '';
     background-color: rgb(0, 0, 0);
     position: absolute;
-    height: 22rem;
+    height: 28rem;
     width: 100%;
     z-index: -1;
     opacity: .85;
@@ -325,13 +329,13 @@
 
 #left{
     float: left;
-    color: limegreen;
+    color: rgb(22, 21, 21);
     text-decoration: none;
 }
 
 #right{
     float: right;
-    color: limegreen;
+    color: rgb(22, 21, 21);
     text-decoration: none;
 }
 
@@ -381,11 +385,6 @@
 .founders{
     display: flex;
     flex-direction: row;
-    padding: 1rem;
-    width: 100%;
-    margin: auto;
-    box-sizing: border-box;
-    
 }
 
 #deep{
@@ -405,12 +404,6 @@
     width: 10rem;
 }
 
-.pro-pic{
-    
-    width: min-content;
-    border: 2px solid rgb(159, 111, 235);
-    border-radius: 200em;
-}
 
 
 .about-container{
@@ -440,7 +433,7 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    width: 80%;
+    width: 98%;
     border: 2px solid rgb(159, 111, 235);
     border-radius: 40px;
     margin: auto;
@@ -451,10 +444,7 @@
     justify-content: center;
     font-size: 1.5rem;
 }
-.contact-container p{
-    color: whitesmoke;
-    font-family: 'Baloo Bhaina 2', cursive;
-}
+
 
 /* PRE-FOOTER */
 
@@ -474,7 +464,7 @@
     text-decoration: none;
     color: silver;
 }
-.contact:hover{
+.contact p a:hover{
     color: seagreen;
     transition-property: all;
     transition-duration: 1sec;
@@ -559,6 +549,19 @@ footer{
     color: whitesmoke;
     padding: 20px;
     font-family:  'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.description{
+    margin-top: 1rem;
+}
+
+.description p{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .h-secondary{
@@ -673,4 +676,7 @@ td{
     color: burlywood;
 }
 
-
+.hr-all{
+    width: 95%;
+    margin: auto;
+}

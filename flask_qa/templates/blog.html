@@ -22,7 +22,10 @@
 
         <div style="padding-bottom: 5rem;">
             <h1 class="h-primary-head">Blogs</h1>
-            <hr style="width: 95%; margin: auto;">
+            <hr style="width: 98%; margin: auto;">
+            <div class="description">
+                <p>Code-"Read"-Repeat</p>
+            </div>
         </div>
 
 
@@ -35,22 +38,24 @@
 
     <div class="post-box">
         {% for post in posts %}
-        <div class="post-preview">
-            <a id="post-link" href="/post/{{post.slug}}">
+        <a id="post-link" href="/post/{{post.slug}}">
+            <div class="post-preview">
+
                 <h2 class="post-title">
                     {{post.title}}
                 </h2>
-            </a>
-            <h3 class="post-subtitle">
-                {{post.tagline}}
-            </h3>
-            <p class="post-meta">Posted by
-                <a id="fullname" href="#">{{post.fullname}}</a>
-                on {{post.date}}</p>
-            <div class="post-start">
-                {{post.content[0:50]}}...
+
+                <h3 class="post-subtitle">
+                    {{post.tagline}}
+                </h3>
+                <p class="post-meta">Posted by
+                    <a id="fullname" href="#">{{post.fullname}}</a>
+                    on {{post.date}}</p>
+                <div class="post-start">
+                    {{post.content[0:50]}}...
+                </div>
             </div>
-        </div>
+        </a>
         <hr>
         {% endfor %}
 

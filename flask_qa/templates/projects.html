@@ -1,49 +1,69 @@
 {% extends "layout.html" %}
 {% block head %}
 
-    <title>Projects</title>
-    <style>
-        body{
-            background-color: black;
-        }
-    </style>
+<title>Projects</title>
+<style>
+    body {
+        background-color: silver;
+    }
+</style>
 </head>
+
 <body>
 
-{% endblock %}
+    {% endblock %}
 
     <!-- NAVBAR -->
-    
-{% block body %}
 
-    <div class="project-d h-primary">
-        <div class="Python centre">
+    {% block body %}
+
+
+    <div class="post">
+
+        <div style="padding-bottom: 5rem;">
+            <h1 class="h-primary-head ">Projects</h1>
+            <hr style="width: 95%; margin: auto;">
+            <div class="description">
+                <p>Linus Torvalds once said - "Talk is cheap, show me the code."</p>
+                <p>Here we have our git repos.</p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="">
+        <div class="centre">
 
             {% for category in categories %}
             {% set cnt = [0] %}
-            
 
-            <h2 class="h-primary">{{category.upper()}}</h2>
-            <hr>
+
+            <h2 class="h-primary-projects">{{category.upper()}}</h2>
+            <hr class="hr-all">
             <div class="py" id="pyth">
                 {% for project in projects %}
                 {% if project.category == category %}
-               
+
                 {% if cnt.append(cnt.pop()+1) %}{% endif %}
-               
-               
+
+
                 <p class="para">{{ cnt[0] }}.</p>
-                <p class="pro-details">Name : <a class="pro" target="_blank"s href="{{project.link}}">{{project.title}}.</a></p>
+                <p class="pro-details">Name : <a class="pro" target="_blank" s
+                        href="{{project.link}}">{{project.title}}.</a></p>
                 <p class="pro-details">Language : {{project.language}}.</p>
                 <p class="pro-details">Purpose : {{project.purpose}}.</p>
                 <p class="pro-details">Working on : {{project.working_on}}.</p>
                 <p class="pro-details">Author : {{project.author}}.</p>
-                   
-                &nbsp; 
-                
+
+                &nbsp;
+
                 {% endif %}
                 {% endfor %}
-                
+
 
             </div>
             {% endfor %}

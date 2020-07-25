@@ -63,6 +63,30 @@
     font-size: 0.8rem;
 }
 
+.description p{
+    font-size: 1rem;
+}
+
+
+
+/* -------------------------------------------------------------------------------- */
+
+
+
+.post{
+    height: 18rem;
+    
+}
+
+.post::before{
+    height: 20rem;
+    
+}
+
+.post > p{
+    font-size: 1rem;
+}
+
 /* ABOUT */
 
 .pro-pic img{
@@ -70,13 +94,6 @@
     width: 3.5rem;
 }
 
-.founders{
-    flex-direction: column;
-    justify-content: center;
-    padding: inherit;
-    width: auto;
-    margin: auto;
-}
 
 
 #about .about-cantainer {

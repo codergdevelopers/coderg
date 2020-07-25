@@ -4,7 +4,7 @@
 <title>About</title>
 <style>
     body {
-        background-color: black;
+        background-color: silver;
     }
 </style>
 </head>
@@ -17,32 +17,46 @@
 
     {% block body %}
 
+    <div class="post">
+
+        <div style="padding-bottom: 5rem;">
+            <h1 class="h-primary-head">Founders</h1>
+            <hr style="width: 95%; margin: auto;">
+        </div>
 
 
-    
-    <div id="about" class="whtsmk small">
-        <h1 class="h-primary centre">FOUNDERS</h1>
-        <hr style="width: 90%; margin: auto;">
-        <div class="about-container ">
-            <div class="founders .small">
-    
-                <div id="deep">
-                    <div class="pro-pic"> <a href="https://github.com/deepanshdubey"><img src="{{url_for('static', filename='img/deepansh.png')}}" height="200rem" width="200rem"
-                        alt="profile picture"></a> </div>
-                    <h3>Deepansh Dubey</h3>
-                    <h4>Pursuing B-Tech (Computer Science & Engineering)</h4>
-                </div>
-    
-                &nbsp;
-    
-                <div id="aqua">
-                    <div class="pro-pic"> <a href="https://github.com/aqdasak"><img src="{{url_for('static', filename='img/aqdas.png')}}" height="200rem" width="200rem"
-                        alt="profile picture"></a> </div>
-                    <h3>Aqdas Ahmad Khan</h3>
-                    <h4>Pursuing B.Sc(Hons) in Computer Applications</h4>
-                </div>
+    </div>
+
+    <hr style="width: 20%; margin: auto; margin-bottom: 2rem;">
+
+
+
+
+    <div id="about" class=" post-box small">
+
+        <div class="founders">
+
+            <div id="deep">
+                <div class="pro-pic"> <a href="https://github.com/deepanshdubey"><img
+                            src="{{url_for('static', filename='img/deepansh.png')}}" height="200rem" width="200rem"
+                            alt="profile picture"></a> </div>
+                <h3>Deepansh Dubey</h3>
+                <h4>Pursuing B-Tech</h4>
+                <h4>(Computer Science & Engineering)</h4>
+            </div>
+
+            &nbsp;
+
+            <div id="aqua">
+                <div class="pro-pic"> <a href="https://github.com/aqdasak"><img
+                            src="{{url_for('static', filename='img/aqdas.png')}}" height="200rem" width="200rem"
+                            alt="profile picture"></a> </div>
+                <h3>Aqdas Ahmad Khan</h3>
+                <h4>Pursuing B.Sc(Hons)</h4>
+                <h4>Computer Applications</h4>
             </div>
         </div>
+
     </div>
 
 
