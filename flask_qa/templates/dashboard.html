@@ -76,7 +76,7 @@
                         <td>{{post.fullname}}</td>
                         <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
                                     class="admin">Edit</button></a></td>
-                        <td><a onclick="onclick= disp_warn()" href="/delete/{{post.sno}}"
+                        <td><a onclick= "disp_warn()" href="/delete/{{post.sno}}"
                                 style="text-decoration: none;"><button class="admin">Delete</button></a></td>
                     </tr>
 
@@ -94,8 +94,20 @@
 
 <script>
     function disp_warn() {
-        alert('Your post will be permanently deleted.')
+        confirm("Your post will be permanently deleted.");
+        return disp_warn();
     }
+
+    if(disp_warn())
+    {
+
+    }
+    else
+    {
+        
+    }
+
+
 
 </script>
 
