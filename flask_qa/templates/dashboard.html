@@ -39,7 +39,7 @@
 {% endwith %}
 
 <!-- Main Content -->
-<div class="py whtsmk">
+<div class="py">
     <div class="row">
         <div class="blog-upload">
             <h1 class="h-primary">Basic actions</h1>
@@ -76,8 +76,8 @@
                         <td>{{post.fullname}}</td>
                         <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
                                     class="admin">Edit</button></a></td>
-                        <td><a onclick= "disp_warn()" href="/delete/{{post.sno}}"
-                                style="text-decoration: none;"><button class="admin">Delete</button></a></td>
+                        <td><a onclick="disp_warn()" href="/delete/{{post.sno}}" style="text-decoration: none;"><button
+                                    class="admin">Delete</button></a></td>
                     </tr>
 
                     {% if counter.append(counter.pop()+1) %}{% endif %}
@@ -94,17 +94,14 @@
 
 <script>
     function disp_warn() {
-        confirm("Your post will be permanently deleted.");
-        return disp_warn();
+        let deletepost = confirm("Your post will be permanently deleted.");
     }
 
-    if(disp_warn())
-    {
-
+    if (deletepost) {
+        <a  href="/delete/{{post.sno}}" style="text-decoration: none;"><button class="admin">Delete</button></a>
     }
-    else
-    {
-        
+    else {
+
     }
 
 
