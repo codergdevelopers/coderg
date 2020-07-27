@@ -76,7 +76,7 @@
                         <td>{{post.fullname}}</td>
                         <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
                                     class="admin">Edit</button></a></td>
-                        <td><a onclick="disp_warn()" href="/delete/{{post.sno}}" style="text-decoration: none;"><button
+                        <td><a onclick="disp_warn()" href= style="text-decoration: none;"><button
                                     class="admin">Delete</button></a></td>
                     </tr>
 
@@ -98,14 +98,9 @@
     }
 
     if (deletepost) {
-        // <a  href="/delete/{{post.sno}}" style="text-decoration: none;"><button class="admin">Delete</button></a>
+        window.open("/delete/{{post.sno}}" , "_self");
+        alert("Your post has been deleted successfully.")
     }
-    else {
-
-    }
-
-
-
 </script>
 
 {% endblock %}
