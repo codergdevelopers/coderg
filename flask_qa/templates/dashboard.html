@@ -76,8 +76,7 @@
                         <td>{{post.fullname}}</td>
                         <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
                                     class="admin">Edit</button></a></td>
-                        <td><a onclick="disp_warn()" href="/delete/{{post.sno}}" style="text-decoration: none;"><button
-                                    class="admin">Delete</button></a></td>
+                        <td><button onclick="disp_warn()" class="admin">Delete</button></td>
                     </tr>
 
                     {% if counter.append(counter.pop()+1) %}{% endif %}
@@ -102,6 +101,13 @@
     }
     else {
 
+        if (deletepost) {
+            window.open("https://www.google.com/", "_self");
+            alert("Your post has been deleted successfully.");
+        }
+        else {
+            window.open("#")
+        }
     }
 
 
