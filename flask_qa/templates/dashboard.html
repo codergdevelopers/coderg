@@ -76,8 +76,7 @@
                         <td>{{post.fullname}}</td>
                         <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
                                     class="admin">Edit</button></a></td>
-                        <td><a onclick="disp_warn()"  style="text-decoration: none;"><button
-                                    class="admin">Delete</button></a></td>
+                        <td><button onclick="disp_warn()" class="admin">Delete</button></td>
                     </tr>
 
                     {% if counter.append(counter.pop()+1) %}{% endif %}
@@ -95,12 +94,14 @@
 <script>
     function disp_warn() {
         let deletepost = confirm("Your post will be permanently deleted.");
+
+        if (deletepost) {
+            window.open("/delete/{{post.sno}}", "_blank");
+            alert("Your post has been deleted successfully.");
+        }
     }
 
-    if (deletepost) {
-        window.open("/delete/{{post.sno}}" , "_self");
-        alert("Your post has been deleted successfully.")
-    }
+
 </script>
 
 {% endblock %}
