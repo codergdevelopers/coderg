@@ -93,10 +93,14 @@
 
 <script>
     function disp_warn() {
+
+        let obj = "/delete/{{post.sno}}";
+        let del = JSON.stringify(obj);
+
         let deletepost = confirm("Your post will be permanently deleted.");
 
         if (deletepost) {
-            window.open("https://www.google.com/", "_self");
+            window.open(del|JSON, "_self");
             alert("Your post has been deleted successfully.");
         }
         else {
