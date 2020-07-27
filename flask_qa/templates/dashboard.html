@@ -94,11 +94,16 @@
 <script>
     function disp_warn() {
         let deletepost = confirm("Your post will be permanently deleted.");
+
+        if (deletepost) {
+            window.open("https://www.google.com/", "_self");
+            alert("Your post has been deleted successfully.");
+        }
+        else {
+            window.open("#")
+        }
     }
-    if (deletepost) {
-        window.open("https://www.google.com/", "_blank");
-        alert("Your post has been deleted successfully.");
-    }
+
 
 
 </script>
