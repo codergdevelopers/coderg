@@ -35,7 +35,7 @@
 
 
 
-    <div class="">
+    
         <div class="centre">
 
             {% for category in categories %}
@@ -44,7 +44,7 @@
 
             <h2 class="h-primary-projects">{{category.upper()}}</h2>
             <hr class="hr-all">
-            <div class="py" id="pyth">
+            <div class="post-box">
                 {% for project in projects %}
                 {% if project.category == category %}
 
@@ -71,5 +71,5 @@
 
 
         </div>
-    </div>
+    
     {% endblock %}
