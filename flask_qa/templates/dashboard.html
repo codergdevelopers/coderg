@@ -40,30 +40,35 @@
 <div class="post-box">
 
 
-    <h1 class="h-primary">Basic actions</h1>
+    <h1 class="h-primary-head">Basic actions</h1>
 
     <a href="/edit/0" style="text-decoration: none;"><button class="admin">Add a new post</button></a>
     <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
     <hr>
-    <h1 class="h-primary">Upload a file</h1>
+    <h1 class="h-primary-head">Upload a file</h1>
 
     <form action="/uploader" method="post" enctype="multipart/form-data">
         <button style="display: contents;"><input class="browse" type="file" name="file1"></button>
         <button type="submit" class="admin">Submit</button>
     </form>
     <hr>
-    <table class="table-blog">
-        <thead>
-            <tr id="tab">
-                <th id="tab-item" style="border-top-left-radius: 20px;">S.no.</th>
-                <th>Title</th>
-                <th>Tagline</th>
-                <th>Author</th>
-                <th>Edit</th>
-                <th style="border-top-right-radius: 20px;">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
+
+    
+    <div class="table">
+        <table >
+            <thead>
+                <tr id="tab">
+                    <th id="tab-item" style="border-top-left-radius: 20px;">S.no.</th>
+                    <th>Title</th>
+                    <th>Tagline</th>
+                    <th>Author</th>
+                    <th>Edit</th>
+                    <th style="border-top-right-radius: 20px;">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+    </div>
+    
 
             {% set counter = [1] %}
             {% for post in posts %}

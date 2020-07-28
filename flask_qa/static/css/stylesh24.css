@@ -403,6 +403,10 @@
     height: 10rem;
     width: 10rem;
 }
+.pro-pic img:hover{
+    transition-property: all;
+    transform: scale3d(1.1,1.1,1.1);
+}
 
 
 
@@ -630,9 +634,7 @@ footer{
     color: whitesmoke;
 }
 
-.table-blog{
-    color: white;
-}
+
 
 th{
     padding: 0.5rem 1.5rem;
@@ -669,6 +671,12 @@ td{
     width: 1px;
     margin: auto;
     padding: .1rem;
+}
+.icon:hover{
+    
+    transition-property: all;
+    transform: scale3d(1.1,1.1,1.1);
+    
 }
 
 #fullname{
