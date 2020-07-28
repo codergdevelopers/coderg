@@ -2,11 +2,7 @@
 {% block head %}
 
 <title>Projects</title>
-<style>
-    body {
-        background-color: silver;
-    }
-</style>
+
 </head>
 
 <body>
@@ -35,41 +31,41 @@
 
 
 
-    
-        <div class="centre">
 
-            {% for category in categories %}
-            {% set cnt = [0] %}
+    <div class="centre">
 
-
-            <h2 class="h-primary-projects">{{category.upper()}}</h2>
-            <hr class="hr-all">
-            <div class="post-box">
-                {% for project in projects %}
-                {% if project.category == category %}
-
-                {% if cnt.append(cnt.pop()+1) %}{% endif %}
+        {% for category in categories %}
+        {% set cnt = [0] %}
 
 
-                <p class="para">{{ cnt[0] }}.</p>
-                <p class="pro-details">Name : <a class="pro" target="_blank" s
-                        href="{{project.link}}">{{project.title}}.</a></p>
-                <p class="pro-details">Language : {{project.language}}.</p>
-                <p class="pro-details">Purpose : {{project.purpose}}.</p>
-                <p class="pro-details">Working on : {{project.working_on}}.</p>
-                <p class="pro-details">Author : {{project.author}}.</p>
+        <h2 class="h-primary-projects">{{category.upper()}}</h2>
+        <hr class="hr-all">
+        <div class="post-box">
+            {% for project in projects %}
+            {% if project.category == category %}
 
-                &nbsp;
-
-                {% endif %}
-                {% endfor %}
+            {% if cnt.append(cnt.pop()+1) %}{% endif %}
 
 
-            </div>
+            <p class="para">{{ cnt[0] }}.</p>
+            <p class="pro-details">Name : <a class="pro" target="_blank" s
+                    href="{{project.link}}">{{project.title}}.</a></p>
+            <p class="pro-details">Language : {{project.language}}.</p>
+            <p class="pro-details">Purpose : {{project.purpose}}.</p>
+            <p class="pro-details">Working on : {{project.working_on}}.</p>
+            <p class="pro-details">Author : {{project.author}}.</p>
+
+            &nbsp;
+
+            {% endif %}
             {% endfor %}
 
 
-
         </div>
-    
+        {% endfor %}
+
+
+
+    </div>
+
     {% endblock %}
