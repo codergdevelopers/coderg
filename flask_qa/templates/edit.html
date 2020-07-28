@@ -49,36 +49,32 @@
     {% endwith %}
 
     <hr>
-    <div class=" py form-ed">
+    <div class=" post-box">
+
         <form name="sentMessage" id="" action="/edit/{{sno}}" method="post" novalidate>
+            <label for="name">Title</label>
+            <div>
+                <input type="text" class="" placeholder="Title" id="" name="title" value="{{post.title}}" required
+                    data-validation-required-message="Please enter a title.">
+            </div>
+            <br>
+            <label for="rollno">Tagline</label>
+            <div>
+                <input type="text" class="" placeholder="Tagline" id="" name="tline" value="{{post.tagline}}" required
+                    data-validation-required-message="Please enter your email address.">
+            </div>
+            <br>
+            <label for="disp">Content</label>
+            <div>
+                <textarea rows="5" class="" placeholder="Content" id="" name="content" required
+                    data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
+            </div>
+            <br>
+            <label for="email">Image File</label>
+            <div>
+                <input type="text" class="" placeholder="Image File" id="" name="img_file" value="{{post.img_file}}">
 
-            <label>Title</label>
-            <input type="text" class="" placeholder="Title" id="" name="title" value="{{post.title}}" required
-                data-validation-required-message="Please enter a title.">
-            <p class=""></p>
-
-            <label>Tagline</label>
-            <input type="text" class="" placeholder="Tagline" id="" name="tline" value="{{post.tagline}}" required
-                data-validation-required-message="Please enter your email address.">
-            <p class="help-block text-danger"></p>
-
-
-            <label>Slug</label>
-            <input type="text" class="" placeholder="Slug" id="" name="slug" value="{{post.slug}}" required
-                data-validation-required-message="Please enter slug.">
-            <p class=""></p>
-
-
-            <label>Content</label>
-            <textarea rows="5" class="" placeholder="Content" id="" name="content" required
-                data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
-            <p class="help-block text-danger"></p>
-
-
-            <label>Image File</label>
-            <input type="text" class="" placeholder="Image File" id="" name="img_file" value="{{post.img_file}}">
-            <p class="help-block text-danger"></p>
-
+            </div>
             <br>
             <div id="success"></div>
             <div class="">
