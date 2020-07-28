@@ -95,17 +95,17 @@
     function disp_warn(sno) {
 
 
-        let del = JSON.stringify(`/delete/${sno}`);
+        let del = `/delete/${sno}`;
 
         let deletepost = confirm("Your post will be permanently deleted.");
-    }
 
-    if (deletepost) {
-        window.open(del | JSON, "_self");
-        alert("Your post has been deleted successfully.");
-    }
-    else {
-        window.open("#")
+        if (deletepost) {
+            window.open(del);
+            alert("Your post has been deleted successfully.");
+        }
+        else {
+            window.open("#")
+        }
     }
 
 
