@@ -52,41 +52,40 @@
     <hr>
 
 
-    <div class="table">
-        <table>
-            <thead>
-                <tr id="tab">
-                    <th id="tab-item" style="border-top-left-radius: 20px;">S.no.</th>
-                    <th>Title</th>
-                    <th>Tagline</th>
-                    <th>Author</th>
-                    <th>Edit</th>
-                    <th style="border-top-right-radius: 20px;">Delete</th>
-                </tr>
-            </thead>
-            <tbody>
+
+    <table>
+        <thead>
+            <tr id="tab">
+                <th id="tab-item" style="border-top-left-radius: 20px;">S.no.</th>
+                <th>Title</th>
+                <th>Tagline</th>
+                <th>Author</th>
+                <th>Edit</th>
+                <th style="border-top-right-radius: 20px;">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
 
 
 
 
-                {% set counter = [1] %}
-                {% for post in posts %}
-                <tr>
-                    <td>{{ counter[0] }}</td>
-                    <td>{{post.title}}</td>
-                    <td>{{post.tagline}}</td>
-                    <td>{{post.fullname}}</td>
-                    <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
-                                class="admin">Edit</button></a>
-                    </td>
-                    <td><button onclick="disp_warn({{ post.sno }})" class="admin">Delete</button></td>
-                </tr>
+            {% set counter = [1] %}
+            {% for post in posts %}
+            <tr>
+                <td>{{ counter[0] }}</td>
+                <td>{{post.title}}</td>
+                <td>{{post.tagline}}</td>
+                <td>{{post.fullname}}</td>
+                <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button class="admin">Edit</button></a>
+                </td>
+                <td><button onclick="disp_warn({{ post.sno }})" class="admin">Delete</button></td>
+            </tr>
 
-                {% if counter.append(counter.pop()+1) %}{% endif %}
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+            {% if counter.append(counter.pop()+1) %}{% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
 
 </div>
 

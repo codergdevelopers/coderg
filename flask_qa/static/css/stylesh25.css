@@ -356,10 +356,9 @@
     font-family: 'Baloo Bhaina 2', cursive;
 }
 
-.table{
-    display: flex;
-    box-sizing: border-box;
-    overflow: hidden;
+table{
+   overflow-x: auto;
+
 }
 
 .tab{
