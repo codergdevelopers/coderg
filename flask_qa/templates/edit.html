@@ -7,15 +7,19 @@
 <div class="post">
 
     <div style="padding-bottom: 5rem;">
-      <h1 class="h-primary-head">Editor</h1>
-      <hr style="width: 95%; margin: auto;">
+        <h1 class="h-primary-head">Editor</h1>
+        <hr style="width: 95%; margin: auto;">
+        <div class="description">
+            <p>No one is perfect, hence mistake happens.</p>
+            <p>Here you can correct them all.</p>
+        </div>
     </div>
-  
-  
-  
-  </div>
-  
-  <hr style="width: 20%; margin: auto; margin-bottom: 2rem;">
+
+
+
+</div>
+
+<hr style="width: 20%; margin: auto; margin-bottom: 2rem;">
 
 
 <!-- <div>
@@ -25,10 +29,10 @@
 
 <!-- Main Content -->
 <div class="post-box">
-    <h1 class="h-primary">Basic actions</h1>
+    <h1>Basic actions</h1>
 
-    <button class="admin"><a href="/dashboard" style="text-decoration: none;">Dashboard home</a></button>
-    <button class="admin"><a href="/logout" style="text-decoration: none;">Logout</a></button>
+    <a href="/dashboard" style="text-decoration: none;"><button class="admin">Dashboard home</button></a>
+    <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
 
     <!-- Flash message -->
     {% with messages=get_flashed_messages(with_categories=True) %}
