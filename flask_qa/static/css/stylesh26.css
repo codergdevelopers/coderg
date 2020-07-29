@@ -322,7 +322,8 @@
     padding: .5rem;
     background: rgb(213, 224, 248);
     border: 0px;
-    border-radius: 10px;
+    border-radius: 15px;
+    width: 100%;
 }
 
 
@@ -696,4 +697,8 @@ td{
     width: 95%;
     margin: auto;
     margin-bottom: 1rem;
+}
+
+.after-del-msg{
+    
 }

@@ -31,14 +31,16 @@
 <div class="post-box">
     <h1>Basic actions</h1>
 
+    <button onclick="disp_warn({{ post.sno }})" class="admin">Delete post</button>
     <a href="/dashboard" style="text-decoration: none;"><button class="admin">Dashboard home</button></a>
     <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
+
 
     <!-- Flash message -->
     {% with messages=get_flashed_messages(with_categories=True) %}
     {% if messages %}
     {% for category,message in messages %}
-    <div class="" role="alert">
+    <div class="after-del-msg" role="alert">
         {{message}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -93,6 +95,22 @@
 </div>
 </div>
 </div>
+
+<script>
+    function disp_warn(sno) {
+
+
+        let del = `/delete/${sno}`;
+
+        let deletepost = confirm("Your post will be permanently deleted.");
+
+        if (deletepost) {
+            window.location.href = del;
+            // window.open(del);
+            // alert("Your post has been deleted successfully.");
+        }
+    }
+</script>
 
 
 
