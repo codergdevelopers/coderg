@@ -318,9 +318,12 @@
     left: 0px;
 }
 
-/* #post-link{
-
-} */
+#post-link{
+    padding: .5rem;
+    background: rgb(213, 224, 248);
+    border: 0px;
+    border-radius: 10px;
+}
 
 
 .navigate{

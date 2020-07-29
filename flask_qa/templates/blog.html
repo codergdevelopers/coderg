@@ -34,7 +34,8 @@
 
     <div class="post-box">
         {% for post in posts %}
-        <a id="post-link" href="/post/{{post.slug}}">
+
+        <button id="post-link" href="/post/{{post.slug}}">
             <div class="post-preview">
 
                 <h2 class="post-title">
@@ -51,7 +52,8 @@
                     {{post.content[0:50]}}...
                 </div>
             </div>
-        </a>
+        </button>
+
         <hr>
         {% endfor %}
 
