@@ -2,6 +2,73 @@
 {% block body %}
 
 
+<style>
+    @media only screen and (max-width: 580px)
+     {
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
+
+
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            margin: 0 0 1rem 0;
+        }
+
+        tr:nth-child(odd) {
+            background: #ccc;
+        }
+
+        td {
+
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        td:before {
+
+            position: absolute;
+
+            top: 0;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+
+        td:nth-of-type(1):before {
+            content: "First Name";
+        }
+
+        td:nth-of-type(2):before {
+            content: "Last Name";
+        }
+
+        td:nth-of-type(3):before {
+            content: "Job Title";
+        }
+
+        td:nth-of-type(4):before {
+            content: "Favorite Color";
+        }
+
+
+    }
+</style>
+
 </head>
 
 
@@ -46,7 +113,7 @@
             <tr id="tab">
                 <th id="tab-item" style="border-top-left-radius: 20px;">S.no.</th>
                 <th>Title</th>
-                <th>Tagline</th>
+                
                 <th>Author</th>
                 <th>Edit</th>
                 
@@ -56,23 +123,33 @@
 
 
 
-
-            {% set counter = [1] %}
-            {% for post in posts %}
-            <tr>
-                <td>{{ counter[0] }}</td>
-                <td>{{post.title}}</td>
-                <td>{{post.tagline}}</td>
-                <td>{{post.fullname}}</td>
-                <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button class="admin">Edit</button></a>
-                </td>
-                <td></td>
-            </tr>
-
-            {% if counter.append(counter.pop()+1) %}{% endif %}
-            {% endfor %}
-        </tbody>
-    </table>
+            
+            <body>
+                <table role="table">
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th role="columnheader">S.No.</th>
+                            <th role="columnheader">Title</th>
+                            <th role="columnheader">Author</th>
+                            <th role="columnheader">Edit</th>
+            
+                        </tr>
+                    </thead>
+                    <tbody role="rowgroup">
+                        <tr role="row">
+                            <td role="cell">{{ counter[0] }}</td>
+                            <td role="cell">{{post.title}}</td>
+                            <td role="cell">{{post.fullname}}</td>
+                            <td role="cell"><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
+                                        class="admin">Edit</button></a></td>
+                        </tr>
+            
+            
+                    </tbody>
+                </table>
+            </body>
+            
+            </html>
 
 
 </div>
