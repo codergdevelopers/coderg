@@ -210,12 +210,14 @@ def delete(sno):
         post = PostDb.query.filter_by(sno=sno).first()
         db.session.delete(post)
         db.session.commit()
+        flash("Post deleted successfully", "success")
 
     if 'user' in session:
         post = PostDb.query.filter_by(sno=sno).first()
         if post and post.username == session['user']:
             db.session.delete(post)
             db.session.commit()
+            flash("Post deleted successfully", "success")
 
     return redirect("/dashboard")
 
