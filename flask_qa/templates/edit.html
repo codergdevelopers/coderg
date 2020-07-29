@@ -64,9 +64,15 @@
                     data-validation-required-message="Please enter your email address.">
             </div>
             <br>
+            <div>
+                <input type="text" class="" placeholder="Slug" id="" name="slug" value="{{post.slug}}" required
+                    data-validation-required-message="Please enter a slug.">
+            </div>
+            <br>
             <label for="disp">Content</label>
             <div>
-                <textarea rows="15" style="width: 52rem; height: 15rem;" class="" placeholder="Content" id="" name="content" required
+                <textarea rows="15" style="width: 100%; height: 15rem;" class="" placeholder="Content" id=""
+                    name="content" required
                     data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
             </div>
             <br>
