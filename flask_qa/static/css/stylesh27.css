@@ -280,6 +280,9 @@
     display: grid;
     justify-content: center;
     justify-items: center;
+    background: white;
+    border: outset;
+    border-radius: 3rem;
 }
 
 
@@ -319,11 +322,7 @@
 }
 
 #post-link{
-    padding: .5rem;
-    background: rgb(213, 224, 248);
-    border: 0px;
-    border-radius: 15px;
-    width: 100%;
+    display: contents;
     cursor: pointer;
 }
 
@@ -700,7 +699,4 @@ td{
     margin-bottom: 1rem;
 }
 
-.after-del-msg{
 
-    
-}

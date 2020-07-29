@@ -31,19 +31,19 @@
 
 
     <!-- Main Content -->
-    
+
 
     <div class="post-box">
         {% for post in posts %}
 
-        <a href="/post/{{post.slug}}">
-            <button id="post-link" >
+        
+            <button onclick="disp_post()" id="post-link">
                 <div class="post-preview">
-    
+
                     <h2 class="post-title">
                         {{post.title}}
                     </h2>
-    
+
                     <h3 class="post-subtitle">
                         {{post.tagline}}
                     </h3>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </button>
-        </a>
+        
 
         <hr style="margin: 1rem;">
         {% endfor %}
@@ -73,6 +73,14 @@
             {% endif %}
         </div>
     </div>
+
+
+    <script>
+        function disp_post() {
+            let disp = `/post/{{post.slug}}`;
+            window.location.href = disp;
+        }
+    </script>
 
 
 
