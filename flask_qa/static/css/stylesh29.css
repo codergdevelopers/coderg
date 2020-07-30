@@ -619,7 +619,8 @@ footer{
     background-color: black;
     font-family:  'Open Sans', sans-serif;
     border: 1.5px solid rgb(143, 181, 236);
-    margin-inline-start: 34rem;
+    margin-inline-start: 35rem;
+    font-size: 1rem;
 }
 
 #entercod:hover{
@@ -628,6 +629,7 @@ footer{
     transform: scale3d(1.2,1.2,1.2);
     color: rgb(79, 216, 79);
     border: 1.5px solid rgb(110, 207, 170);
+    
 }
 
 .browse{
@@ -646,12 +648,13 @@ footer{
 
 th{
     padding: 0.5rem 1.5rem;
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
 }
 
 td{
     padding: 0rem 2.95rem;
     border: 2px solid grey;
+    border-radius: 4px;
 }
 
 .s-m{
