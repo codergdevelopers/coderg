@@ -295,7 +295,7 @@
     margin: 10px;
     width: 80%;
     margin: auto;
-    overflow-wrap: break-word;
+    word-wrap: break-word;
 
 }
 .post-box-content{
@@ -450,7 +450,7 @@ table{
     flex-direction: column;
     height: auto;
     width: 98%;
-    border: 2px solid black;
+    border: 2px solid gray;
     border-radius: 40px;
     margin: auto;
     margin-top: 3rem;
