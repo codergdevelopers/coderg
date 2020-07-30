@@ -77,7 +77,7 @@
 
     <script>
         function disp_post(slug) {
-            let disp = `/post/${slug}`;
+            let disp = "/post/".concat(slug);
             window.location.href = disp;
         }
     </script>
