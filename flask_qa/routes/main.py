@@ -86,13 +86,14 @@ def signup():
     if request.method == 'POST':
         fullname = request.form.get('fullname').title()
         username = request.form.get('uname').lower()
+        email = request.form.get('email')
         password1 = request.form.get('pass1')
         password2 = request.form.get('pass2')
         # checking against existing usernames
         user = UserDb.query.filter_by(username=username).first()
         if not user:
             if password1 == password2:
-                user = UserDb(fullname=fullname, username=username,
+                user = UserDb(fullname=fullname, username=username, email=email,
                               password=sha256(password1.encode('utf-8')).hexdigest())
                 db.session.add(user)
                 db.session.commit()

@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash
 
 from .extensions import db
 
+
 # This class is from the original file
 # Removing this affects auth.py
 class User(UserMixin, db.Model):
@@ -16,8 +17,10 @@ class User(UserMixin, db.Model):
 class UserDb(db.Model):
     fullname = db.Column(db.String(), nullable=False)
     username = db.Column(db.String(), primary_key=True, unique=True, nullable=False)
+    email = db.Column(db.String(), nullable=False)
     password = db.Column(db.String(200), nullable=False)
     admin = db.Column(db.Boolean, default=False)
+
 
 class Projects(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
@@ -28,6 +31,7 @@ class Projects(db.Model):
     working_on = db.Column(db.String(), unique=False, nullable=False)
     link = db.Column(db.String(), unique=False, nullable=False)
     author = db.Column(db.String(), unique=False, nullable=False)
+
 
 class PostDb(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
@@ -41,4 +45,3 @@ class PostDb(db.Model):
     img_file = db.Column(db.String(), nullable=True)
 # author is the username of the user
 # name should be fetched from UserDb
-

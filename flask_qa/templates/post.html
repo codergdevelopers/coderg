@@ -43,7 +43,9 @@
 
 
     <div class="post-box-content">
-      {{post.content}}
+      {% autoescape false %}
+      {{ post.content | replace('\n', '<br>') }}
+      {% endautoescape %}
     </div>
 
     <hr>
