@@ -37,7 +37,7 @@
         {% for post in posts %}
 
         
-            <button onclick="disp_post()" id="post-link">
+            <button onclick="disp_post({{ post.slug }})" id="post-link">
                 <div class="post-preview">
 
                     <h2 class="post-title">
@@ -76,9 +76,9 @@
 
 
     <script>
-        function disp_post() {
-            let disp = `/post/{{post.slug}}`;
-            window.open.href = disp;
+        function disp_post(slug) {
+            let disp = `/post/${slug}`;
+            window.location.href = disp;
         }
     </script>
 
