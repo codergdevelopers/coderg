@@ -3,8 +3,8 @@
 
 
 <style>
-    @media only screen and (max-width: 580px)
-     {
+    @media only screen and (max-width: 580px) {
+
         table,
         thead,
         tbody,
@@ -113,17 +113,17 @@
             <tr id="tab">
                 <th id="tab-item" style="border-top-left-radius: 20px;">S.no.</th>
                 <th>Title</th>
-                
+
                 <th>Author</th>
                 <th>Edit</th>
-                
+
             </tr>
         </thead>
         <tbody>
 
 
 
-            
+
             <body>
                 <table role="table">
                     <thead role="rowgroup">
@@ -132,10 +132,13 @@
                             <th role="columnheader">Title</th>
                             <th role="columnheader">Author</th>
                             <th role="columnheader">Edit</th>
-            
+
                         </tr>
                     </thead>
                     <tbody role="rowgroup">
+
+                        {% set counter = [1] %}
+                        {% for post in posts %}
                         <tr role="row">
                             <td role="cell">{{ counter[0] }}</td>
                             <td role="cell">{{post.title}}</td>
@@ -143,12 +146,13 @@
                             <td role="cell"><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
                                         class="admin">Edit</button></a></td>
                         </tr>
-            
-            
+
+                        {% if counter.append(counter.pop()+1) %}{% endif %}
+                        {% endfor %}
                     </tbody>
                 </table>
             </body>
-            
+
             </html>
 
 
