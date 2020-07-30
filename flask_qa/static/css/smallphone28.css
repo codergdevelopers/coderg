@@ -109,6 +109,11 @@
     font-size: 1.75rem;
 }
 
+.contact-container{
+    width: 90%;
+    margin: auto;
+}
+
 .small{
     font-size: .8rem;
 }
