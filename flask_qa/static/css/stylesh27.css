@@ -646,12 +646,13 @@ footer{
 
 th{
     padding: 0.5rem 1.5rem;
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
 }
 
 td{
     padding: 0rem 2.95rem;
     border: 2px solid grey;
+    border-radius: 4px;
 }
 
 .s-m{
