@@ -295,6 +295,7 @@
     margin: 10px;
     width: 80%;
     margin: auto;
+    overflow-wrap: break-word;
 
 }
 .post-box-content{
