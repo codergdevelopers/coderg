@@ -628,6 +628,7 @@ footer{
     transform: scale3d(1.2,1.2,1.2);
     color: rgb(79, 216, 79);
     border: 1.5px solid rgb(110, 207, 170);
+    font-size: 1rem;
 }
 
 .browse{
