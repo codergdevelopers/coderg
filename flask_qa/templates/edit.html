@@ -35,7 +35,7 @@
     <a href="/dashboard" style="text-decoration: none;"><button class="admin">Dashboard home</button></a>
     <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
 
-
+{#
     <!-- Flash message -->
     {% with messages=get_flashed_messages(with_categories=True) %}
     {% if messages %}
@@ -49,6 +49,8 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
+
+    #}
 
     <hr style="margin-bottom: 1rem;">
     <div class=" post-box">
@@ -78,11 +80,13 @@
                     data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
             </div>
             <br>
+            {#
             <label for="email">Image File</label>
             <div>
                 <input type="text" class="" placeholder="Image File" id="" name="img_file" value="{{post.img_file}}">
 
             </div>
+            #}
             <br>
             <div id="success"></div>
             <div class="">
