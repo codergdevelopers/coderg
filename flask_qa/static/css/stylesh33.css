@@ -453,7 +453,8 @@ table{
     margin: auto;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    padding: 2px;
+    padding: 1rem;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
