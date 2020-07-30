@@ -38,6 +38,7 @@
 
         
             <button onclick="disp_post({{ post.slug }})" id="post-link">
+                <a href="/{{ post.slug }}">
                 <div class="post-preview">
 
                     <h2 class="post-title">
@@ -54,6 +55,7 @@
                         {{post.content[0:50]}}...
                     </div>
                 </div>
+                </a>
             </button>
         
 
@@ -74,14 +76,14 @@
         </div>
     </div>
 
-
+{#
     <script>
         function disp_post(slug) {
             let disp = "/post/".concat(slug);
             window.location.href = disp;
         }
     </script>
-
+#}
 
 
 
