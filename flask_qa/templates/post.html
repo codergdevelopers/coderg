@@ -42,11 +42,11 @@
     <hr>
 
 
-    <div class="post-box-content">
+    
       {% autoescape false %}
       {{ post.content | replace('\n', '<br>') | replace(' ', '&nbsp;') }}
       {% endautoescape %}
-    </div>
+    
 
     <hr>
 
