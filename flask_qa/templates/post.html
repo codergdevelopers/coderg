@@ -42,15 +42,17 @@
     <hr>
 
 
-    <div class="post-box-content">
-      {{post.content}}
-    </div>
+    
+      {% autoescape false %}
+      {{ post.content | replace('\n', '<br>') | replace(' ', '&nbsp;') }}
+      {% endautoescape %}
+    
 
     <hr>
 
     <div style="font-size: .7rem; float: right;">
       <span>Posted by
-        <a href="#" style="text-decoration: none; color: burlywood;">{{post.username}}</a>
+        <a href="#" style="text-decoration: none; color: burlywood;">{{post.fullname}}</a>
         on {{post.date}}</span>
     </div>
 

@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/stylesh22.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/stylesh34.css')}}">
     <link rel="stylesheet" media="screen and (min-width: 481px) and (max-width:1100px)"
-        href="{{url_for('static',filename='css/phone18.css')}}">
+        href="{{url_for('static',filename='css/phone26.css')}}">
     <link rel="stylesheet" media="screen and  (max-width:480px)"
-        href="{{url_for('static',filename='css/smallphone18.css')}}">
+        href="{{url_for('static',filename='css/smallphone26.css')}}">
 
 
 
@@ -25,7 +25,8 @@
 
     <Style>
         body {
-            background-color: black;
+            background-color: whitesmoke;
+            font-family:  'Open Sans', sans-serif;
         }
     </Style>
 
@@ -43,9 +44,9 @@
             <li class="item"><a href="/about">About</a></li>
             {% if 'user' in session %}
             <li><button style="display: contents;"><a class="" id="entercod" style="border-color: green;"
-                        href="/dashboard">{{session['user']}}</a></button></li>
+                        href="/dashboard">{{session['user'][:10]}}</a></button></li>
             {% else %}
-            <li><button style="display: contents; border: 1.5px solid rgb(143, 181, 236);"><a class="" id="entercod"
+            <li><button style="display: contents; border: 1.5px solid rgb(122, 168, 231);"><a class="" id="entercod"
                         href="/dashboard">Log In</a></button></li>
             {% endif %}
         </ul>
@@ -70,8 +71,8 @@
         <div class="copyright">Copyright &copy CODERG.2020 | <span id="time"> </span></div>
 
 
-        <div class="updateinfo">Last updated on: July 23,2020. <span id="version">
-                <p>| Version: 3.0.0</p>
+        <div class="updateinfo">Last updated on: July 30,2020. <span id="version">
+                <p>| Version: 3.1.2</p>
             </span> </div>
 
         <div id="des-man">
@@ -82,7 +83,7 @@
     <script>
         function currenttime() {
             time = new Date();
-            console.log(time);
+            // console.log(time);
             document.getElementById('time').innerHTML = time;
         }
 

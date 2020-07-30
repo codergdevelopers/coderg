@@ -2,11 +2,7 @@
 {% block head %}
 
 <title>Blogs</title>
-<style>
-    body {
-        background-color: white;
-    }
-</style>
+
 </head>
 
 <body>
@@ -22,7 +18,10 @@
 
         <div style="padding-bottom: 5rem;">
             <h1 class="h-primary-head">Blogs</h1>
-            <hr style="width: 95%; margin: auto;">
+            <hr style="width: 98%; margin: auto;">
+            <div class="description">
+                <p>Code-"Read"-Repeat</p>
+            </div>
         </div>
 
 
@@ -33,25 +32,35 @@
 
     <!-- Main Content -->
 
+
     <div class="post-box">
         {% for post in posts %}
-        <div class="post-preview">
-            <a id="post-link" href="/post/{{post.slug}}">
-                <h2 class="post-title">
-                    {{post.title}}
-                </h2>
-            </a>
-            <h3 class="post-subtitle">
-                {{post.tagline}}
-            </h3>
-            <p class="post-meta">Posted by
-                <a id="fullname" href="#">{{post.fullname}}</a>
-                on {{post.date}}</p>
-            <div class="post-start">
-                {{post.content[0:50]}}...
-            </div>
-        </div>
-        <hr>
+
+        
+            <button onclick="disp_post({{ post.slug }})" id="post-link">
+                <a href="/post/{{ post.slug }}">
+                <div class="post-preview">
+
+                    <h2 class="post-title">
+                        {{post.title}}
+                    </h2>
+
+                    <h3 class="post-subtitle">
+                        {{post.tagline}}
+                    </h3>
+                </a>
+                    <p class="post-meta">Posted by
+                        <a id="fullname" href="#">{{post.fullname}}</a>
+                        on {{post.date}}</p>
+                    <div class="post-start">
+                        {{post.content[0:50]}}...
+                    </div>
+                </div>
+                
+            </button>
+        
+
+        <hr style="margin: 1rem;">
         {% endfor %}
 
 
@@ -68,6 +77,14 @@
         </div>
     </div>
 
+{#
+    <script>
+        function disp_post(slug) {
+            let disp = "/post/".concat(slug);
+            window.location.href = disp;
+        }
+    </script>
+#}
 
 
 

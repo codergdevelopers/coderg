@@ -34,7 +34,7 @@ def contact():
 @main.route("/dashboard/", methods=['GET', 'POST'])
 def dashboard():
     # admin already logged in
-    if 'user' in session and session['user'] == params["admin_user"]:
+    if 'user' in session and (session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"]):
         posts = PostDb.query.all()
         return render_template('dashboard.html', params=params, posts=posts)
 
@@ -49,7 +49,7 @@ def dashboard():
         password = request.form.get('pass')
         password = sha256(password.encode('utf-8')).hexdigest()
         # admin
-        if username == params["admin_user"] and password == params["admin_password"]:
+        if (username == params["admin"]["user1"] and password == params["admin"]["password1"]) or username == params["admin"]["user2"] and password == params["admin"]["password2"]:
             # Log in & Redirect to admin panel
             session['user'] = username
             posts = PostDb.query.all()
@@ -86,13 +86,14 @@ def signup():
     if request.method == 'POST':
         fullname = request.form.get('fullname').title()
         username = request.form.get('uname').lower()
+        email = request.form.get('email')
         password1 = request.form.get('pass1')
         password2 = request.form.get('pass2')
         # checking against existing usernames
         user = UserDb.query.filter_by(username=username).first()
         if not user:
             if password1 == password2:
-                user = UserDb(fullname=fullname, username=username,
+                user = UserDb(fullname=fullname, username=username, email=email,
                               password=sha256(password1.encode('utf-8')).hexdigest())
                 db.session.add(user)
                 db.session.commit()
@@ -185,7 +186,7 @@ def edit(sno):
 
             post = PostDb.query.filter_by(sno=sno).first()
             # Post can be edited by either admin or author
-            if session['user'] == params["admin_user"] or session['user'] == post.username:
+            if session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"] or session['user'] == post.username:
                 post = PostDb.query.filter_by(sno=sno).first()
                 post.title = ntitle
                 post.tagline = ntagline
@@ -206,16 +207,18 @@ def edit(sno):
 
 @main.route("/delete/<string:sno>", methods=['GET', 'POST'])
 def delete(sno):
-    if 'user' in session and session['user'] == params["admin_user"]:
+    if 'user' in session and session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"]:
         post = PostDb.query.filter_by(sno=sno).first()
         db.session.delete(post)
         db.session.commit()
+        flash("Post deleted successfully", "success")
 
     if 'user' in session:
         post = PostDb.query.filter_by(sno=sno).first()
         if post and post.username == session['user']:
             db.session.delete(post)
             db.session.commit()
+            flash("Post deleted successfully", "success")
 
     return redirect("/dashboard")
 

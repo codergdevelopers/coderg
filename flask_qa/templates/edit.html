@@ -1,32 +1,46 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<head>
-    <style>
-        body {
-            background-color: black;
-        }
-    </style>
-</head>
 
 
-<div >
-    <h1 class="h-primary centre">Editor</h1>
-    <hr style="width: 30%; margin: auto;">
+
+<div class="post">
+
+    <div style="padding-bottom: 5rem;">
+        <h1 class="h-primary-head">Editor</h1>
+        <hr style="width: 95%; margin: auto;">
+        <div class="description">
+            <p>No one is perfect, hence mistake happens.</p>
+            <p>Here you can correct them all.</p>
+        </div>
+    </div>
+
+
+
 </div>
 
+<hr style="width: 20%; margin: auto; margin-bottom: 2rem;">
+
+
+<!-- <div>
+    <h1 class="h-primary centre">Editor</h1>
+    <hr style="width: 30%; margin: auto;">
+</div> -->
+
 <!-- Main Content -->
-<div class="py whtsmk">
-    <h1 class="h-primary">Basic actions</h1>
+<div class="post-box">
+    <h1>Basic actions</h1>
 
-    <button class="admin"><a href="/dashboard" style="text-decoration: none;">Dashboard home</a></button>
-    <button class="admin"><a href="/logout" style="text-decoration: none;">Logout</a></button>
+    <button onclick="disp_warn({{ post.sno }})" class="admin">Delete post</button>
+    <a href="/dashboard" style="text-decoration: none;"><button class="admin">Dashboard home</button></a>
+    <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
 
+{#
     <!-- Flash message -->
     {% with messages=get_flashed_messages(with_categories=True) %}
     {% if messages %}
     {% for category,message in messages %}
-    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    <div class="after-del-msg" role="alert">
         {{message}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -36,37 +50,45 @@
     {% endif %}
     {% endwith %}
 
-    <hr>
-    <div class=" py form-ed">
+    #}
+
+    <hr style="margin-bottom: 1rem;">
+    <div class=" post-box">
+
         <form name="sentMessage" id="" action="/edit/{{sno}}" method="post" novalidate>
+            <label for="name">Title</label>
+            <div>
+                <input type="text" class="" placeholder="Title" id="" name="title" value="{{post.title}}" required
+                    data-validation-required-message="Please enter a title.">
+            </div>
+            <br>
+            <label for="rollno">Tagline</label>
+            <div>
+                <input type="text" class="" placeholder="Tagline" id="" name="tline" value="{{post.tagline}}" required
+                    data-validation-required-message="Please enter your email address.">
+            </div>
+            <br>
+            <br>
+            <label for="rollno">Slug</label>
+            <div>
+                <input type="text" class="" placeholder="Slug" id="" name="slug" value="{{post.slug}}" required
+                    data-validation-required-message="Please enter a slug.">
+            </div>
+            <br>
+            <label for="disp">Content</label>
+            <div>
+                <textarea rows="15" style="width: 100%; height: 15rem;" class="" placeholder="Content" id=""
+                    name="content" required
+                    data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
+            </div>
+            <br>
+            {#
+            <label for="email">Image File</label>
+            <div>
+                <input type="text" class="" placeholder="Image File" id="" name="img_file" value="{{post.img_file}}">
 
-            <label>Title</label>
-            <input type="text" class="" placeholder="Title" id="" name="title" value="{{post.title}}" required
-                data-validation-required-message="Please enter a title.">
-            <p class=""></p>
-
-            <label>Tagline</label>
-            <input type="text" class="" placeholder="Tagline" id="" name="tline" value="{{post.tagline}}" required
-                data-validation-required-message="Please enter your email address.">
-            <p class="help-block text-danger"></p>
-
-
-            <label>Slug</label>
-            <input type="text" class="" placeholder="Slug" id="" name="slug" value="{{post.slug}}" required
-                data-validation-required-message="Please enter slug.">
-            <p class=""></p>
-
-
-            <label >Content</label>
-            <textarea rows="5" class="" placeholder="Content" id="" name="content" required
-                data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
-            <p class="help-block text-danger"></p>
-
-
-            <label>Image File</label>
-            <input type="text" class="" placeholder="Image File" id="" name="img_file" value="{{post.img_file}}">
-            <p class="help-block text-danger"></p>
-
+            </div>
+            #}
             <br>
             <div id="success"></div>
             <div class="">
@@ -79,6 +101,22 @@
 </div>
 </div>
 </div>
+
+<script>
+    function disp_warn(sno) {
+
+
+        let del = `/delete/${sno}`;
+
+        let deletepost = confirm("Your post will be permanently deleted.");
+
+        if (deletepost) {
+            window.location.href = del;
+            // window.open(del);
+            // alert("Your post has been deleted successfully.");
+        }
+    }
+</script>
 
 
 

@@ -1,89 +1,167 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<head>
-    <style>
-        body {
-            background-color: black;
+
+<style>
+    @media only screen and (max-width: 785px) {
+
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
         }
-    </style>
+
+
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            margin: 0 0 1rem 0;
+        }
+
+        tr:nth-child(odd) {
+            background: #ccc;
+        }
+
+        td {
+
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        td:before {
+
+            position: absolute;
+
+            top: 0;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+
+        td:nth-of-type(1):before {
+            content: "S.No.";
+        }
+
+        td:nth-of-type(2):before {
+            content: "Title";
+        }
+
+        td:nth-of-type(3):before {
+            content: "Author";
+        }
+
+        td:nth-of-type(4):before {
+            content: "Edit/Delete";
+        }
+
+
+    }
+</style>
+
 </head>
 
-<h1 class="h-primary centre">Dashboard</h1>
-<hr style="width: 30%; margin: auto;">
 
-{% with messages=get_flashed_messages(with_categories=True) %}
-{% if messages %}
-{% for category,message in messages %}
-<div class="alert alert-{{category}} alert-dismissible fade show" role="alert" style="color:white;">
-    {{message}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-{% endfor %}
-{% endif %}
-{% endwith %}
+<div class="post">
 
-<!-- Main Content -->
-<div class="py whtsmk">
-    <div class="row">
-        <div class="blog-upload">
-            <h1 class="h-primary">Basic actions</h1>
-
-            <a href="/edit/0" style="text-decoration: none;"><button class="admin">Add a new post</button></a>
-            <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
-            <hr>
-            <h1 class="h-primary">Upload a file</h1>
-
-            <form action="/uploader" method="post" enctype="multipart/form-data">
-                <button style="display: contents;"><input class="browse" type="file" name="file1"></button>
-                <button type="submit" class="admin">Submit</button>
-            </form>
-            <hr>
-            <table class="table-blog">
-                <thead>
-                    <tr id="tab">
-                        <th id="tab-item" style="border-top-left-radius: 20px;">S.no.</th>
-                        <th>Title</th>
-                        <th>Tagline</th>
-                        <th>Author</th>
-                        <th>Edit</th>
-                        <th style="border-top-right-radius: 20px;">Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    {% set counter = [1] %}
-                    {% for post in posts %}
-                    <tr>
-                        <td>{{ counter[0] }}</td>
-                        <td>{{post.title}}</td>
-                        <td>{{post.tagline}}</td>
-                        <td>{{post.fullname}}</td>
-                        <td><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
-                                    class="admin">Edit</button></a></td>
-                        <td><a onclick="onclick= disp_warn()" href="/delete/{{post.sno}}"
-                                style="text-decoration: none;"><button class="admin">Delete</button></a></td>
-                    </tr>
-
-                    {% if counter.append(counter.pop()+1) %}{% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
-
-
-            <!-- Pager -->
-
+    <div style="padding-bottom: 5rem;">
+        <h1 class="h-primary-head">Dashboard</h1>
+        <hr style="width: 95%; margin: auto;">
+        <div class="description">
+            <p>Enjoy your space at coderg.</p>
         </div>
     </div>
+
+
 </div>
 
-<script>
-    function disp_warn() {
-        alert('Your post will be permanently deleted.')
-    }
+<hr style="width: 20%; margin: auto; margin-bottom: 2rem;">
 
-</script>
+
+
+<!-- Main Content -->
+<div class="post-box">
+
+
+    <h1>Basic actions</h1>
+
+    <a href="/edit/0" style="text-decoration: none;"><button class="admin">Add a new post</button></a>
+    <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
+    <hr>
+
+    {#
+    <h1>Upload a file</h1>
+
+    <form action="/uploader" method="post" enctype="multipart/form-data">
+        <button style="display: contents;"><input class="browse" type="file" name="file1"></button>
+        <button type="submit" class="admin">Submit</button>
+    </form>
+    <hr>
+
+    #}
+
+
+{#
+    <table>
+        <thead>
+            <tr id="tab">
+                <th id="tab-item" style="border-top-left-radius: 20px;">S.no.</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Edit</th>
+
+            </tr>
+        </thead>
+        #}
+        <tbody>
+
+
+
+
+            <body>
+                <table role="table">
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th role="columnheader">S.No.</th>
+                            <th role="columnheader">Title</th>
+                            <th role="columnheader">Author</th>
+                            <th role="columnheader">Edit</th>
+
+                        </tr>
+                    </thead>
+                    <tbody role="rowgroup">
+
+                        {% set counter = [1] %}
+                        {% for post in posts %}
+                        <tr role="row">
+                            <td role="cell">{{ counter[0] }}</td>
+                            <td role="cell">{{post.title}}</td>
+                            <td role="cell">{{post.fullname}}</td>
+                            <td role="cell"><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
+                                        class="admin">Edit</button></a></td>
+                        </tr>
+
+                        {% if counter.append(counter.pop()+1) %}{% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </body>
+
+            </html>
+
+
+</div>
+
+
 
 {% endblock %}

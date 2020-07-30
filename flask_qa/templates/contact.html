@@ -1,37 +1,54 @@
 {% extends "layout.html" %}
 {% block head %}
 
-   
-    <title>Contact Us</title>
-    <style>
-        body{
-            background-color: black;
-        }
-        
-    </style>
+
+<title>Contact Us</title>
+
 </head>
+
 <body>
 
-{% endblock %}
+    {% endblock %}
 
     <!-- NAVBAR -->
 
-    
-{% block body %}
 
-<div class="contact">
-    <div class="contact-container">
-        <h1 class="h-primary">Email At: </h1>
-        <div class="centre"></div>
-        <p class="small"> Team : </p> <a href="mailto:codergdevelopers@gmail.com" style="text-decoration: none;"><p class="small">codergdevelopers@gmail.com</p></a>
+    {% block body %}
 
-        &nbsp;
+    <div class="post">
 
-        <h1 class="h-primary">Contact Admins At : </h1>
-        
-        <a href="mailto:deepansh.dubey20@gmail.com" style="text-decoration: none;"><p class="small">deepansh.dubey20@gmail.com</p></a>
-        <p class="small">OR</p>
-        <a href="mailto:aqdasak@gmail.com" style="text-decoration: none;"><p class="small">aqdasak@gmail.com</p></a>
+        <div style="padding-bottom: 5rem;">
+            <h1 class="h-primary-head">Contact Us</h1>
+            <hr style="width: 98%; margin: auto;">
+            <div class="description">
+                <p>For any assistance, feel free to contact. :)</p>
+            </div>
+        </div>
+
+
     </div>
-</div>
-{% endblock %}
+
+    <hr style="width: 20%; margin: auto; margin-bottom: 2rem;">
+
+    <div class="contact">
+        <div class="contact-container">
+            <h1 class="h-secondary">Email At: </h1>
+            <div class="centre"></div>
+            <p class="small"> Team : </p> <a href="mailto:codergdevelopers@gmail.com" style="text-decoration: none;">
+                <p class="small">codergdevelopers@gmail.com</p>
+            </a>
+
+            &nbsp;
+
+            <h1 class="h-secondary">Contact Admins At: </h1>
+
+            <a href="mailto:deepansh.dubey20@gmail.com" style="text-decoration: none;">
+                <p class="small">deepansh.dubey20@gmail.com</p>
+            </a>
+            <p class="small">OR</p>
+            <a href="mailto:aqdasak@gmail.com" style="text-decoration: none;">
+                <p class="small">aqdasak@gmail.com</p>
+            </a>
+        </div>
+    </div>
+    {% endblock %}
