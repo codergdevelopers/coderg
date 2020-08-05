@@ -31,14 +31,12 @@ def dashboard():
     # admin already logged in
     if 'user' in session and User.query.filter_by(username=session['user']).admin:
         posts = Post.query.all()
-        # return render_template('dashboard.html', params=params, posts=posts)
+        return render_template('dashboard.html', params=params, posts=posts)
 
     # user already logged in
     elif 'user' in session:
         posts = Post.query.filter_by(username=session['user'])
-        # return render_template('dashboard.html', params=params, posts=posts)
-
-    return render_template('dashboard.html', params=params, posts=posts)
+        return render_template('dashboard.html', params=params, posts=posts)
 
     # logging in
     if request.method == 'POST':
