@@ -1,28 +1,29 @@
-from flask_login import UserMixin
 from werkzeug.security import generate_password_hash
 
 from .extensions import db
 
 
-# This class is from the original file
-# Removing this affects auth.py
-class User(UserMixin, db.Model):
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
-    password = db.Column(db.String(100))
-    expert = db.Column(db.Boolean)
-    admin = db.Column(db.Boolean)
-
-
-class UserDb(db.Model):
     fullname = db.Column(db.String(), nullable=False)
+
     username = db.Column(db.String(), primary_key=True, unique=True, nullable=False)
     email = db.Column(db.String(), nullable=False)
-    password = db.Column(db.String(200), nullable=False)
+    _hashed_password = db.Column(db.String(255), nullable=False, server_default='')
+
     admin = db.Column(db.Boolean, default=False)
+    editor = db.Column(db.Boolean, default=False)
+
+    @property
+    def password(self):
+        return self._hashed_password
+
+    @password.setter
+    def password(self, unhashed_password):
+        self._hashed_password = generate_password_hash(unhashed_password)
 
 
-class Projects(db.Model):
+class Project(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(), unique=False, nullable=False)
     title = db.Column(db.String(), unique=True, nullable=False)
@@ -33,7 +34,7 @@ class Projects(db.Model):
     author = db.Column(db.String(), unique=False, nullable=False)
 
 
-class PostDb(db.Model):
+class Post(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(), nullable=False)
     tagline = db.Column(db.String(), nullable=False)
@@ -44,4 +45,5 @@ class PostDb(db.Model):
     date = db.Column(db.String(), nullable=True)
     img_file = db.Column(db.String(), nullable=True)
 # author is the username of the user
-# name should be fetched from UserDb
+# name should be fetched from User
+
