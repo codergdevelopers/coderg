@@ -69,48 +69,48 @@ def dashboard():
 
     # return render_template('lisu.html', params=params)
 
+#
+# @main.route("/logout/")
+# def logout():
+#     session.pop('user')
+#     return redirect("/dashboard")
 
-@main.route("/logout/")
-def logout():
-    session.pop('user')
-    return redirect("/dashboard")
-
-
-@main.route("/signup/", methods=['GET', 'POST'])
-def signup():
-    # user/admin already logged in
-    if 'user' in session:
-        return redirect("/dashboard")
-
-    if request.method == 'POST':
-        fullname = request.form.get('fullname').title()
-        username = request.form.get('uname').lower()
-        email = request.form.get('email')
-        password1 = request.form.get('pass1')
-        password2 = request.form.get('pass2')
-        # checking against existing usernames
-        user = User.query.filter_by(username=username).first()
-        if not user:
-            if password1 == password2:
-                user = User(fullname=fullname, username=username, email=email,
-                            password=sha256(password1.encode('utf-8')).hexdigest())
-                db.session.add(user)
-                db.session.commit()
-
-                # TO DO flash in html and dashboard change checking
-                flash("Sign up completed", "success")
-                # signing in
-                session['user'] = username
-                return redirect("/dashboard")
-            else:
-                flash("Wrong values entered", "danger")
-                return redirect("/dashboard")
-
-        else:
-            flash("Username not available", "danger")
-            return redirect("/dashboard")
-
-    return redirect("/dashboard")
+#
+# @main.route("/signup/", methods=['GET', 'POST'])
+# def signup():
+#     # user/admin already logged in
+#     if 'user' in session:
+#         return redirect("/dashboard")
+#
+#     if request.method == 'POST':
+#         fullname = request.form.get('fullname').title()
+#         username = request.form.get('uname').lower()
+#         email = request.form.get('email')
+#         password1 = request.form.get('pass1')
+#         password2 = request.form.get('pass2')
+#         # checking against existing usernames
+#         user = User.query.filter_by(username=username).first()
+#         if not user:
+#             if password1 == password2:
+#                 user = User(fullname=fullname, username=username, email=email,
+#                             password=sha256(password1.encode('utf-8')).hexdigest())
+#                 db.session.add(user)
+#                 db.session.commit()
+#
+#                 # TO DO flash in html and dashboard change checking
+#                 flash("Sign up completed", "success")
+#                 # signing in
+#                 session['user'] = username
+#                 return redirect("/dashboard")
+#             else:
+#                 flash("Wrong values entered", "danger")
+#                 return redirect("/dashboard")
+#
+#         else:
+#             flash("Username not available", "danger")
+#             return redirect("/dashboard")
+#
+#     return redirect("/dashboard")
 
 
 @main.route("/projects/")

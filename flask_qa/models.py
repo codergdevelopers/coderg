@@ -4,7 +4,7 @@ from .extensions import db
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     fullname = db.Column(db.String(), nullable=False)
 
     username = db.Column(db.String(), primary_key=True, unique=True, nullable=False)
