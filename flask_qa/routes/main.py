@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, redirect, flash
+from flask import Blueprint, render_template, request, session, redirect, flash, url_for
 
 from flask_qa.models import Project, User, Post
 from flask_qa.extensions import db
@@ -39,31 +39,35 @@ def dashboard():
         return render_template('dashboard.html', params=params, posts=posts)
 
     # logging in
-    if request.method == 'POST':
-        username = request.form.get('uname').lower()
-        password = request.form.get('pass')
-        password = sha256(password.encode('utf-8')).hexdigest()
-        # admin
-        if (username == params["admin"]["user1"] and password == params["admin"]["password1"]) or username == params["admin"]["user2"] and password == params["admin"]["password2"]:
-            # Log in & Redirect to admin panel
-            session['user'] = username
-            posts = Post.query.all()
-            return render_template('dashboard.html', params=params, posts=posts)
+    # if request.method == 'POST':
+    #     username = request.form.get('uname').lower()
+    #     password = request.form.get('pass')
+    #     password = sha256(password.encode('utf-8')).hexdigest()
+    #     # admin
+    #     if (username == params["admin"]["user1"] and password == params["admin"]["password1"]) or username == params["admin"]["user2"] and password == params["admin"]["password2"]:
+    #         # Log in & Redirect to admin panel
+    #         session['user'] = username
+    #         posts = Post.query.all()
+    #         return render_template('dashboard.html', params=params, posts=posts)
+    #
+    #     # user
+    #     user = User.query.filter_by(username=username).first()
+    #     if user:
+    #         if password == user.password:
+    #             session['user'] = username
+    #             posts = Post.query.filter_by(username=username)
+    #             return render_template('dashboard.html', params=params, posts=posts)
+    #         else:
+    #             flash("Wrong password", "danger")
+    #
+    #     else:
+    #         flash(username + " does not have account", "danger")
 
-        # user
-        user = User.query.filter_by(username=username).first()
-        if user:
-            if password == user.password:
-                session['user'] = username
-                posts = Post.query.filter_by(username=username)
-                return render_template('dashboard.html', params=params, posts=posts)
-            else:
-                flash("Wrong password", "danger")
+    # if 'user' not in session:
+    else:
+        return redirect(url_for('auth.login'))
 
-        else:
-            flash(username + " does not have account", "danger")
-
-    return render_template('lisu.html', params=params)
+    # return render_template('lisu.html', params=params)
 
 
 @main.route("/logout/")
