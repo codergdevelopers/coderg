@@ -11,8 +11,8 @@ class User(db.Model):
     email = db.Column(db.String(), unique=True, nullable=False)
     _hashed_password = db.Column(db.String(255), nullable=False, server_default='')
 
-    _user_role = db.relationship('Role', backref='user')
-    post = db.relationship('Post', backref='author')
+    _user_role = db.relationship('Role', backref='user_obj')
+    post = db.relationship('Post', backref='author_obj')
 
     # admin = db.Column(db.Boolean, default=False)
     # editor = db.Column(db.Boolean, default=False)
@@ -39,6 +39,7 @@ class Role(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    # user_obj = ___ (pseudo column)
 
 
 class Post(db.Model):
@@ -47,6 +48,7 @@ class Post(db.Model):
     tagline = db.Column(db.String(), nullable=False)
 
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    # author_obj = ___ (pseudo column)
 
     # username = db.Column(db.String(), nullable=False)
     # fullname = db.Column(db.String(), nullable=False)

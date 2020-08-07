@@ -35,7 +35,7 @@ def dashboard():
 
     # user already logged in
     elif 'user' in session:
-        posts = Post.query.filter_by(username=session['user'])
+        posts = User.query.filter_by(username=session['user']).post
         return render_template('dashboard.html', params=params, posts=posts)
 
     # logging in
