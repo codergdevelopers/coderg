@@ -11,7 +11,7 @@ class User(db.Model):
     email = db.Column(db.String(), unique=True, nullable=False)
     _hashed_password = db.Column(db.String(255), nullable=False, server_default='')
 
-    role = db.relationship('Role', backref='user')
+    _user_role = db.relationship('Role', backref='user')
     post = db.relationship('Post', backref='author')
 
     # admin = db.Column(db.Boolean, default=False)
@@ -24,6 +24,15 @@ class User(db.Model):
     @password.setter
     def password(self, unhashed_password):
         self._hashed_password = generate_password_hash(unhashed_password)
+
+    @property
+    def role(self):
+        # list comprehension to get all the roles in a list
+        return [role_obj.name for role_obj in self._user_role]
+
+    @role.setter
+    def role(self, user_role):
+        self._user_role = user_role
 
 
 class Role(db.Model):

