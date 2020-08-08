@@ -7,8 +7,8 @@ from .extensions import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    fullname = db.Column(db.String(), nullable=False)
 
+    fullname = db.Column(db.String(), nullable=False)
     username = db.Column(db.String(), unique=True, nullable=False)
     email = db.Column(db.String(), unique=True, nullable=False)
     _hashed_password = db.Column(db.String(255), nullable=False, server_default='')
@@ -30,20 +30,16 @@ class User(db.Model):
     @property
     def role(self):
         # list comprehension to get all the roles in a list
-        return [role_obj.name for role_obj in self._user_role]
-
-    @role.setter
-    def role(self, user_role):
-        self._user_role = user_role
+        return [role_obj.title for role_obj in self._user_role]
 
 
 class Role(db.Model):
     """
     FORMAT:
-    Role(name=name_of_role, username=username_of_user)
+    Role(title=title_of_role, username=username_of_user)
     """
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String())
+    title = db.Column(db.String())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # user_obj = ___ (pseudo column created by class 'User')
@@ -64,20 +60,18 @@ class Post(db.Model):
     Post(title=ntitle, tagline=ntagline, slug=nslug,
          content=ncontent, img_file=nimg_file, author=username)
     """
-
     id = db.Column(db.Integer, primary_key=True)
+
     title = db.Column(db.String(), nullable=False)
     tagline = db.Column(db.String(), nullable=False)
-
-    author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    # author_obj = ___ (pseudo column created by class 'User')
-
-    # username = db.Column(db.String(), nullable=False)
-    # fullname = db.Column(db.String(), nullable=False)
     slug = db.Column(db.String(), unique=True, nullable=False)
     content = db.Column(db.String(), nullable=False)
-    date = db.Column(db.String(), nullable=True, default=datetime.now().strftime("%a %d %b %Y"))
     img_file = db.Column(db.String(), nullable=True)
+
+    date = db.Column(db.String(), nullable=True, default=datetime.now().strftime("%a %d %b %Y"))
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    # author_obj = ___ (pseudo column created by class 'User')
 
     @property
     def sno(self):
@@ -93,10 +87,6 @@ class Post(db.Model):
         # author is set by username
         user = User.query.filter_by(username=username1).first()
         self.author_obj = user
-
-
-# author is the username of the user
-# name should be fetched from User
 
 
 class Project(db.Model):

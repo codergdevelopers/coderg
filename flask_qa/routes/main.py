@@ -196,9 +196,8 @@ def delete(sno):
 #     return "New post added"
 #
 #
-# @main.route('/new')
-# def new():
-#     role = Role(name='editor', username='check')
-#     # user.role='admin'
-#     db.session.add(role)
-#     db.session.commit()
+@main.route('/new')
+def new():
+    user1=User.query.filter_by(username='check').first().role
+    user2=User.query.filter_by(username='qwer').first().role
+    return f'{user1}<br>{user2}'
