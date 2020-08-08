@@ -12,7 +12,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form.get('name').lower()
+        username = request.form.get('uname').lower()
         password = request.form.get('pass')
 
         user = User.query.filter_by(username=username).first()

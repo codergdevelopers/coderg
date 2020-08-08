@@ -268,4 +268,4 @@ def new():
     role = Role(name='admin', user_obj=user)
     # user.role='admin'
     db.session.add(role)
-    db.session.commit(role)
+    db.session.commit()
