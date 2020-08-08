@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, session, redirect, flash, url_for
 
-from flask_qa.models import Project, User, Post, Role
-from flask_qa.extensions import db
+from coderg.models import Project, User, Post, Role
+from coderg.extensions import db
 
 from config.config import params
 from hashlib import sha256

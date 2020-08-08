@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import check_password_hash
 
-from flask_qa.extensions import db
-from flask_qa.models import User
+from coderg.extensions import db
+from coderg.models import User
 
 auth = Blueprint('auth', __name__)
 
