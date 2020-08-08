@@ -26,7 +26,7 @@ class User(db.Model):
 
     @property
     def role(self):
-        # list comprehension to get all the roles in a list
+        # list comprehension to get a list of roles
         return {role_obj.title for role_obj in self._user_role}
 
 

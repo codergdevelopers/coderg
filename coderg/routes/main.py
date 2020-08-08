@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, session, redirect, url_for
 
 from coderg.models import Project, User, Post
+
 from config.config import params
+from coderg.util import check_role
 
 main = Blueprint('main', __name__)
 
@@ -24,7 +26,7 @@ def contact():
 @main.route("/dashboard/", methods=['GET', 'POST'])
 def dashboard():
     # admin already logged in
-    if 'user' in session and ('ADMIN' in User.query.filter_by(username=session['user']).first().role):
+    if check_role('ADMIN'):
         posts = Post.query.all()
         return render_template('dashboard.html', posts=posts)
 
@@ -40,13 +42,6 @@ def dashboard():
 
 @main.route("/projects/")
 def display_projects():
-    # categories = set()
-
     categories = params['project_categories']
     projects = Project.query.filter_by().all()
-
-    # Getting all the available categories
-    # for project in projects:
-    #     categories.add(project.category)
-
     return render_template("projects.html", categories=categories, projects=projects)
