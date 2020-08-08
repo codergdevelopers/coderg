@@ -49,4 +49,4 @@ def display_projects():
     # for project in projects:
     #     categories.add(project.category)
 
-    return render_template("projects.html", categories=list(categories), projects=projects)
+    return render_template("projects.html", categories=categories, projects=projects)
