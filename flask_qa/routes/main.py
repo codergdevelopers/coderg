@@ -267,5 +267,5 @@ def new():
     user = User.query.filter_by(username='check').first()
     role = Role(name='admin', user_obj=user)
     # user.role='admin'
-    db.add(role)
-    db.commit(role)
+    db.session.add(role)
+    db.session.commit(role)
