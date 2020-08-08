@@ -12,15 +12,12 @@ class User(db.Model):
     email = db.Column(db.String(), unique=True, nullable=False)
     _hashed_password = db.Column(db.String(255), nullable=False, server_default='')
 
+    _user_role = db.relationship('Role', backref='user_obj')
+    post = db.relationship('Post', backref='author_obj')
+
     @property
     def password(self):
         return self._hashed_password
-    _user_role = db.relationship('Role', backref='user_obj')
-
-    # admin = db.Column(db.Boolean, default=False)
-    # editor = db.Column(db.Boolean, default=False)
-
-    post = db.relationship('Post', backref='author_obj')
 
     @password.setter
     def password(self, unhashed_password):
@@ -80,9 +77,10 @@ class Post(db.Model):
 
     # author_obj = ___ (pseudo column created by class 'User')
 
-    @property
-    def sno(self):
-        return self.id
+
+    # @property
+    # def sno(self):
+    #     return self.id
 
     @property
     def author(self):

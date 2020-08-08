@@ -94,8 +94,8 @@ def post_route(post_slug):
     return render_template('post.html', post=post)
 
 
-@main.route("/edit/<string:sno>", methods=['GET', 'POST'])
-def edit(sno):
+@main.route("/edit/<string:id>", methods=['GET', 'POST'])
+def edit(id):
     if 'user' in session:
         if request.method == 'POST':
             ntitle = request.form.get('title')
@@ -105,7 +105,7 @@ def edit(sno):
             nimg_file = request.form.get('img_file')
 
             # New post can be added by anyone logged in
-            if sno == '0':
+            if id == '0':
                 post = Post(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
                             author=session['user'])
                 db.session.add(post)
@@ -113,11 +113,11 @@ def edit(sno):
                 flash("New post added", "success")
                 return redirect(url_for('.dashboard'))
 
-            post = Post.query.filter_by(sno=sno).first()
+            post = Post.query.filter_by(id=id).first()
             # Post can be edited by either admin or author
             if session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"] or session[
                 'user'] == post.author.username:
-                post = Post.query.filter_by(sno=sno).first()
+                post = Post.query.filter_by(id=id).first()
                 post.title = ntitle
                 post.tagline = ntagline
                 post.slug = nslug
@@ -127,24 +127,24 @@ def edit(sno):
                 flash("Edited successfully", "success")
                 return redirect(url_for('.dashboard'))
 
-        post = Post.query.filter_by(sno=sno).first()
-        if post or sno == '0':
-            return render_template('edit.html', post=post, sno=sno)
+        post = Post.query.filter_by(id=id).first()
+        if post or id == '0':
+            return render_template('edit.html', post=post, id=id)
         return redirect(url_for('.dashboard'))
 
     return redirect(url_for('.dashboard'))
 
 
-@main.route("/delete/<string:sno>", methods=['GET', 'POST'])
-def delete(sno):
+@main.route("/delete/<string:id>", methods=['GET', 'POST'])
+def delete(id):
     if 'user' in session and session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"]:
-        post = Post.query.filter_by(sno=sno).first()
+        post = Post.query.filter_by(id=id).first()
         db.session.delete(post)
         db.session.commit()
         flash("Post deleted successfully", "success")
 
     if 'user' in session:
-        post = Post.query.filter_by(sno=sno).first()
+        post = Post.query.filter_by(id=id).first()
         if post and post.author.username == session['user']:
             db.session.delete(post)
             db.session.commit()

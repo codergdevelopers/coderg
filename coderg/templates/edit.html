@@ -31,7 +31,7 @@
 <div class="post-box">
     <h1>Basic actions</h1>
 
-    <button onclick="disp_warn({{ post.sno }})" class="admin">Delete post</button>
+    <button onclick="disp_warn({{ post.id }})" class="admin">Delete post</button>
     <a href="/dashboard" style="text-decoration: none;"><button class="admin">Dashboard home</button></a>
     <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
 
@@ -55,7 +55,7 @@
     <hr style="margin-bottom: 1rem;">
     <div class=" post-box">
 
-        <form name="sentMessage" id="" action="/edit/{{sno}}" method="post" novalidate>
+        <form name="sentMessage" id="" action="/edit/{{id}}" method="post" novalidate>
             <label for="name">Title</label>
             <div>
                 <input type="text" class="" placeholder="Title" id="" name="title" value="{{post.title}}" required
@@ -103,10 +103,10 @@
 </div>
 
 <script>
-    function disp_warn(sno) {
+    function disp_warn(id) {
 
 
-        let del = `/delete/${sno}`;
+        let del = `/delete/${id}`;
 
         let deletepost = confirm("Your post will be permanently deleted.");
 
