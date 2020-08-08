@@ -31,18 +31,18 @@ def dashboard():
     # admin already logged in
     if 'user' in session and ('ADMIN' in User.query.filter_by(username=session['user']).first().role):
         posts = Post.query.all()
-        return render_template('dashboard.html', params=params, posts=posts)
+        return render_template('dashboard.html', posts=posts)
 
     # user already logged in
     elif 'user' in session:
         posts = User.query.filter_by(username=session['user']).first().post
-        return render_template('dashboard.html', params=params, posts=posts)
+        return render_template('dashboard.html', posts=posts)
 
     # if 'user' not in session:
     else:
         return redirect(url_for('auth.login'))
 
-    # return render_template('lisu.html', params=params)
+    # return render_template('lisu.html')
 
 
 @main.route("/projects/")
@@ -83,7 +83,7 @@ def blog():
         prev = '/blog/?page=' + str(page - 1)
         next = '/blog/?page=' + str(page + 1)
 
-    return render_template("blog.html", posts=posts, params=params, prev=prev, next=next)
+    return render_template("blog.html", posts=posts, prev=prev, next=next)
 
 
 @main.route("/post/<string:post_slug>", methods=['GET'])
@@ -91,7 +91,7 @@ def post_route(post_slug):
     # first(), if multiple post by same slug are found. We avoid it as it would be unique
     post = Post.query.filter_by(slug=post_slug).first()
 
-    return render_template('post.html', params=params, post=post)
+    return render_template('post.html', post=post)
 
 
 @main.route("/edit/<string:sno>", methods=['GET', 'POST'])
@@ -129,7 +129,7 @@ def edit(sno):
 
         post = Post.query.filter_by(sno=sno).first()
         if post or sno == '0':
-            return render_template('edit.html', params=params, post=post, sno=sno)
+            return render_template('edit.html', post=post, sno=sno)
         return redirect(url_for('.dashboard'))
 
     return redirect(url_for('.dashboard'))

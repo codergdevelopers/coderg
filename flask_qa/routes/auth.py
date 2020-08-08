@@ -24,7 +24,7 @@ def login():
             flash('Could not login. Please check and try again.')
             return redirect(url_for('.login'))
 
-    return render_template('lisu.html', params=params)
+    return render_template('lisu.html')
 
 
 @auth.route('/logout')
