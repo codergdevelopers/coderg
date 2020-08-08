@@ -6,6 +6,8 @@ from .models import Project, User, Post
 from .routes.auth import auth
 from .routes.main import main
 
+from config.config import params
+
 
 def create_app(config_file='settings.py'):
     app = Flask(__name__)
@@ -14,9 +16,9 @@ def create_app(config_file='settings.py'):
 
     db.init_app(app)
 
-    # @app.context_processor
-    # def inject_param():
-    #     return dict(params=params)
+    @app.context_processor
+    def global_param():
+        return dict(params=params)
 
     app.register_blueprint(main)
     app.register_blueprint(auth)

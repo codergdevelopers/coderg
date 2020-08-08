@@ -1,6 +1,5 @@
-from datetime import datetime
-
 from werkzeug.security import generate_password_hash
+from datetime import datetime
 
 from .extensions import db
 
@@ -13,15 +12,15 @@ class User(db.Model):
     email = db.Column(db.String(), unique=True, nullable=False)
     _hashed_password = db.Column(db.String(255), nullable=False, server_default='')
 
+    @property
+    def password(self):
+        return self._hashed_password
     _user_role = db.relationship('Role', backref='user_obj')
-    post = db.relationship('Post', backref='author_obj')
 
     # admin = db.Column(db.Boolean, default=False)
     # editor = db.Column(db.Boolean, default=False)
 
-    @property
-    def password(self):
-        return self._hashed_password
+    post = db.relationship('Post', backref='author_obj')
 
     @password.setter
     def password(self, unhashed_password):
@@ -30,7 +29,7 @@ class User(db.Model):
     @property
     def role(self):
         # list comprehension to get all the roles in a list
-        return [role_obj.title for role_obj in self._user_role]
+        return {role_obj.title for role_obj in self._user_role}
 
 
 class Role(db.Model):
@@ -39,10 +38,18 @@ class Role(db.Model):
     Role(title=title_of_role, username=username_of_user)
     """
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String())
+    _role_title = db.Column(db.String())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # user_obj = ___ (pseudo column created by class 'User')
+
+    @property
+    def title(self):
+        return self._role_title
+
+    @title.setter
+    def title(self, title1):
+        self._role_title = title1.upper()
 
     @property
     def username(self):

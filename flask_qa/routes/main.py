@@ -18,7 +18,7 @@ def index():
 
 @main.route("/about/")
 def about():
-    return render_template("about.html", params=params)
+    return render_template("about.html",)
 
 
 @main.route("/contact/")
@@ -43,7 +43,6 @@ def dashboard():
         return redirect(url_for('auth.login'))
 
     # return render_template('lisu.html', params=params)
-
 
 
 @main.route("/projects/")
@@ -89,8 +88,8 @@ def blog():
 
 @main.route("/post/<string:post_slug>", methods=['GET'])
 def post_route(post_slug):
-    post = Post.query.filter_by(
-        slug=post_slug).first()  # first(), if multiple post by same slug are found. We avoid it as it would be unique
+    # first(), if multiple post by same slug are found. We avoid it as it would be unique
+    post = Post.query.filter_by(slug=post_slug).first()
 
     return render_template('post.html', params=params, post=post)
 
@@ -107,10 +106,6 @@ def edit(sno):
 
             # New post can be added by anyone logged in
             if sno == '0':
-                # user = User.query.filter_by(username=session['user']).first()
-                # post = Post(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
-                #             author_obj=user,
-                #             date=datetime.now().strftime("%a %d %b %Y"))
                 post = Post(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
                             author=session['user'])
                 db.session.add(post)
@@ -120,7 +115,8 @@ def edit(sno):
 
             post = Post.query.filter_by(sno=sno).first()
             # Post can be edited by either admin or author
-            if session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"] or session['user'] == post.username:
+            if session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"] or session[
+                'user'] == post.author.username:
                 post = Post.query.filter_by(sno=sno).first()
                 post.title = ntitle
                 post.tagline = ntagline
@@ -149,12 +145,13 @@ def delete(sno):
 
     if 'user' in session:
         post = Post.query.filter_by(sno=sno).first()
-        if post and post.username == session['user']:
+        if post and post.author.username == session['user']:
             db.session.delete(post)
             db.session.commit()
             flash("Post deleted successfully", "success")
 
     return redirect(url_for('.dashboard'))
+
 
 #      THIS IS TO ADD PROJECTS IN DATABASE
 #      SHOULD BE RUN ONLY ONE TIME ON THE WEBSITE
@@ -198,6 +195,6 @@ def delete(sno):
 #
 @main.route('/new')
 def new():
-    user1=User.query.filter_by(username='check').first().role
-    user2=User.query.filter_by(username='qwer').first().role
+    user1 = User.query.filter_by(username='check').first().role
+    user2 = User.query.filter_by(username='qwer').first().role
     return f'{user1}<br>{user2}'
