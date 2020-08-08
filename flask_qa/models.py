@@ -64,8 +64,8 @@ class Post(db.Model):
                             date=datetime.now().strftime("%a %d %b %Y"))
     """
 
-    def __init__(self):
-        self.date=datetime.now().strftime("%a %d %b %Y")
+    # def __init__(self):
+    #     self.date=datetime.now().strftime("%a %d %b %Y")
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(), nullable=False)
@@ -80,6 +80,8 @@ class Post(db.Model):
     content = db.Column(db.String(), nullable=False)
     date = db.Column(db.String(), nullable=True)
     img_file = db.Column(db.String(), nullable=True)
+
+    date = datetime.now().strftime("%a %d %b %Y")
 
     @property
     def sno(self):
