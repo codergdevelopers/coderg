@@ -17,13 +17,12 @@ def login():
 
         user = User.query.filter_by(username=username).first()
 
-        error = None
-
         if user and check_password_hash(user.password, password):
             session['user'] = username
             return redirect(url_for('main.dashboard'))
         else:
-            error_message = 'Could not login. Please check and try again.'
+            flash('Could not login. Please check and try again.')
+            return redirect(url_for('.login'))
 
     return render_template('lisu.html', params=params)
 
