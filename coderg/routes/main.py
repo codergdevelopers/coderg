@@ -1,12 +1,6 @@
-from flask import Blueprint, render_template, request, session, redirect, flash, url_for
+from flask import Blueprint, render_template, session, redirect, url_for
 
-from coderg.models import Project, User, Post, Role
-from coderg.extensions import db
-
-from config.config import params
-from hashlib import sha256
-from datetime import datetime
-import math
+from coderg.models import Project, User, Post
 
 main = Blueprint('main', __name__)
 
@@ -55,102 +49,6 @@ def display_projects():
         categories.add(project.category)
 
     return render_template("projects.html", categories=list(categories), projects=projects)
-
-
-@main.route("/blog/")
-def blog():
-    posts = Post.query.filter_by().all()
-    last = math.ceil(len(posts) / int(params["no_of_posts"]))
-
-    page = request.args.get('page')
-    if not str(page).isnumeric():
-        page = 1
-    page = int(page)
-
-    posts = posts[(page - 1) * int(params['no_of_posts']):(page - 1) * int(params['no_of_posts']) + int(
-        params['no_of_posts'])]
-
-    if page == 1 and page == last:
-        prev = '#'
-        next = '#'
-    elif page == 1:
-        prev = '#'
-        next = '/blog/?page=' + str(page + 1)
-    elif page == last:
-        prev = '/blog/?page=' + str(page - 1)
-        next = '#'
-    else:
-        prev = '/blog/?page=' + str(page - 1)
-        next = '/blog/?page=' + str(page + 1)
-
-    return render_template("blog.html", posts=posts, prev=prev, next=next)
-
-
-@main.route("/post/<string:post_slug>", methods=['GET'])
-def post_route(post_slug):
-    # first(), if multiple post by same slug are found. We avoid it as it would be unique
-    post = Post.query.filter_by(slug=post_slug).first()
-
-    return render_template('post.html', post=post)
-
-
-@main.route("/edit/<string:id>", methods=['GET', 'POST'])
-def edit(id):
-    if 'user' in session:
-        if request.method == 'POST':
-            ntitle = request.form.get('title')
-            ntagline = request.form.get('tline')
-            nslug = request.form.get('slug')
-            ncontent = request.form.get('content')
-            nimg_file = request.form.get('img_file')
-
-            # New post can be added by anyone logged in
-            if id == '0':
-                post = Post(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
-                            author=session['user'])
-                db.session.add(post)
-                db.session.commit()
-                flash("New post added", "success")
-                return redirect(url_for('.dashboard'))
-
-            post = Post.query.filter_by(id=id).first()
-            # Post can be edited by either admin or author
-            if session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"] or session[
-                'user'] == post.author.username:
-                post = Post.query.filter_by(id=id).first()
-                post.title = ntitle
-                post.tagline = ntagline
-                post.slug = nslug
-                post.content = ncontent
-                post.img_file = nimg_file
-                db.session.commit()
-                flash("Edited successfully", "success")
-                return redirect(url_for('.dashboard'))
-
-        post = Post.query.filter_by(id=id).first()
-        if post or id == '0':
-            return render_template('edit.html', post=post, id=id)
-        return redirect(url_for('.dashboard'))
-
-    return redirect(url_for('.dashboard'))
-
-
-@main.route("/delete/<string:id>", methods=['GET', 'POST'])
-def delete(id):
-    if 'user' in session and session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"]:
-        post = Post.query.filter_by(id=id).first()
-        db.session.delete(post)
-        db.session.commit()
-        flash("Post deleted successfully", "success")
-
-    if 'user' in session:
-        post = Post.query.filter_by(id=id).first()
-        if post and post.author.username == session['user']:
-            db.session.delete(post)
-            db.session.commit()
-            flash("Post deleted successfully", "success")
-
-    return redirect(url_for('.dashboard'))
 
 
 #      THIS IS TO ADD PROJECTS IN DATABASE

@@ -1,5 +1,6 @@
-from werkzeug.security import generate_password_hash
 from datetime import datetime
+
+from werkzeug.security import generate_password_hash
 
 from .extensions import db
 
@@ -64,7 +65,7 @@ class Post(db.Model):
     Post(title=ntitle, tagline=ntagline, slug=nslug,
          content=ncontent, img_file=nimg_file, author=username)
     """
-    id = db.Column(db.Integer, primary_key=True)
+    sno = db.Column(db.Integer, primary_key=True)
 
     title = db.Column(db.String(), nullable=False)
     tagline = db.Column(db.String(), nullable=False)
@@ -77,10 +78,6 @@ class Post(db.Model):
 
     # author_obj = ___ (pseudo column created by class 'User')
 
-
-    # @property
-    # def sno(self):
-    #     return self.id
 
     @property
     def author(self):
