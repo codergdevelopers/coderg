@@ -181,7 +181,7 @@ def edit(sno):
                 db.session.add(post)
                 db.session.commit()
                 flash("New post added", "success")
-                return redirect("/dashboard")
+                return redirect(url_for('.dashboard'))
 
             post = Post.query.filter_by(sno=sno).first()
             # Post can be edited by either admin or author
@@ -194,14 +194,14 @@ def edit(sno):
                 post.img_file = nimg_file
                 db.session.commit()
                 flash("Edited successfully", "success")
-                return redirect("/dashboard")
+                return redirect(url_for('.dashboard'))
 
         post = Post.query.filter_by(sno=sno).first()
         if post or sno == '0':
             return render_template('edit.html', params=params, post=post, sno=sno)
-        return redirect("/dashboard")
+        return redirect(url_for('.dashboard'))
 
-    return redirect("/dashboard")
+    return redirect(url_for('.dashboard'))
 
 
 @main.route("/delete/<string:sno>", methods=['GET', 'POST'])
@@ -219,7 +219,7 @@ def delete(sno):
             db.session.commit()
             flash("Post deleted successfully", "success")
 
-    return redirect("/dashboard")
+    return redirect(url_for('.dashboard'))
 
 #      THIS IS TO ADD PROJECTS IN DATABASE
 #      SHOULD BE RUN ONLY ONE TIME ON THE WEBSITE

@@ -14,6 +14,10 @@ def create_app(config_file='settings.py'):
 
     db.init_app(app)
 
+    # @app.context_processor
+    # def inject_param():
+    #     return dict(params=params)
+
     app.register_blueprint(main)
     app.register_blueprint(auth)
 

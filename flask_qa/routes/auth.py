@@ -39,7 +39,7 @@ def signup():
     # if user/admin already logged in
     # then redirect to home or dashboard
     if 'user' in session:
-        return redirect("/dashboard")
+        return redirect(url_for('main.dashboard'))
 
     if request.method == 'POST':
         fullname = request.form.get('fullname').title()
@@ -65,7 +65,7 @@ def signup():
                 flash("Sign up completed", "success")
                 # signing in
                 session['user'] = username
-                return redirect("/dashboard")
+                return redirect(url_for('main.dashboard'))
             else:
                 error = "Wrong values entered"
                 # return redirect("/dashboard")
@@ -73,4 +73,4 @@ def signup():
         flash(error, "danger")
         # return redirect("/dashboard")
 
-    return redirect("/dashboard")
+    return redirect(url_for('main.dashboard'))
