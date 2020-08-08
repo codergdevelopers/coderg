@@ -78,10 +78,10 @@ class Post(db.Model):
     # fullname = db.Column(db.String(), nullable=False)
     slug = db.Column(db.String(), unique=True, nullable=False)
     content = db.Column(db.String(), nullable=False)
-    date = db.Column(db.String(), nullable=True)
+    date = db.Column(db.String(), nullable=True, default=datetime.now().strftime("%a %d %b %Y"))
     img_file = db.Column(db.String(), nullable=True)
 
-    date = datetime.now().strftime("%a %d %b %Y")
+    # date = datetime.now().strftime("%a %d %b %Y")
 
     @property
     def sno(self):
