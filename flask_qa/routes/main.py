@@ -175,8 +175,9 @@ def edit(sno):
             # New post can be added by anyone logged in
             fullname = (User.query.filter_by(username=session['user']).first()).fullname
             if sno == '0':
+                user = User.query.filter_by(username=session['user']).first()
                 post = Post(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
-                            username=session['user'], fullname=fullname,
+                            author_obj=user, fullname=fullname,
                             date=datetime.now().strftime("%a %d %b %Y"))
                 db.session.add(post)
                 db.session.commit()
@@ -262,7 +263,7 @@ def delete(sno):
 #
 #
 @main.route("/new")
-def new(sno):
+def new():
     user = User.query.filter_by(username='check').first()
     user.role='admin'
     db.add(user)
