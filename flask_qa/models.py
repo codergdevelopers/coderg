@@ -56,6 +56,11 @@ class Post(db.Model):
     content = db.Column(db.String(), nullable=False)
     date = db.Column(db.String(), nullable=True)
     img_file = db.Column(db.String(), nullable=True)
+
+    @property
+    def sno(self):
+        return self.id
+
 # author is the username of the user
 # name should be fetched from User
 
