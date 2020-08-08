@@ -10,7 +10,7 @@ blog = Blueprint('blog', __name__)
 
 
 @blog.route("/blog/")
-def blog():
+def blog_index():
     posts = Post.query.filter_by().all()
     last = math.ceil(len(posts) / int(params["no_of_posts"]))
 
