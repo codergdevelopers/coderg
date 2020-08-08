@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from werkzeug.security import generate_password_hash
 
 from .extensions import db
@@ -36,15 +38,18 @@ class User(db.Model):
 
 
 class Role(db.Model):
+    """
+    FORMAT:
+    Role(name=name_of_role, username=username_of_user)
+    """
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    # user_obj = ___ (pseudo column)
+    # user_obj = ___ (pseudo column created by class 'User')
 
     @property
     def username(self):
         return self.user_obj.username
-
     @username.setter
     def username(self, username1):
         user = User.query.filter_by(username=username1).first()
@@ -52,12 +57,22 @@ class Role(db.Model):
 
 
 class Post(db.Model):
+    """
+    FORMAT:
+    Post(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
+                            author_obj=user,
+                            date=datetime.now().strftime("%a %d %b %Y"))
+    """
+
+    def __init__(self):
+        self.date=datetime.now().strftime("%a %d %b %Y"))
+
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(), nullable=False)
     tagline = db.Column(db.String(), nullable=False)
 
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    # author_obj = ___ (pseudo column)
+    # author_obj = ___ (pseudo column created by class 'User')
 
     # username = db.Column(db.String(), nullable=False)
     # fullname = db.Column(db.String(), nullable=False)
@@ -69,6 +84,14 @@ class Post(db.Model):
     @property
     def sno(self):
         return self.id
+
+    @property
+    def author(self):
+        return self.author_obj.username
+    @author.setter
+    def author(self, username1):
+        user = User.query.filter_by(username=username1).first()
+        self.author_obj = user
 
 # author is the username of the user
 # name should be fetched from User

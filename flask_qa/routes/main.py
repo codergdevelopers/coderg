@@ -106,12 +106,13 @@ def edit(sno):
             nimg_file = request.form.get('img_file')
 
             # New post can be added by anyone logged in
-            user = (User.query.filter_by(username=session['user']).first())
             if sno == '0':
-                user = User.query.filter_by(username=session['user']).first()
+                # user = User.query.filter_by(username=session['user']).first()
+                # post = Post(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
+                #             author_obj=user,
+                #             date=datetime.now().strftime("%a %d %b %Y"))
                 post = Post(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
-                            author_obj=user,
-                            date=datetime.now().strftime("%a %d %b %Y"))
+                            author=session['user'])
                 db.session.add(post)
                 db.session.commit()
                 flash("New post added", "success")
@@ -195,9 +196,9 @@ def delete(sno):
 #     return "New post added"
 #
 #
-@main.route('/nnew')
-def new():
-    role = Role(name='editor', username='check')
-    # user.role='admin'
-    db.session.add(role)
-    db.session.commit()
+# @main.route('/new')
+# def new():
+#     role = Role(name='editor', username='check')
+#     # user.role='admin'
+#     db.session.add(role)
+#     db.session.commit()
