@@ -4,8 +4,6 @@ from werkzeug.security import check_password_hash
 from flask_qa.extensions import db
 from flask_qa.models import User
 
-from config.config import params
-
 auth = Blueprint('auth', __name__)
 
 
