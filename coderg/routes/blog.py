@@ -3,7 +3,7 @@ import math
 from flask import Blueprint, render_template, request, session, redirect, flash, url_for
 
 from coderg.extensions import db
-from coderg.models import Post
+from coderg.models import Post, User
 from config.config import params
 
 blog = Blueprint('blog', __name__)
@@ -67,8 +67,7 @@ def edit(sno):
 
             post = Post.query.filter_by(sno=sno).first()
             # Post can be edited by either admin or author
-            if session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"] or \
-                    session['user'] == post.author.username:
+            if 'user' in session and (session['user'] == post.author.username or ('ADMIN' in User.query.filter_by(username=session['user']).first().role)):
                 post = Post.query.filter_by(sno=sno).first()
                 post.title = ntitle
                 post.tagline = ntagline
@@ -89,7 +88,7 @@ def edit(sno):
 
 @blog.route("/delete/<sno>", methods=['GET', 'POST'])
 def delete(sno):
-    if 'user' in session and session['user'] == params["admin"]["user1"] or session['user'] == params["admin"]["user2"]:
+    if 'user' in session and ('ADMIN' in User.query.filter_by(username=session['user']).first().role):
         post = Post.query.filter_by(sno=sno).first()
         db.session.delete(post)
         db.session.commit()
