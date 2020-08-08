@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session, redirect, flash, url_for
 
-from flask_qa.models import Project, User, Post
+from flask_qa.models import Project, User, Post, Role
 from flask_qa.extensions import db
 
 from config.config import params
@@ -173,11 +173,11 @@ def edit(sno):
             nimg_file = request.form.get('img_file')
 
             # New post can be added by anyone logged in
-            fullname = (User.query.filter_by(username=session['user']).first()).fullname
+            user = (User.query.filter_by(username=session['user']).first())
             if sno == '0':
                 user = User.query.filter_by(username=session['user']).first()
                 post = Post(title=ntitle, tagline=ntagline, slug=nslug, content=ncontent, img_file=nimg_file,
-                            author_obj=user, fullname=fullname,
+                            author_obj=user,
                             date=datetime.now().strftime("%a %d %b %Y"))
                 db.session.add(post)
                 db.session.commit()
@@ -265,6 +265,7 @@ def delete(sno):
 @main.route("/new")
 def new():
     user = User.query.filter_by(username='check').first()
-    user.role='admin'
-    db.add(user)
-    db.commit(user)
+    role = Role(name='admin', user_obj=user)
+    # user.role='admin'
+    db.add(role)
+    db.commit(role)
