@@ -41,6 +41,15 @@ class Role(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     # user_obj = ___ (pseudo column)
 
+    @property
+    def username(self):
+        return self.user_obj.username
+
+    @username.setter
+    def username(self, username1):
+        user = User.query.filter_by(username=username1).first()
+        self.user_obj = user
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
