@@ -65,7 +65,7 @@ class Post(db.Model):
     """
 
     def __init__(self):
-        self.date=datetime.now().strftime("%a %d %b %Y"))
+        self.date=datetime.now().strftime("%a %d %b %Y")
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(), nullable=False)
