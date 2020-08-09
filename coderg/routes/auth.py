@@ -28,6 +28,7 @@ def login():
 @auth.route('/logout')
 def logout():
     session.pop('user')
+    return 'Done'
     return redirect(url_for('auth.login'))
 
 
