@@ -42,10 +42,8 @@
         <hr class="hr-all">
         <div class="post-box">
             {% for project in projects %}
-            {{ category }}{{ projects.category }}
-            {#
-            {% if project.category == category %}
-#}
+            
+            {% if project.category.upper() == category.upper() %}
 
             {% if cnt.append(cnt.pop()+1) %}{% endif %}
 
