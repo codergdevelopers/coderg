@@ -7,6 +7,7 @@ from .models import Project, User, Post
 from .routes.auth import auth
 from .routes.blog import blog
 from .routes.main import main
+from .routes.onetime import onetime
 
 
 def create_app(config_file='settings.py'):
@@ -23,6 +24,7 @@ def create_app(config_file='settings.py'):
     app.register_blueprint(main)
     app.register_blueprint(auth)
     app.register_blueprint(blog)
+    app.register_blueprint(onetime)
 
     app.cli.add_command(create_tables)
 
