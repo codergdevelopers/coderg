@@ -43,5 +43,5 @@ def dashboard():
 @main.route("/projects/")
 def display_projects():
     categories = params['project_categories']
-    projects = Project.query.filter_by().all()
+    projects = Project.query.all()
     return render_template("projects.html", categories=categories, projects=projects)
