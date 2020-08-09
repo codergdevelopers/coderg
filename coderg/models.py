@@ -43,7 +43,7 @@ class Role(db.Model):
 
     @property
     def title(self):
-        return self._role_title
+        return self._role_title.upper()
 
     @title.setter
     def title(self, title1):
