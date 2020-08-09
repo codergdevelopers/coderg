@@ -45,3 +45,8 @@ def display_projects():
     categories = params['project_categories']
     projects = Project.query.all()
     return render_template("projects.html", categories=categories, projects=projects)
+
+@main.route('/ogout')
+def logout():
+    session.pop('user')
+    return 'Done'

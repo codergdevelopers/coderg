@@ -95,8 +95,9 @@
 
     <h1>Basic actions</h1>
     {{ url_for('auth.logout') }}
+    {{ url_for('main.logout') }}
     <a href="/edit/0" style="text-decoration: none;"><button class="admin">Add a new post</button></a>
-    <a href="{{ url_for('auth.logout') }}" style="text-decoration: none;"><button class="admin">Logout</button></a>
+    <a href="{{ url_for('main.logout') }}" style="text-decoration: none;"><button class="admin">Logout</button></a>
     <hr>
 
     {#
