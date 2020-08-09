@@ -43,7 +43,9 @@
         <div class="post-box">
             {% for project in projects %}
             {{ category }}{{ projects.category }}
+            {#
             {% if project.category == category %}
+#}
 
             {% if cnt.append(cnt.pop()+1) %}{% endif %}
 
