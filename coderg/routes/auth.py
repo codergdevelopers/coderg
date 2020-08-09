@@ -20,7 +20,7 @@ def login():
             return redirect(url_for('main.dashboard'))
         else:
             flash('Could not login. Please check and try again.')
-            return redirect(url_for('.login'))
+            return redirect(url_for('auth.login'))
 
     return render_template('lisu.html')
 
@@ -28,7 +28,7 @@ def login():
 @auth.route('/logout')
 def logout():
     session.pop('user')
-    return redirect(url_for('main.dashboard'))
+    return redirect(url_for('auth.login'))
 
 
 @auth.route("/signup/", methods=['GET', 'POST'])

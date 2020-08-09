@@ -64,7 +64,7 @@ def edit(sno):
                 db.session.add(post)
                 db.session.commit()
                 flash("New post added", "success")
-                return redirect(url_for('.dashboard'))
+                return redirect(url_for('main.dashboard'))
 
             post = Post.query.filter_by(sno=sno).first()
             # Post can be edited by either admin or author
@@ -77,14 +77,14 @@ def edit(sno):
                 post.img_file = nimg_file
                 db.session.commit()
                 flash("Edited successfully", "success")
-                return redirect(url_for('.dashboard'))
+                return redirect(url_for('main.dashboard'))
 
         post = Post.query.filter_by(sno=sno).first()
         if post or sno == '0':
             return render_template('edit.html', post=post, sno=sno)
-        return redirect(url_for('.dashboard'))
+        return redirect(url_for('main.dashboard'))
 
-    return redirect(url_for('.dashboard'))
+    return redirect(url_for('main.dashboard'))
 
 
 @blog.route("/delete/<sno>", methods=['GET', 'POST'])
@@ -102,4 +102,4 @@ def delete(sno):
             db.session.commit()
             flash("Post deleted successfully", "success")
 
-    return redirect(url_for('.dashboard'))
+    return redirect(url_for('main.dashboard'))
