@@ -8,3 +8,5 @@ onetime = Blueprint('onetime', __name__)
 @onetime.route('/aqdasadmin')
 def aqdasadmin():
     db.session.add(Role(title='ADMIN', username='aqdas'))
+    db.session.commit()
+    return 'Admin set'
