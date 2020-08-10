@@ -29,8 +29,8 @@ def check_role(*args):
         return True
 
 
-def role_required(func, *args, redirect_to='/'):
-    def inner():
+def role_required(*args, redirect_to='/'):
+    def inner(func):
         from flask import redirect
 
         if check_role(args):
