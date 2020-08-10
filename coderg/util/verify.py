@@ -1,7 +1,3 @@
-from flask import session
-from coderg.models import User
-
-
 def check_role(*args):
     """
     :param args:('ADMIN','EDITOR',['CHIEF','HEAD'])
@@ -10,6 +6,9 @@ def check_role(*args):
 
     :return:boolean
     """
+    from flask import session
+    from coderg.models import User
+
     if 'user' not in session:
         return False
     else:

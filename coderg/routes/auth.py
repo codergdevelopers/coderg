@@ -4,7 +4,7 @@ from werkzeug.security import check_password_hash
 from coderg.extensions import db
 from coderg.models import User, Role
 from config.config import params
-from coderg.util import check_role
+from coderg.util import check_role, change_role
 
 auth = Blueprint('auth', __name__)
 
@@ -82,28 +82,31 @@ def setrole():
 
         if request.method == 'POST':
             username = request.form.get('username')
-            user = User.query.filter_by(username=username).first()
-            new_roles = []
+
+            # user = User.query.filter_by(username=username).first()
 
             # getting roles from html form
+            new_roles = []
             for i in range(len(roles_avl)):
                 role = request.form.get('role' + str(i + 1))
                 new_roles.append(role)
 
-            # Changing roles
-            for role in roles_avl:
-                # new role added
-                if role in new_roles and role not in user.role:
-                    db.session.add(Role(title=role, username=username))
-                    # db.session.commit()
+            change_role(username, new_roles)
 
-                # role removed
-                elif role not in new_roles and role in user.role:
-                    for role_obj in user._user_role:
-                        if role_obj.title == role:
-                            db.session.delete(role_obj)
-                            # db.session.commit()
-            db.session.commit()
+            # Changing roles
+            # for role in roles_avl:
+            #     # new role added
+            #     if role in new_roles and role not in user.role:
+            #         db.session.add(Role(title=role, username=username))
+            #         # db.session.commit()
+            #
+            #     # role removed
+            #     elif role not in new_roles and role in user.role:
+            #         for role_obj in user._user_role:
+            #             if role_obj.title == role:
+            #                 db.session.delete(role_obj)
+            #                 # db.session.commit()
+            # db.session.commit()
 
         users = User.query.all()
         return render_template('setrole.html', users=users, roles_avl=roles_avl)
