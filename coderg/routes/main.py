@@ -13,14 +13,14 @@ def index():
     return render_template('index.html')
 
 
+# @role_required('ADMIN', redirect_to='/dashboard')
 @main.route("/about/")
-@role_required('ADMIN', redirect_to='/dashboard')
 def about():
     return render_template("about.html", )
 
 
+# @role_required('ADMIN','EDITOR')
 @main.route("/contact/")
-@role_required('ADMIN','EDITOR')
 def contact():
     return render_template("contact.html")
 
@@ -42,8 +42,8 @@ def dashboard():
         return redirect(url_for('auth.login'))
 
 
+# @role_required('EDITOR')
 @main.route("/projects/")
-@role_required('EDITOR')
 def display_projects():
     categories = params['project_categories']
     projects = Project.query.all()
