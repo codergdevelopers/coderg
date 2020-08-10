@@ -31,8 +31,8 @@
         {% else %}
         {% set check = '' %}
         {% endif %}
-<br>role{{ cnt[0] }}<br>
-        {{ role }}: <input type="checkbox" name="role{{ cnt[0] }} {{ check }}">
+
+        {{ role }}: <input type="checkbox" name="role{{ cnt[0] }}" {{ check }} value="{{ role }}">
 
         {% endfor %}
         <input type="hidden" name="username" value="{{ user.username }}">
