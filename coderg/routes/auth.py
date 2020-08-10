@@ -90,23 +90,20 @@ def setrole():
                 role = request.form.get('role' + str(i + 1))
                 new_roles.append(role)
 
-            # a=request.form.get('role1')
-            # b=request.form.get('role2')
-
-            return str(new_roles)
-
+            # Changing roles
             for role in roles_avl:
                 # new role added
                 if role in new_roles and role not in user.role:
                     db.session.add(Role(title=role, username=username))
-                    db.session.commit()
+                    # db.session.commit()
 
                 # role removed
                 elif role not in new_roles and role in user.role:
                     for role_obj in user._user_role:
                         if role_obj.title == role:
                             db.session.delete(role_obj)
-                            db.session.commit()
+                            # db.session.commit()
+            db.session.commit()
 
         users = User.query.all()
         return render_template('setrole.html', users=users, roles_avl=roles_avl)
