@@ -91,7 +91,7 @@ def setrole():
                 role = request.form.get('role' + str(i + 1))
                 new_roles.append(role)
 
-            change_role(username, new_roles)
+            change_role(username, *new_roles)
 
             # Changing roles
             # for role in roles_avl:
