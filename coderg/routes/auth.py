@@ -75,40 +75,23 @@ def signup():
     return redirect(url_for('main.dashboard'))
 
 
-@auth.route('/setrole/', methods=['GET', 'POST'])
-def setrole():
+@auth.route('/role/', methods=['GET', 'POST'])
+def role():
     if check_role('ADMIN'):
         roles_avl = params['roles']
 
         if request.method == 'POST':
             username = request.form.get('username')
 
-            # user = User.query.filter_by(username=username).first()
-
             # getting roles from html form
             new_roles = []
             for i in range(len(roles_avl)):
-                role = request.form.get('role' + str(i + 1))
-                new_roles.append(role)
+                n_role = request.form.get('role' + str(i + 1))
+                new_roles.append(n_role)
 
             change_role(username, *new_roles)
 
-            # Changing roles
-            # for role in roles_avl:
-            #     # new role added
-            #     if role in new_roles and role not in user.role:
-            #         db.session.add(Role(title=role, username=username))
-            #         # db.session.commit()
-            #
-            #     # role removed
-            #     elif role not in new_roles and role in user.role:
-            #         for role_obj in user._user_role:
-            #             if role_obj.title == role:
-            #                 db.session.delete(role_obj)
-            #                 # db.session.commit()
-            # db.session.commit()
-
         users = User.query.all()
-        return render_template('setrole.html', users=users, roles_avl=roles_avl)
+        return render_template('role.html', users=users, roles_avl=roles_avl)
 
     return redirect(url_for('main.index'))
