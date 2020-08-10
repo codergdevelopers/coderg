@@ -86,14 +86,14 @@ def setrole():
             new_roles = []
 
             # getting roles from html form
-            # for i in range(len(roles_avl)):
-            #     role = request.form.get('role' + str(i + 1))
-            #     new_roles.append(role)
+            for i in range(len(roles_avl)):
+                role = request.form.get('role' + str(i + 1))
+                new_roles.append(role)
 
-            a=request.form.get('role1')
-            b=request.form.get('role2')
+            # a=request.form.get('role1')
+            # b=request.form.get('role2')
 
-            return str(a)+"&"+str(b)
+            return str(new_roles)
 
             for role in roles_avl:
                 # new role added
