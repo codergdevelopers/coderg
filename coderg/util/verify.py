@@ -40,5 +40,4 @@ def role_required(*args, redirect_to='/'):
                 return redirect(redirect_to)
 
         return wrapper
-
     return inner
