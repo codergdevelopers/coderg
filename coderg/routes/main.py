@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, session, redirect, url_for
 from coderg.models import Project, User, Post
 
 from config.config import params
-from coderg.util import check_role, role_required
+from coderg.util import check_role
 
 main = Blueprint('main', __name__)
 
@@ -13,13 +13,11 @@ def index():
     return render_template('index.html')
 
 
-# @role_required('ADMIN', redirect_to='/dashboard')
 @main.route("/about/")
 def about():
     return render_template("about.html", )
 
 
-# @role_required('ADMIN','EDITOR')
 @main.route("/contact/")
 def contact():
     return render_template("contact.html")
@@ -42,7 +40,6 @@ def dashboard():
         return redirect(url_for('auth.login'))
 
 
-# @role_required('EDITOR')
 @main.route("/projects/")
 def display_projects():
     categories = params['project_categories']
