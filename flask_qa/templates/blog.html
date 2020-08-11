@@ -3,14 +3,8 @@
 
 <title>Blogs</title>
 <style>
-  .blog-link{
-      text-decoration: none;
-      height: 100%;
-      width: 100%;
-  }
-.post-link{
-    padding: 0;
-}
+  
+
 </style>
 
 </head>
@@ -49,9 +43,9 @@
         
         <!-- <a href="/post/{{ post.slug }}" class="blog-link"> -->
         <button onclick="disp_post({{ post.slug }})" id="post-link" class="post-link">
-                <div class="post-preview" style="height: 100%;width: 100%;">
+                <div class="post-preview">
 
-                    <h2 class="post-title" style="width: 100%;">
+                    <h2 class="post-title">
                         {{post.title}}
                     </h2>
 
