@@ -5,8 +5,12 @@
 <style>
   .blog-link{
       text-decoration: none;
+      height: 100%;
+      width: 100%;
   }
-
+.post-link{
+    padding: 0;
+}
 </style>
 
 </head>
@@ -43,11 +47,11 @@
         {% for post in posts %}
 
         
-        <a href="/post/{{ post.slug }}" class="blog-link">
-            <button onclick="disp_post({{ post.slug }})" id="post-link" class="post-link">
-                <div class="post-preview">
+        <!-- <a href="/post/{{ post.slug }}" class="blog-link"> -->
+        <button onclick="disp_post({{ post.slug }})" id="post-link" class="post-link">
+                <div class="post-preview" style="height: 100%;width: 100%;">
 
-                    <h2 class="post-title">
+                    <h2 class="post-title" style="width: 100%;">
                         {{post.title}}
                     </h2>
 
@@ -55,15 +59,23 @@
                         {{post.tagline}}
                     </h3>
                     <p class="post-meta">Posted by
-                        <a id="fullname" href="#" style="text-decoration: none;">{{post.fullname}}</a>
-                        on {{post.date}}</p>
+                        <a id="fullname" href="#" style="text-decoration: none;">{{post.fullname}}
+                        </a>
+                        on {{post.date}}
+                    </p>
                         <div class="post-start">
                             {{post.content[0:50]}}...
                         </div>
-                    </div>
+                </div>
                     
-                </button>
-            </a>
+            </button>
+            <script>
+                document.getElementById("post-link").onclick=myfuntion;
+                function myfuntion(){
+                    window.open("/post/{{ post.slug }}");
+                }
+            </script>
+        <!-- </a> -->
         
 
         <hr style="margin: 1rem;">
