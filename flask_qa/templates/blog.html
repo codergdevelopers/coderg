@@ -2,6 +2,12 @@
 {% block head %}
 
 <title>Blogs</title>
+<style>
+  .blog-link{
+      text-decoration: none;
+  }
+
+</style>
 
 </head>
 
@@ -37,8 +43,8 @@
         {% for post in posts %}
 
         
-            <button onclick="disp_post({{ post.slug }})" id="post-link">
-                <a href="/post/{{ post.slug }}">
+        <a href="/post/{{ post.slug }}" class="blog-link">
+            <button onclick="disp_post({{ post.slug }})" id="post-link" class="post-link">
                 <div class="post-preview">
 
                     <h2 class="post-title">
@@ -48,16 +54,16 @@
                     <h3 class="post-subtitle">
                         {{post.tagline}}
                     </h3>
-                </a>
                     <p class="post-meta">Posted by
-                        <a id="fullname" href="#">{{post.fullname}}</a>
+                        <a id="fullname" href="#" style="text-decoration: none;">{{post.fullname}}</a>
                         on {{post.date}}</p>
-                    <div class="post-start">
-                        {{post.content[0:50]}}...
+                        <div class="post-start">
+                            {{post.content[0:50]}}...
+                        </div>
                     </div>
-                </div>
-                
-            </button>
+                    
+                </button>
+            </a>
         
 
         <hr style="margin: 1rem;">
