@@ -256,13 +256,13 @@
     width: max-content;
     margin: auto;
     color: black;
-    text-decoration: inherit;
+    /* text-decoration: none; */
 }
 
 .post-subtitle{
     font-size: 1.2rem;
     color: rgb(102, 102, 102);
-    text-decoration: inherit;
+    text-decoration: none;
     margin-bottom: .5rem;
 }
 
