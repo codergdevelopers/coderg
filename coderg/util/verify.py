@@ -38,7 +38,7 @@ def role_required(*args, redirect_to='/'):
             from flask import redirect
 
             if check_role(*args):
-                func()
+                return func()
             else:
                 return redirect(redirect_to)
 
