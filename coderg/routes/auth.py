@@ -76,7 +76,7 @@ def signup():
 
 
 @auth.route('/role/', methods=['GET', 'POST'])
-@role_required('ADMIN', redirect_to=url_for('main.index'))
+@role_required('ADMIN')
 def role():
     roles_avl = params['roles']
 
