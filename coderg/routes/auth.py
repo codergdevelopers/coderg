@@ -2,9 +2,9 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from werkzeug.security import check_password_hash
 
 from coderg.extensions import db
-from coderg.models import User, Role
+from coderg.models import User
 from config.config import params
-from coderg.util import check_role, change_role
+from coderg.util import change_role, role_required
 
 auth = Blueprint('auth', __name__)
 
@@ -76,22 +76,20 @@ def signup():
 
 
 @auth.route('/role/', methods=['GET', 'POST'])
+@role_required('ADMIN', redirect_to=url_for('main.index'))
 def role():
-    if check_role('ADMIN'):
-        roles_avl = params['roles']
+    roles_avl = params['roles']
 
-        if request.method == 'POST':
-            username = request.form.get('username')
+    if request.method == 'POST':
+        username = request.form.get('username')
 
-            # getting roles from html form
-            new_roles = []
-            for i in range(len(roles_avl)):
-                n_role = request.form.get('role' + str(i + 1))
-                new_roles.append(n_role)
+        # getting roles from html form
+        new_roles = []
+        for i in range(len(roles_avl)):
+            n_role = request.form.get('role' + str(i + 1))
+            new_roles.append(n_role)
 
-            change_role(username, *new_roles)
+        change_role(username, *new_roles)
 
-        users = User.query.all()
-        return render_template('role.html', users=users, roles_avl=roles_avl)
-
-    return redirect(url_for('main.index'))
+    users = User.query.all()
+    return render_template('role.html', users=users, roles_avl=roles_avl)

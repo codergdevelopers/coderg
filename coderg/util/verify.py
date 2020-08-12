@@ -30,6 +30,13 @@ def check_role(*args):
 
 
 def role_required(*args, redirect_to='/'):
+    """
+    decorator to allow users having specified role
+    :param args:('ADMIN','EDITOR',['CHIEF','HEAD'])
+            user should have all roles and any one from list
+    =>user should be 'ADMIN' and 'EDITOR' and ('CHIEF' or 'HEAD')
+    :param redirect_to: url of the page to redirect in case authorisation failed
+    """
     from functools import wraps
 
     def func_receiver(func):
@@ -45,4 +52,3 @@ def role_required(*args, redirect_to='/'):
         return wrapper
 
     return func_receiver
-
