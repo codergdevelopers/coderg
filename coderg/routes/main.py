@@ -50,11 +50,11 @@ def display_projects():
 
 @main.route('/newa')
 @role_required('ADMIN')
-def new():
+def newa():
     return "Hi"
 
 @main.route('/newa2')
 @role_required('ADMIN',redirect_to='/about/')
-def new2():
+def newa2():
     return "Hi"
 
