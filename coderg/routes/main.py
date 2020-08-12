@@ -4,6 +4,7 @@ from coderg.models import Project, User, Post
 
 from config.config import params
 from coderg.util import check_role
+from coderg.util.verify import role_required
 
 main = Blueprint('main', __name__)
 
@@ -45,3 +46,15 @@ def display_projects():
     categories = params['project_categories']
     projects = Project.query.all()
     return render_template("projects.html", categories=categories, projects=projects)
+
+
+@main.route('/new')
+@role_required('ADMIN')
+def new():
+    return "Hi"
+
+@main.route('/new2')
+@role_required('ADMIN',redirect_to='/about')
+def new2():
+    return "Hi"
+
