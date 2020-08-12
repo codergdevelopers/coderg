@@ -39,7 +39,7 @@ def role_required(*args, redirect_to='/'):
             else:
                 return redirect(redirect_to)
 
-            wrapper.__name__ = func.__name__
+            # wrapper.__name__ = func.__name__
         return wrapper
 
     return inner
