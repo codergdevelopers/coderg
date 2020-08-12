@@ -48,13 +48,13 @@ def display_projects():
     return render_template("projects.html", categories=categories, projects=projects)
 
 
-@main.route('/new')
+@main.route('/newa')
 @role_required('ADMIN')
 def new():
     return "Hi"
 
-@main.route('/new2')
-@role_required('ADMIN',redirect_to='/about')
+@main.route('/newa2')
+@role_required('ADMIN',redirect_to='/about/')
 def new2():
     return "Hi"
 
