@@ -44,4 +44,5 @@ def role_required(*args, redirect_to='/'):
 
         return wrapper
 
-    return func_receiver()
+    return func_receiver
+
