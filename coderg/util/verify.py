@@ -30,7 +30,10 @@ def check_role(*args):
 
 
 def role_required(*args, redirect_to='/'):
-    def inner(func):
+    from functools import wraps
+
+    def func_receiver(func):
+        @wraps(func)
         def wrapper():
             from flask import redirect
 
@@ -39,7 +42,6 @@ def role_required(*args, redirect_to='/'):
             else:
                 return redirect(redirect_to)
 
-            # wrapper.__name__ = func.__name__
         return wrapper
 
-    return inner
+    return func_receiver()
