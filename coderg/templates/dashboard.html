@@ -94,9 +94,8 @@
 
 
     <h1>Basic actions</h1>
-
     <a href="/edit/0" style="text-decoration: none;"><button class="admin">Add a new post</button></a>
-    <a href="/logout" style="text-decoration: none;"><button class="admin">Logout</button></a>
+    <a href="{{ url_for('auth.logout') }}" style="text-decoration: none;"><button class="admin">Logout</button></a>
     <hr>
 
     {#
@@ -146,7 +145,7 @@
                         <tr role="row">
                             <td role="cell">{{ counter[0] }}</td>
                             <td role="cell">{{post.title}}</td>
-                            <td role="cell">{{post.fullname}}</td>
+                            <td role="cell">{{post.author.fullname}}</td>
                             <td role="cell"><a href="/edit/{{post.sno}}" style="text-decoration: none;"><button
                                         class="admin">Edit</button></a></td>
                         </tr>

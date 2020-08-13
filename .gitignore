@@ -1,4 +1,6 @@
 A temp.py
 chkfoot.html
 launcher.py
-
+.idea/
+__pycache__/
+.vscode/

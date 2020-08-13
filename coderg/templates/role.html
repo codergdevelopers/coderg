@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block head %}
+
+<title>Set Role</title>
+
+</head>
+
+<body>
+
+    {% endblock %}
+
+    <!-- NAVBAR -->
+
+    {% block body %}
+
+
+
+    {% for user in users %}
+
+    <form action="{{ url_for('auth.role') }}" method="POST">
+        Username: {{ user.username }}
+        Fullname: {{ user.fullname }}
+        Email: {{ user.email }}
+
+        {% set cnt = [0] %}
+        Roles: {% for role in roles_avl %}
+        {% if cnt.append(cnt.pop()+1) %}{% endif %}
+
+        {% if role in user.role %}
+        {% set check = 'checked' %}
+        {% else %}
+        {% set check = '' %}
+        {% endif %}
+
+        {{ role }}: <input type="checkbox" name="role{{ cnt[0] }}" {{ check }} value="{{ role }}">
+
+        {% endfor %}
+        <input type="hidden" name="username" value="{{ user.username }}">
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+
+    </form>
+    {% endfor %}
+
+    {% endblock %}

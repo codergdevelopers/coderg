@@ -1,3 +1,3 @@
-from flask_qa import create_app
+from coderg import create_app
 
 app = create_app()
