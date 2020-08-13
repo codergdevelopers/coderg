@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block head %}
+
+<title>Change Password</title>
+
+</head>
+
+<body>
+
+    {% endblock %}
+
+    <!-- NAVBAR -->
+
+    {% block body %}
+
+    <h1>Change Password</h1>
+
+
+    <form action="{{ url_for('auth.change_pass') }}" method="POST">
+
+        Current Password: <input type="password" name="current_password">
+        New Password: <input type="password" name="new_password1">
+        New Password: <input type="password" name="new_password2">
+
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+
+    </form>
+
+    {% endblock %}

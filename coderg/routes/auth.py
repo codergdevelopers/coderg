@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import check_password_hash
 
-from coderg.extensions import db
+from coderg.extensions import db, mail
 from coderg.models import User
 from config.config import params
 from coderg.util import change_role, role_required
@@ -93,3 +93,60 @@ def role():
 
     users = User.query.all()
     return render_template('role.html', users=users, roles_avl=roles_avl)
+
+
+@auth.route('/change-pass/')
+def change_pass():
+    if 'user' in session:
+        user = User.query.filter_by(username=session['user']).first()
+        if request.method == 'POST':
+
+            current_password = request.form.get('current_password')
+            new_password1 = request.form.get('new_password1')
+            new_password2 = request.form.get('new_password2')
+            if check_password_hash(user.password, current_password):
+                if new_password1 == new_password2:
+                    user.password = new_password1
+                    db.session.commit()
+                else:
+                    flash("Password didn't match", "danger")
+
+            else:
+                flash('Current password is wrong', 'danger')
+
+        return render_template('change_pass.html', user=user)
+
+    return redirect(url_for('main.index'))
+
+
+@auth.route('/reset-pass/')
+def reset_pass():
+    user = User.query.filter_by(username=session['user']).first()
+    if request.method == 'POST':
+
+        otp = request.form.get('otp')
+        new_password1 = request.form.get('new_password1')
+        new_password2 = request.form.get('new_password2')
+        if otp == session['otp']:
+            session.pop('otp')
+            if new_password1 == new_password2:
+                user.password = new_password1
+                db.session.commit()
+            else:
+                flash("Password didn't match", "danger")
+
+        else:
+            flash('OTP is wrong', 'danger')
+        return redirect(url_for('auth.login'))
+
+    from random import randint
+    session['otp'] = randint(100000, 999999)
+    mail.send_message('Password reset: Coderg',
+                      sender='noreply.coderg@gmail.com',
+                      recipients=list(user.email),
+                      body=f'Hi {user.fullname},\n'
+                           f'You recently requested to rest your password for Coderg account.\n'
+                           f'This is your otp for password resetting\n{session["otp"]}\n\n'
+                           f'If you did not request a password reset, please ignore this email.\n\n'
+                           f'Thanks\nCoderg Developers\n{params["website_url"]}')
+    return render_template('reset_pass.html')

@@ -134,5 +134,7 @@
         <h1 class="h-primary">Not having an account yet? Create one.</h1>
         <div><button class="admin" data-toggle="modal" data-target="#signupModal" >SignUp</button></div>
         
+        <h3><a href="{{ url_for('auth.reset_pass') }}">Fogot password</a></h3>
+
     </div>
     {% endblock %}
