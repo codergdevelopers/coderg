@@ -95,7 +95,7 @@ def role():
     return render_template('role.html', users=users, roles_avl=roles_avl)
 
 
-@auth.route('/change-pass/')
+@auth.route('/change-pass/', methods=['GET', 'POST'])
 def change_pass():
     if 'user' in session:
         user = User.query.filter_by(username=session['user']).first()
@@ -119,7 +119,7 @@ def change_pass():
     return redirect(url_for('main.index'))
 
 
-@auth.route('/reset-pass/')
+@auth.route('/reset-pass/', methods=['GET', 'POST'])
 def reset_pass():
     user = User.query.filter_by(username=session['user']).first()
     if request.method == 'POST':
