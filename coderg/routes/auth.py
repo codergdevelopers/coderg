@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session, g
 from werkzeug.security import check_password_hash
 
 from coderg.extensions import db, mail
@@ -130,7 +130,8 @@ def reset_pass():
         new_password1 = request.form.get('new_password1')
         new_password2 = request.form.get('new_password2')
 
-        # user = User.query.filter_by(email=email).first()
+        return str(otp) + str(session['otp']) + str(g['otp'])
+
         if otp == session['otp']:
             session.pop('otp')
             if new_password1 == new_password2:
@@ -161,12 +162,13 @@ def reset_pass_otp():
 
         from random import randint
         session['otp'] = randint(100000, 999999)
+        g['otp']=session['otp']
 
         mail.send_message('Password reset: Coderg',
                           sender='noreply.coderg@gmail.com',
                           recipients=[user.email],
-                          body=f'Hi {user.fullname},\n'
-                               f'You recently requested to rest your password for Coderg account.\n'
+                          body=f'Hi {user.fullname},\n\n'
+                               f'You recently requested to reset your password for Coderg account.\n'
                                f'This is your otp for password resetting\n{session["otp"]}\n\n'
                                f'If you did not request a password reset, please ignore this email.\n\n'
                                f'Thanks\nCoderg Developers\n{params["website_url"]}')
