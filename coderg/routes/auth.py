@@ -161,6 +161,8 @@ def reset_pass_otp():
 
         from random import randint
         session['otp'] = randint(100000, 999999)
+        
+        return str(list(str(user.email), session['otp']))
 
         mail.send_message('Password reset: Coderg',
                           sender='noreply.coderg@gmail.com',
