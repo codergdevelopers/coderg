@@ -41,7 +41,7 @@
         {% for post in posts %}
 
         
-        <!-- <a href="/post/{{ post.slug }}" class="blog-link"> -->
+        <a href="/post/{{ post.slug }}" class="blog-link">
         <button onclick="disp_post({{ post.slug }})" id="post-link" class="post-link">
                 <div class="post-preview">
 
@@ -69,7 +69,7 @@
                     window.open("/post/{{ post.slug }}");
                 }
             </script>
-        <!-- </a> -->
+        </a>
         
 
         <hr style="margin: 1rem;">
