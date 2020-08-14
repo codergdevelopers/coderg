@@ -42,7 +42,7 @@
 
         
         <!-- <a href="/post/{{ post.slug }}" class="blog-link"> -->
-        <button onclick="disp_post({{ post.slug }})" id="post-link" class="post-link">
+        <button onclick="disp_post({{ post.slug }})" id="post-link">
                 <div class="post-preview">
 
                     <h2 class="post-title">
@@ -64,7 +64,7 @@
                     
             </button>
             <script>
-                document.getElementsByClassName("post-link").onclick=myfuntion;
+                document.getElementById("post-link").onclick=myfuntion;
                 function myfuntion(){
                     window.open("/post/{{ post.slug }}");
                 }
