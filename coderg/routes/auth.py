@@ -130,7 +130,7 @@ def reset_pass():
         new_password1 = request.form.get('new_password1')
         new_password2 = request.form.get('new_password2')
 
-        return str(otp) + str(session['otp']) + str(g['otp'])
+        return str(otp) + str(session['otp'])
 
         if otp == session['otp']:
             session.pop('otp')
@@ -162,7 +162,6 @@ def reset_pass_otp():
 
         from random import randint
         session['otp'] = randint(100000, 999999)
-        g['otp']=session['otp']
 
         mail.send_message('Password reset: Coderg',
                           sender='noreply.coderg@gmail.com',
