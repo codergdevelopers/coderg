@@ -108,6 +108,7 @@ def change_pass():
                 if new_password1 == new_password2:
                     user.password = new_password1
                     db.session.commit()
+                    flash("Password changed successfully", "success")
                 else:
                     flash("Password didn't match", "danger")
 
@@ -121,17 +122,21 @@ def change_pass():
 
 @auth.route('/reset-pass/', methods=['GET', 'POST'])
 def reset_pass():
-    user = User.query.filter_by(username=session['user']).first()
     if request.method == 'POST':
 
         otp = request.form.get('otp')
+
+        user = request.form.get('user')
         new_password1 = request.form.get('new_password1')
         new_password2 = request.form.get('new_password2')
+
+        # user = User.query.filter_by(email=email).first()
         if otp == session['otp']:
             session.pop('otp')
             if new_password1 == new_password2:
                 user.password = new_password1
                 db.session.commit()
+                flash("Password changed successfully", "success")
             else:
                 flash("Password didn't match", "danger")
 
@@ -139,14 +144,30 @@ def reset_pass():
             flash('OTP is wrong', 'danger')
         return redirect(url_for('auth.login'))
 
-    from random import randint
-    session['otp'] = randint(100000, 999999)
-    mail.send_message('Password reset: Coderg',
-                      sender='noreply.coderg@gmail.com',
-                      recipients=list(user.email),
-                      body=f'Hi {user.fullname},\n'
-                           f'You recently requested to rest your password for Coderg account.\n'
-                           f'This is your otp for password resetting\n{session["otp"]}\n\n'
-                           f'If you did not request a password reset, please ignore this email.\n\n'
-                           f'Thanks\nCoderg Developers\n{params["website_url"]}')
-    return render_template('reset_pass.html')
+
+@auth.route('/reset_pass_otp', methods=['GET', 'POST'])
+def reset_pass_otp():
+    if request.method == 'POST':
+
+        username = request.form.get('username')
+        if username:
+            user = User.query.filter_by(username=username).first()
+        else:
+            email = request.form.get('email')
+            user = User.query.filter_by(email=email).first()
+
+        from random import randint
+        session['otp'] = randint(100000, 999999)
+
+        mail.send_message('Password reset: Coderg',
+                          sender='noreply.coderg@gmail.com',
+                          recipients=list(user.email),
+                          body=f'Hi {user.fullname},\n'
+                               f'You recently requested to rest your password for Coderg account.\n'
+                               f'This is your otp for password resetting\n{session["otp"]}\n\n'
+                               f'If you did not request a password reset, please ignore this email.\n\n'
+                               f'Thanks\nCoderg Developers\n{params["website_url"]}')
+
+        return render_template('forgot_pass/reset_pass.html', user=user)
+
+    return render_template('forgot_pass/send_otp.html')

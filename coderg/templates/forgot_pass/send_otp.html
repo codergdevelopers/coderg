@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block head %}
+
+<title>Reset Password</title>
+
+</head>
+
+<body>
+
+    {% endblock %}
+
+    <!-- NAVBAR -->
+
+    {% block body %}
+
+    <h1>Reset Password</h1>
+
+    Enter details.
+
+    <form action="{{ url_for('auth.reset_pass_otp') }}" method="POST">
+        Username: <input type="text" name="username">
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+    
+    <br>
+    <h1>OR</h1>
+    <br>
+    
+    <form action="{{ url_for('auth.reset_pass_otp') }}" method="POST">
+        Email: <input type="email" name="email">
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+
+    {% endblock %}
