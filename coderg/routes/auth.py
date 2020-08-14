@@ -155,13 +155,16 @@ def reset_pass_otp():
         else:
             email = request.form.get('email')
             user = User.query.filter_by(email=email).first()
+        if not user:
+            flash(r"Username/email not found", 'danger')
+            return render_template('forgot_pass/send_otp.html')
 
         from random import randint
         session['otp'] = randint(100000, 999999)
 
         mail.send_message('Password reset: Coderg',
                           sender='noreply.coderg@gmail.com',
-                          recipients=list(user.email),
+                          recipients=list(str(user.email)),
                           body=f'Hi {user.fullname},\n'
                                f'You recently requested to rest your password for Coderg account.\n'
                                f'This is your otp for password resetting\n{session["otp"]}\n\n'
