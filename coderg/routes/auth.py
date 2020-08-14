@@ -130,7 +130,7 @@ def reset_pass():
         new_password1 = request.form.get('new_password1')
         new_password2 = request.form.get('new_password2')
 
-        return str(otp) + str(session['otp'])
+        return str(otp) + str(session['otp']) +str(type(session['otp']))
 
         if otp == session['otp']:
             session.pop('otp')
