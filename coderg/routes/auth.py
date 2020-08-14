@@ -164,15 +164,15 @@ def reset_pass_otp():
 
         return str(list(str(user.email))
 
-        mail.send_message('Password reset: Coderg',
-                          sender='noreply.coderg@gmail.com',
-                          recipients=list(str(user.email)),
-                          body=f'Hi {user.fullname},\n'
-                               f'You recently requested to rest your password for Coderg account.\n'
-                               f'This is your otp for password resetting\n{session["otp"]}\n\n'
-                               f'If you did not request a password reset, please ignore this email.\n\n'
-                               f'Thanks\nCoderg Developers\n{params["website_url"]}')
+        # mail.send_message('Password reset: Coderg',
+        #                   sender='noreply.coderg@gmail.com',
+        #                   recipients=list(str(user.email)),
+        #                   body=f'Hi {user.fullname},\n'
+        #                        f'You recently requested to rest your password for Coderg account.\n'
+        #                        f'This is your otp for password resetting\n{session["otp"]}\n\n'
+        #                        f'If you did not request a password reset, please ignore this email.\n\n'
+        #                        f'Thanks\nCoderg Developers\n{params["website_url"]}')
 
-        return render_template('forgot_pass/reset_pass.html', user=user)
+        # return render_template('forgot_pass/reset_pass.html', user=user)
 
     return render_template('forgot_pass/send_otp.html')
