@@ -172,6 +172,6 @@ def reset_pass_otp():
                                f'If you did not request a password reset, please ignore this email.\n\n'
                                f'Thanks\nCoderg Developers\n{params["website_url"]}')
 
-        return render_template('forgot_pass/reset_pass.html', username=username)
+        return render_template('forgot_pass/reset_pass.html', username=user.username)
 
     return render_template('forgot_pass/send_otp.html')
