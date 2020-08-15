@@ -126,9 +126,11 @@ def reset_pass():
 
         otp = int(request.form.get('otp'))
 
-        user = request.form.get('user')
+        username = request.form.get('username')
         new_password1 = request.form.get('new_password1')
         new_password2 = request.form.get('new_password2')
+
+        user = User.query.filter_by(username=username).first()
 
         if otp == session['otp']:
             session.pop('otp')
@@ -170,6 +172,6 @@ def reset_pass_otp():
                                f'If you did not request a password reset, please ignore this email.\n\n'
                                f'Thanks\nCoderg Developers\n{params["website_url"]}')
 
-        return render_template('forgot_pass/reset_pass.html', user=user)
+        return render_template('forgot_pass/reset_pass.html', username=username)
 
     return render_template('forgot_pass/send_otp.html')
