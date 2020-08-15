@@ -95,6 +95,7 @@
 
     <h1>Basic actions</h1>
     <a href="/edit/0" style="text-decoration: none;"><button class="admin">Add a new post</button></a>
+    <a href="{{ url_for('auth.change_pass') }}" style="text-decoration: none;"><button class="admin">Change Password</button></a>
     <a href="{{ url_for('auth.logout') }}" style="text-decoration: none;"><button class="admin">Logout</button></a>
     <hr>
 
@@ -155,7 +156,7 @@
                     </tbody>
                 </table>
 
-                <a href="{{ url_for('auth.change_pass') }}" style="text-decoration: none;"><button class="admin">Change Password</button></a>
+
             </body>
 
             </html>
