@@ -69,7 +69,7 @@ def edit(sno):
             post = Post.query.filter_by(sno=sno).first()
             # Post can be edited by either admin or author
             if 'user' in session and (post.author.username == session['user'] or check_role('ADMIN')):
-                post = Post.query.filter_by(sno=sno).first()
+                # post = Post.query.filter_by(sno=sno).first()
                 post.title = ntitle
                 post.tagline = ntagline
                 post.slug = nslug
