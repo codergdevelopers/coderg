@@ -42,7 +42,7 @@
 
         
         <!-- <a href="/post/{{ post.slug }}" class="blog-link"> -->
-        <button  id="post-link">
+        <button onclick="disp_post({{post.slug}})"  id="post-link">
                 <div class="post-preview">
 
                     <h2 class="post-title">
@@ -84,27 +84,22 @@
         </div>
     </div>
   
-  
+  {#
  <script>
-                document.getElementById("post-link").onclick=disp_post({{post.slug}});
-                
                     function disp_post(slug) {
                         let disp = "/post/".concat(slug);
                         window.location.href = disp;
-                    
-                  
-                   
                 }
  </script>
+#}
 
-{#
     <script>
         function disp_post(slug) {
             let disp = "/post/".concat(slug);
             window.location.href = disp;
         }
     </script>
-#}
+
 
 
 
