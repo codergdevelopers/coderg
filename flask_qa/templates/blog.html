@@ -63,17 +63,7 @@
                 </div>
                     
             </button>
-            <script>
-                document.getElementById("post-link").onclick=myfuntion;
-                function myfuntion(){
-                    function disp_post(slug) {
-                        let disp = "/post/".concat(slug);
-                        window.location.href = disp;
-                    }
-                  disp_post({{post.slug}});
-                   
-                }
-            </script>
+            
         <!-- </a> -->
         
 
@@ -93,6 +83,19 @@
             {% endif %}
         </div>
     </div>
+  
+  
+ <script>
+                document.getElementById("post-link").onclick=disp_post({{post.slug}});
+                
+                    function disp_post(slug) {
+                        let disp = "/post/".concat(slug);
+                        window.location.href = disp;
+                    
+                  
+                   
+                }
+ </script>
 
 {#
     <script>
