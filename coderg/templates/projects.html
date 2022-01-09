@@ -38,7 +38,7 @@
         {% set cnt = [0] %}
 
 
-        <h2 class="h-primary-projects">{{category.title.upper()}}</h2>
+        <h2 id="{{category.title.lower()}}" class="h-primary-projects">{{category.title.upper()}}</h2>
         <hr class="hr-all">
         <div class="post-box">
             {% for project in projects %}
