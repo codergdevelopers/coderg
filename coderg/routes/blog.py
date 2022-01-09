@@ -13,15 +13,15 @@ blog = Blueprint('blog', __name__)
 @blog.route("/blog/")
 def blog_index():
     posts = Post.query.filter_by().all()
-    last = math.ceil(len(posts) / int(params["no_of_posts"]))
+    last = math.ceil(len(posts) / int(params["posts_per_page"]))
 
     page = request.args.get('page')
     if not str(page).isnumeric():
         page = 1
     page = int(page)
 
-    posts = posts[(page - 1) * int(params['no_of_posts']):(page - 1) * int(params['no_of_posts']) + int(
-        params['no_of_posts'])]
+    posts = posts[(page - 1) * int(params['posts_per_page']):(page - 1) * int(params['posts_per_page']) + int(
+        params['posts_per_page'])]
 
     if page == 1 and page == last:
         prev = '#'

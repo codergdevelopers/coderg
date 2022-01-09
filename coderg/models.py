@@ -11,7 +11,8 @@ class User(db.Model):
     fullname = db.Column(db.String(), nullable=False)
     username = db.Column(db.String(), unique=True, nullable=False)
     email = db.Column(db.String(), unique=True, nullable=False)
-    _hashed_password = db.Column(db.String(255), nullable=False, server_default='')
+    _hashed_password = db.Column(
+        db.String(255), nullable=False, server_default='')
 
     _user_role = db.relationship('Role', backref='user_obj')
     post = db.relationship('Post', backref='author_obj')
@@ -73,11 +74,11 @@ class Post(db.Model):
     content = db.Column(db.String(), nullable=False)
     img_file = db.Column(db.String(), nullable=True)
 
-    date = db.Column(db.String(), nullable=True, default=datetime.now().strftime("%a %d %b %Y"))
+    date = db.Column(db.String(), nullable=True,
+                     default=datetime.now().strftime("%a %d %b %Y"))
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # author_obj = ___ (pseudo column created by class 'User')
-
 
     @property
     def author(self):
@@ -93,10 +94,18 @@ class Post(db.Model):
 
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    category = db.Column(db.String(), unique=False, nullable=False)
     title = db.Column(db.String(), unique=True, nullable=False)
     language = db.Column(db.String(), unique=False, nullable=False)
     purpose = db.Column(db.String(), unique=False, nullable=False)
     working_on = db.Column(db.String(), unique=False, nullable=False)
     link = db.Column(db.String(), unique=False, nullable=False)
     author = db.Column(db.String(), unique=False, nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey('project_category.id'))
+
+    category = db.relationship('Project_Category')
+
+
+class Project_Category(db.Model):
+    __tablename__ = 'project_category'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(), unique=True, nullable=False)

@@ -38,12 +38,12 @@
         {% set cnt = [0] %}
 
 
-        <h2 class="h-primary-projects">{{category.upper()}}</h2>
+        <h2 class="h-primary-projects">{{category.title.upper()}}</h2>
         <hr class="hr-all">
         <div class="post-box">
             {% for project in projects %}
-            
-            {% if project.category.upper() == category.upper() %}
+
+            {% if project.category_id == category.id %}
 
             {% if cnt.append(cnt.pop()+1) %}{% endif %}
 

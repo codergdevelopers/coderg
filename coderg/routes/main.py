@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, session, redirect, url_for
 
-from coderg.models import Project, User, Post
+from coderg.models import User, Post, Project, Project_Category
 
 from config.config import params
 from coderg.util import check_role
@@ -42,6 +42,7 @@ def dashboard():
 
 @main.route("/projects/")
 def display_projects():
-    categories = params['project_categories']
+    # categories = params['project_categories']
+    categories = Project_Category.query.all()
     projects = Project.query.all()
     return render_template("projects.html", categories=categories, projects=projects)
